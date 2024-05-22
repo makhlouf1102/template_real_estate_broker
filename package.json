@@ -1,0 +1,25 @@
+{
+  "name": "template_real_estate_broker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makhlouf1102/template_real_estate_broker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makhlouf1102/template_real_estate_broker/issues"
+  },
+  "homepage": "https://github.com/makhlouf1102/template_real_estate_broker#readme",
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2"
+  }
+}
