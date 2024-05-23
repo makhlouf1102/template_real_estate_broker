@@ -1,16 +1,20 @@
-const express = require('express');
+const express = require("express");
 const app = express();
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 
-// Set the view engine to EJS
-app.set('view engine', 'ejs');
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Define a route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Server-side Rendering with Express and EJS' });
+// design file
+app.use(express.static("public"));
+app.set("view engine", "ejs");
+
+// routers
+app.get("/", (req, res) => {
+  res.render("index");
 });
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+// server listening
+app.listen(PORT, () => {
+  console.log(`The app start on http://localhost:${PORT}`);
 });
