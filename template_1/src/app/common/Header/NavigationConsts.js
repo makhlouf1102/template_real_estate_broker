@@ -8,8 +8,8 @@ export const navigationLinks = [
 //   { title: 'Contact', link: '/contact', icon: HiNewspaper },
   { title: 'Contact', link: '/contact', icon: "null" },
   {
-    title: '(800) 555 555',
-    link: 'tel:(800) 555 555',
+    title: '(999) 999 99999',
+    link: 'tel:(999) 999 99999',
     // icon: HiPhoneArrowUpRight,
     icon: "null",
   },
