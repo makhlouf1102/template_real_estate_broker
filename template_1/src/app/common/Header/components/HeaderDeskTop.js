@@ -13,28 +13,30 @@ const phoneNumber =   {
 
 const NavigationDesktop  = () => {
   return (
-    <Box display={{ base: 'none', md: 'block' }}>
-      <Box maxWidth="1280px" margin="0 auto">
-        <Flex alignItems="center" justifyContent="space-between">
-          <Link href="/">
-            <Box display="flex" gap="2" alignItems="center">
-              {/* <HiHomeModern size="30" /> */}
-              <Text fontSize="2xl" fontWeight="black" as={'b'}>
-                YOUR LOGO{' '}
-              </Text>
-            </Box>
-          </Link>
-          <Flex gap='12' alignItems='center' fontWeight='medium'>
-              <NavigationLinks
-                key={phoneNumber.title}
-                link={phoneNumber.link}
-                title={phoneNumber.title}
-                icon={<phoneNumber.icon />}
-              />
+    <header className='fixed py-4 border border-b-slate-100 w-full'>
+      <Box display={{ base: 'none', md: 'block' }}>
+        <Box maxWidth="1280px" margin="0 auto">
+          <Flex alignItems="center" justifyContent="space-between">
+            <Link href="/">
+              <Box display="flex" gap="2" alignItems="center">
+                {/* <HiHomeModern size="30" /> */}
+                <Text fontSize="2xl" fontWeight="black" as={'b'}>
+                  YOUR LOGO{' '}
+                </Text>
+              </Box>
+            </Link>
+            <Flex gap='12' alignItems='center' fontWeight='medium'>
+                <NavigationLinks
+                  key={phoneNumber.title}
+                  link={phoneNumber.link}
+                  title={phoneNumber.title}
+                  icon={<phoneNumber.icon />}
+                />
+            </Flex>
           </Flex>
-        </Flex>
+        </Box>
       </Box>
-    </Box>
+    </header>
   );
 };
 
