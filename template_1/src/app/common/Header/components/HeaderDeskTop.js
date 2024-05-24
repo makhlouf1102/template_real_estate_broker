@@ -1,45 +1,36 @@
 import React from 'react';
 import Link from 'next/link';
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
-// import { HiHomeModern } from 'react-icons/hi2';
 import { navigationLinks } from '../NavigationConsts';
+import  '@Public/css/underline-animation.css'
+
+const phoneNumber =   {
+  title: '(999) 999 99999',
+  link: 'tel:(999) 999 99999',
+  // icon: HiPhoneArrowUpRight,
+  icon: "null"
+}
 
 const NavigationDesktop  = () => {
   return (
-    <Box
-    //   color="blue.600"
-    //   paddingY="2rem"
-    //   paddingX="3rem"
-    //   backgroundColor="white"
-      display={{ base: 'none', md: 'block' }}
-    >
+    <Box display={{ base: 'none', md: 'block' }}>
       <Box maxWidth="1280px" margin="0 auto">
         <Flex alignItems="center" justifyContent="space-between">
           <Link href="/">
             <Box display="flex" gap="2" alignItems="center">
               {/* <HiHomeModern size="30" /> */}
-              <Text fontSize="2xl" fontWeight="black">
+              <Text fontSize="2xl" fontWeight="black" as={'b'}>
                 YOUR LOGO{' '}
               </Text>
             </Box>
           </Link>
           <Flex gap='12' alignItems='center' fontWeight='medium'>
-            {navigationLinks.map((item) => (
               <NavigationLinks
-                key={item.title}
-                link={item.link}
-                title={item.title}
-                icon={<item.icon />}
+                key={phoneNumber.title}
+                link={phoneNumber.link}
+                title={phoneNumber.title}
+                icon={<phoneNumber.icon />}
               />
-            ))}
-            {/* <Button
-              padding="1.5rem"
-              colorScheme="twitter"
-              fontSize="0.8rem"
-              fontWeight="medium"
-            >
-              CREATE LISTING
-            </Button> */}
           </Flex>
         </Flex>
       </Box>
@@ -55,10 +46,14 @@ const NavigationLinks = ({
   icon,
 }) => {
   return (
-    <Link href={link}>
+    <Link href={link} className="font-display max-w-sm leading-tight">
       <Flex align="center" gap="0.5rem">
         {icon}
-        {title}
+        <Text fontSize="2xl" fontWeight="black" as={'b'}>
+          <span className='link link-underline link-underline-black text-black'>
+            {title}
+          </span>
+        </Text>
       </Flex>
     </Link>
   );
