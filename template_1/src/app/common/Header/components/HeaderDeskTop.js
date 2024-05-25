@@ -28,7 +28,7 @@ const NavigationDesktop  = () => {
             <Flex gap='12' alignItems='center' fontWeight='medium'>
                 <NavigationLinks
                   key={phoneNumber.title}
-                  link={phoneNumber.link}
+                  link={phoneNumber.link}   
                   title={phoneNumber.title}
                   icon={<phoneNumber.icon />}
                 />

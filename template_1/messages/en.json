@@ -1,0 +1,12 @@
+{
+    "header": {
+        "phone": "Phone number"
+    },
+    "footer": {
+        "copyright": "Copyright"
+    },
+    "index": {
+        "title": "Title"
+    }
+}
+
