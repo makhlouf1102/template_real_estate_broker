@@ -2,16 +2,17 @@ import React from 'react';
 import Link from 'next/link';
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { navigationLinks } from '../NavigationConsts';
-import  '@Public/css/underline-animation.css'
+import '@Public/css/underline-animation.css'
+import { LocalSwitcherDesktop } from './LocalSwitcher/LocalSwitcherDesktop';
 
-const phoneNumber =   {
+const phoneNumber = {
   title: '(999) 999 99999',
   link: 'tel:(999) 999 99999',
   // icon: HiPhoneArrowUpRight,
   icon: "null"
 }
 
-const NavigationDesktop  = () => {
+const NavigationDesktop = () => {
   return (
     <header className='fixed py-4 border border-b-slate-100 w-full'>
       <Box display={{ base: 'none', md: 'block' }}>
@@ -26,12 +27,13 @@ const NavigationDesktop  = () => {
               </Box>
             </Link>
             <Flex gap='12' alignItems='center' fontWeight='medium'>
-                <NavigationLinks
-                  key={phoneNumber.title}
-                  link={phoneNumber.link}   
-                  title={phoneNumber.title}
-                  icon={<phoneNumber.icon />}
-                />
+              <LocalSwitcherDesktop />
+              <NavigationLinks
+                key={phoneNumber.title}
+                link={phoneNumber.link}
+                title={phoneNumber.title}
+                icon={<phoneNumber.icon />}
+              />
             </Flex>
           </Flex>
         </Box>
@@ -40,7 +42,7 @@ const NavigationDesktop  = () => {
   );
 };
 
-export default NavigationDesktop ;
+export default NavigationDesktop;
 
 const NavigationLinks = ({
   title,

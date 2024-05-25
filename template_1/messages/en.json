@@ -1,5 +1,7 @@
 {
-    "header": {
+    "Header": {
+        "en": "English",
+        "fr": "French",
         "phone": "Phone number"
     },
     "footer": {
@@ -9,4 +11,3 @@
         "title": "Title"
     }
 }
-

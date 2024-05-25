@@ -1,6 +1,8 @@
 {
-    "header": {
-        "phone": "Numéro de téléphone"
+    "Header": {
+        "en": "Anglais",
+        "fr": "Français",
+        "phone": "Phone number"
     },
     "footer": {
         "copyright": "Copyright fr"
@@ -9,4 +11,3 @@
         "title": "titre"
     }
 }
-
