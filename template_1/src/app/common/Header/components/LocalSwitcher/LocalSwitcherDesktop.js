@@ -21,10 +21,13 @@ export const LocalSwitcherDesktop = () => {
     }
 
     return (
-        <Select variant='unstyled' defaultValue={localActive} onChange={onSelectChange}>
-            <option value='en'>English</option>
-            <option value='fr'>Français</option>
-        </Select>
+        <>
+            <select defaultValue={localActive} onChange={onSelectChange} id="language" class="h-1 border cursor-pointer border-gray-300 text-gray-600 text-base rounded-lg block w-1/4 py-2.5 px-4 focus:outline-none">
+                <option value='en'>English</option>
+                <option value='fr'>Français</option>
+            </select>
+
+        </>
     )
 };
 

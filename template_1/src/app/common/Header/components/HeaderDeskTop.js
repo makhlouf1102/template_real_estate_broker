@@ -26,7 +26,7 @@ const NavigationDesktop = () => {
                 </Text>
               </Box>
             </Link>
-            <Flex gap='12' alignItems='center' fontWeight='medium'>
+            <Flex gap='6' alignItems='center' fontWeight='medium' >
               <LocalSwitcherDesktop />
               <NavigationLinks
                 key={phoneNumber.title}
@@ -53,7 +53,7 @@ const NavigationLinks = ({
     <Link href={link} className="font-display max-w-sm leading-tight">
       <Flex align="center" gap="0.5rem">
         {icon}
-        <Text fontSize="2xl" fontWeight="black" as={'b'}>
+        <Text fontSize="2xl" fontWeight="black" as={'b'} width={'100%'}>
           <span className='link link-underline link-underline-black text-black'>
             {title}
           </span>
