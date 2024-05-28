@@ -4,7 +4,7 @@ import { useLocale } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import { useTransition } from 'react';
 
-export const LocalSwitcherDesktop = () => {
+export const LanguageSwitch = () => {
     const [isPending, startTransition] = useTransition();
     const router = useRouter();
     const localActive = useLocale();

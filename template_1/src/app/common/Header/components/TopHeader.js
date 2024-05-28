@@ -1,5 +1,6 @@
 import React from 'react';
-import { LocalSwitcherDesktop } from './LocalSwitcher/LocalSwitcherDesktop';
+import { LanguageSwitch } from './LanguageSwitch/LanguageSwitch';
+import { DesktopNav } from './Navigation/DesktopNav';
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone } from "react-icons/fa6";
 import Link from 'next/link';
 
@@ -41,10 +42,10 @@ const socialMedia = [
   },
 ]
 
-const NavigationDesktop = () => {
+const TopHeader = () => {
   return (
     <header>
-      <div className='h-20 flex gap-2 w-full justify-between items-start px-10 pt-6 relative border-b border-gray-200' >
+      <div id='top-header' className='h-20 flex gap-2 w-full justify-between items-start px-10 pt-6 relative' >
         <div id='social-media' className='flex gap-4 justify-center items-center h-auto'>
           {socialMedia.map((item) => (
             <span key={item.title} className='hover:opacity-70'>
@@ -63,20 +64,21 @@ const NavigationDesktop = () => {
             </Link>
           </div>
         </div>
-        <div className='flex gap-2 justify-center items-center h-auto' >
-          <LocalSwitcherDesktop />
+        <div className='flex gap-6 justify-center items-center h-auto' >
+          <LanguageSwitch />
           <a href={phoneNumber.link} >
             <span className='flex gap-2 justify-center items-center' >
               {phoneNumber.icon}
-              <p className='text-lg' >
+              <p className='text-lg font-bold' >
                 {phoneNumber.title}
               </p>
             </span>
           </a>
         </div>
       </div>
+      <DesktopNav />
     </header>
   );
 };
 
-export default NavigationDesktop;
+export default TopHeader;

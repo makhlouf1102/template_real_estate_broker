@@ -1,8 +1,25 @@
 {
     "Header": {
-        "en": "English",
-        "fr": "French",
-        "phone": "Phone number"
+        "phone": "Phone number",
+        "Navigation": {
+
+            "about": "About",
+            "specialities": "Specialities",
+            "testimonials": "Testimonials",
+
+            "properties": "Properties",
+
+            "buy": "Buy",
+            "real-estate-alert": "Real Estate Alert",
+            "buy-a-property": "Buy a Property",
+            
+            "sell": "Sell",
+            "property-assessment": "Property Assessment",
+            "sell-your-property": "Sell Your Property",
+            
+            "blog": "Blog",
+            "contact": "Contact Me"
+        }
     },
     "footer": {
         "copyright": "Copyright"
