@@ -1,31 +1,19 @@
-'use client'
-
+import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import { useRouter } from 'next/navigation';
-import { useTransition } from 'react';
 
 export const LanguageSwitch = () => {
-    const [isPending, startTransition] = useTransition();
-    const router = useRouter();
     const localActive = useLocale();
 
-    const onSelectChange = (e) => {
-
-        const nextLocale = e.target.value;
-
-        startTransition(() => {
-            router.replace(`/${nextLocale}`)
-        })
-
-    }
-
     return (
-        <>
-            <select defaultValue={localActive} onChange={onSelectChange} id="language" class="">
-                <option value='en'>English</option>
-                <option value='fr'>Français</option>
-            </select>
-        </>
-    )
+        <div className="relative inline-block text-left">
+            <div className="flex space-x-4">
+                <Link href="/en" className={`cursor-pointer ${localActive === 'en' ? 'hidden' : 'text-gray-700'}`}>
+                        English
+                </Link>
+                <Link href="/fr" a className={`cursor-pointer ${localActive === 'fr' ? 'hidden' : 'text-gray-700'}`}>
+                        Français
+                </Link>
+            </div>
+        </div>
+    );
 };
-
