@@ -13,14 +13,14 @@ export const DesktopNav = () => {
             <ul className="flex items-center gap-4">
                 {navigationSections.map((section) => (
                     <li key={section.label} className="relative group p-2">
-                        <Link href={section.href} className="text-base font-bold gap-2 flex items-center hover:opacity-80 hover:cursor-pointer">
+                        <Link href={section.href} locale={localActive} className="text-base font-bold gap-2 flex items-center hover:opacity-80 hover:cursor-pointer">
                             {t(section.label)}
                             {section.dropdown && <FaAngleDown />}
                         </Link>
                         {section.dropdown && (
                             <ul className="absolute top-full min-w-60 bg-gray-200 flex flex-col opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-200 group-hover:flex">
                                 {section.dropdown.map((item) => (
-                                    <Link key={item.label} href={'/' + + item.href}>
+                                    <Link key={item.label} href={item.href} locale={localActive}>
                                         <li className="p-4 hover:bg-gray-300">
                                             {t(item.label)}
                                         </li>
