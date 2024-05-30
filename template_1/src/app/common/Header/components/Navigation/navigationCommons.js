@@ -1,7 +1,6 @@
 export const navigationSections = [
     {
         label: 'about',
-        href: '/about',
         dropdown: [
             {
                 label: 'about',
@@ -19,7 +18,6 @@ export const navigationSections = [
     },
     {
         label: 'properties',
-        href: '/properties',
         dropdown: [
             {
                 label: 'look-for-a-property',
@@ -33,7 +31,6 @@ export const navigationSections = [
     },
     {
         label: 'buy',
-        href: '/buy',
         dropdown: [
             {
                 label: 'real-estate-alert',
@@ -47,7 +44,6 @@ export const navigationSections = [
     },
     {
         label: 'sell',
-        href: '/sell',
         dropdown: [
             {
                 label: 'property-assessment',
