@@ -36,11 +36,11 @@ export const DesktopNav = () => {
                             {section.dropdown && (
                                 <ul className="absolute top-full min-w-60 bg-gray-200 flex flex-col opacity-0 group-hover:opacity-100 group-hover:visible invisible transition-opacity duration-200 group-hover:flex">
                                     {section.dropdown.map((item) => (
-                                        <li key={item.label} className="p-4 hover:bg-gray-300">
-                                            <Link href={item.href} locale={localActive}>
+                                        <Link href={item.href} locale={localActive}>
+                                            <li key={item.label} className="p-4 hover:bg-gray-300">
                                                 {t(item.label)}
-                                            </Link>
-                                        </li>
+                                            </li>
+                                        </Link>
                                     ))}
                                 </ul>
                             )}

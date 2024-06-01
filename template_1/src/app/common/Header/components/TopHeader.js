@@ -1,8 +1,10 @@
 import React from 'react';
 import { LanguageSwitch } from './LanguageSwitch/LanguageSwitch';
 import { DesktopNav } from './Navigation/DesktopNav';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaBars } from "react-icons/fa6";
 import Link from 'next/link';
+import { MobileNav } from './Navigation/MobileNav';
+
 
 
 
@@ -46,7 +48,7 @@ const TopHeader = () => {
   return (
     <header>
       <div id='top-header' className='h-20 flex gap-2 w-full justify-between items-start px-10 pt-6 relative' >
-        <div id='social-media' className='flex gap-4 justify-center items-center h-auto'>
+        <div id='social-media' className='hidden lg:flex gap-4 justify-center items-center h-auto sm:hidden'>
           {socialMedia.map((item) => (
             <span key={item.title} className='hover:opacity-70'>
               <a href={item.link} target='_blank'>
@@ -64,7 +66,7 @@ const TopHeader = () => {
             </Link>
           </div>
         </div>
-        <div className='flex gap-6 justify-center items-center h-auto' >
+        <div className='hidden lg:flex gap-6 justify-center items-center h-auto ' >
           <LanguageSwitch />
           <a href={phoneNumber.link} >
             <span className='flex gap-2 justify-center items-center' >
@@ -75,8 +77,14 @@ const TopHeader = () => {
             </span>
           </a>
         </div>
+        <span className='block lg:hidden' >
+          <MobileNav />
+        </span>
       </div>
-      <DesktopNav />
+      <span className='hidden lg:block' >
+        <DesktopNav />
+      </span>
+
     </header>
   );
 };
