@@ -1,48 +1,19 @@
 import React from 'react';
 import { LanguageSwitch } from './LanguageSwitch/LanguageSwitch';
 import { DesktopNav } from './Navigation/DesktopNav';
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaBars } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaBars, FaEnvelope } from "react-icons/fa6";
 import Link from 'next/link';
 import { MobileNav } from './Navigation/MobileNav';
+import { socialMedia } from '../../socialMedia/commons';
 
 
 
-
-const iconsStyle = {
-  size: 18,
-  round: true,
-  color: '#000',
-  hoverColor: '#fff',
-  hoverBackgroundColor: '#000',
-  hoverBorderColor: '#000',
-  hoverBorderWidth: '0',
-  hoverBorderStyle: 'none',
-  hoverTextDecoration: 'none',
-}
 
 const phoneNumber = {
   title: '(999) 999 99999',
   link: 'tel:(999) 999 99999',
-  icon: <FaPhone size={iconsStyle.size} />
+  icon: <FaPhone size={18} />
 }
-
-const socialMedia = [
-  {
-    title: 'Facebook',
-    link: 'https://www.facebook.com/',
-    icon: <FaFacebookF size={iconsStyle.size} />
-  },
-  {
-    title: 'LinkedIn',
-    link: 'https://www.linkedin.com/',
-    icon: <FaLinkedinIn size={iconsStyle.size} />
-  },
-  {
-    title: 'Instagram',
-    link: 'https://www.instagram.com/',
-    icon: <FaInstagram size={iconsStyle.size} />
-  },
-]
 
 const TopHeader = () => {
   return (

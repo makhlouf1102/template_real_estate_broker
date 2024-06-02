@@ -2,6 +2,8 @@ import { FaBars, FaXmark, FaAngleDown } from "react-icons/fa6";
 import { navigationSections } from "./navigationCommons";
 import Link from "next/link";
 import { useTranslations, useLocale } from 'next-intl';
+import { LanguageSwitch } from '../LanguageSwitch/LanguageSwitch';
+import { socialMedia } from '../../../socialMedia/commons';
 
 export const MobileNav = () => {
     const t = useTranslations('Header.Navigation');
@@ -10,7 +12,7 @@ export const MobileNav = () => {
     return (
         <label className="relative z-40 cursor-pointer" htmlFor="mobile-menu">
             <input className="peer hidden" type="checkbox" id="mobile-menu" />
-            <FaBars size={28} className="cursor-pointer hover:opacity-70" />    
+            <FaBars size={28} className="cursor-pointer hover:opacity-70" />
 
             <div
                 className="fixed top-0 right-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0"
@@ -51,6 +53,22 @@ export const MobileNav = () => {
                                 </label>
                             </li>
                         ))}
+                        <br />
+                        {/* change the size to 16 */}
+                        <div className="flex items-center justify-start w-full text-lg">
+                            <LanguageSwitch />
+                        </div>
+                        <br />
+                        <div className="flex items-center justify-start w-full ml-8">
+                            <span className="flex space-x-4">
+
+                                {socialMedia.map((item) => (
+                                    <Link key={item.title} href={item.link} target='_blank'>
+                                        {item.icon}
+                                    </Link>
+                                ))}
+                            </span>
+                        </div>
                     </menu>
                 </div>
             </div>
