@@ -51,9 +51,9 @@ const TopHeader = () => {
         <div id='social-media' className='hidden lg:flex gap-4 justify-center items-center h-auto sm:hidden'>
           {socialMedia.map((item) => (
             <span key={item.title} className='hover:opacity-70'>
-              <a href={item.link} target='_blank'>
+              <Link href={item.link} target='_blank'>
                 {item.icon}
-              </a>
+              </Link>
             </span>
           ))}
         </div>
@@ -68,14 +68,14 @@ const TopHeader = () => {
         </div>
         <div className='hidden lg:flex gap-6 justify-center items-center h-auto ' >
           <LanguageSwitch />
-          <a href={phoneNumber.link} >
+          <Link href={phoneNumber.link} >
             <span className='flex gap-2 justify-center items-center' >
               {phoneNumber.icon}
               <p className='text-lg font-bold' >
                 {phoneNumber.title}
               </p>
             </span>
-          </a>
+          </Link>
         </div>
         <span className='block lg:hidden' >
           <MobileNav />
