@@ -13,8 +13,8 @@ const Footer = () => {
     <>
 
       <footer className="w-full flex-col justify-center">
-        <div className="hidden lg:flex px-4 w-full justify-center">
-          <div className="w-3/5 pt-16 pb-20 ">
+        <div className="hidden lg:flex w-full justify-center">
+          <div className="w-3/5 pt-16 pb-20 px-4 ">
             <div className="container grid grid-cols-4 gap-x-10">
               <div className={`${space}`}>
                 <h4 className="text-lg font-bold">{tNav("about")}</h4>
@@ -78,20 +78,22 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-gray-200 w-full flex justify-center">
-          <div className="w-3/5 flex justify-between py-4">
-            <span className="w-3/4 space-x-4 grid grid-cols-3 justify-between">
-              <p className="font-bold text-sm">© {currentYear} {tInfo("copyright")}</p>
+          <div className="w-full lg:w-3/5 flex justify-between py-4 px-8 lg:px-4">
+            <span className="w-3/4 grid grid-rows-3 gap-7 lg:grid-cols-3  lg:h-auto justify-between">
+              <p className="font-bold text-sm">{currentYear} © {tInfo("copyright")}</p>
               <Link href="#terms-of-use" className="hover:opacity-70 font-bold text-sm"> Web Conception | 1102 Solution</Link>
               <Link href="#privacy-policy" className="hover:opacity-70 font-bold text-sm">{tInfo("privacy-policy")}</Link>
             </span>
-            <span className="flex gap-4">
-              {socialMedia.map((item) => (
-                <span key={item.title} className='hover:opacity-70'>
-                  <Link href={item.link} target='_blank'>
-                    {item.icon}
-                  </Link>
-                </span>
-              ))}
+            <span className="lg:flex-row flex flex-col justify-center">
+              <span className="flex gap-4">
+                {socialMedia.map((item) => (
+                  <span key={item.title} className='hover:opacity-70'>
+                    <Link href={item.link} target='_blank'>
+                      {item.icon}
+                    </Link>
+                  </span>
+                ))}
+              </span>
             </span>
           </div>
         </div>
