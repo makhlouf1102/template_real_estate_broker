@@ -1,6 +1,10 @@
 {
     "Header": {
         "phone": "Phone number",
+        "Info":{
+            "copyright": "All rights reserved",
+            "privacy-policy": "Privacy Policy"
+        },
         "Navigation": {
 
             "about": "About",

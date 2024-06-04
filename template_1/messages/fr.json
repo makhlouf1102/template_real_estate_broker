@@ -1,6 +1,10 @@
 {
     "Header": {
         "phone": "Numero de téléphone",
+        "Info":{
+            "copyright": "Tous droits réservés",
+            "privacy-policy": "Politique de confidentialité"
+        },
         "Navigation": {
             
             "about": "À propos",
