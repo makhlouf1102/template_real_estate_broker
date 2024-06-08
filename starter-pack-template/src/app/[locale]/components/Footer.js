@@ -1,6 +1,6 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { SOCIAL_MEDIA } from '../constants/contactInfo.const';
+import { SOCIAL_MEDIA, FULL_NAME, ADDRESS, MAIN_PHONE, EMAIL, LICENSE_NUMBER, COMPANY_NAME } from '../constants/Info.const';
 import { FaInstagram, FaFacebook, FaLinkedin, FaX } from "react-icons/fa6";
 
 const icons = {
@@ -24,10 +24,10 @@ const Footer = () => {
       <div>
         <div>
           <h4>{t('contact-information')}</h4>
-          <p>{t('name')}</p>
-          <p>{t('phone')}</p>
-          <p>{t('email')}: <Link href="mailto:john.doe@example.com">john.doe@example.com</Link></p>
-          <p>{t('office')}</p>
+          <p>{FULL_NAME}</p>
+          <p>{MAIN_PHONE}</p>
+          <p>{EMAIL}</p>
+          <p>{ADDRESS}</p>
         </div>
         <div>
           <h4>{t('quick-links')}</h4>
@@ -55,8 +55,8 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p>{t('all-rights-reserved')}</p>
-        <p>{t('real-estate-license')}</p>
+        <p>{'© 2024 '}{COMPANY_NAME}{t('all-rights-reserved')}</p>
+        <p>{t('real-estate-license')} #{LICENSE_NUMBER}</p>
       </div>
     </footer>
   );

@@ -30,8 +30,8 @@
       "subscribe-to-newsletter": "Subscribe to our Newsletter",
       "your-email": "Your email",
       "subscribe": "Subscribe",
-      "all-rights-reserved": "© 2024 John Doe Real Estate. All rights reserved.",
-      "real-estate-license": "Real Estate License #12345678"
+      "all-rights-reserved": ". All rights reserved.",
+      "real-estate-license": "Real Estate License : "
     }
   }
 }

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { PHONE_NUMBER } from '@constants/contactInfo.const';
+import { MAIN_PHONE } from '@/app/[locale]/constants/Info.const';
 
 const Header = () => {
     const t = useTranslations('Main.Header');
@@ -18,7 +18,7 @@ const Header = () => {
                         <span>
                             <button>{t('free-evaluation')}</button>
                         </span>
-                        <span>{t('call-me')}: {PHONE_NUMBER}</span>
+                        <span>{t('call-me')}: {MAIN_PHONE}</span>
                     </div>
                 </nav>
             </header>
