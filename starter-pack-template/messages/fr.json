@@ -8,6 +8,30 @@
     "Header": {
       "free-evaluation": "Evaluation gratuite",
       "call-me": "Appelez maintenant"
+    },
+    "Footer": {
+      "contact-information": "Informations de contact",
+      "name": "John Doe",
+      "phone": "Téléphone : (123) 456-7890",
+      "email": "Email",
+      "office": "Bureau : 123 Real Estate St, Suite 1000, City, State",
+      "quick-links": "Liens rapides",
+      "home": "Accueil",
+      "about": "A Propos",
+      "services": "Services",
+      "contact": "Contact",
+      "privacy-policy": "Politique de confidentialité",
+      "terms-of-service": "Conditions d'utilisation",
+      "follow-us": "Suivez-nous",
+      "linkedin": "LinkedIn",
+      "facebook": "Facebook",
+      "instagram": "Instagram",
+      "X": "X",
+      "subscribe-to-newsletter": "Inscrivez-vous à notre newsletter",
+      "your-email": "Votre email",
+      "subscribe": "S'inscrire",
+      "all-rights-reserved": "© 2024 John Doe Real Estate. Tous droits réservés.",
+      "real-estate-license": "Licence d'immobilier #12345678"
     }
   }
 }

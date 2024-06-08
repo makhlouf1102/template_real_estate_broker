@@ -1,4 +1,3 @@
-// components/Header.js
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { PHONE_NUMBER } from '@constants/contactInfo.const';
