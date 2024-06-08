@@ -1,5 +1,13 @@
 {
-    "Index": {
-      "title": "Hello world!"
+  "Index": {
+    "title": "Hello world!"
+  },
+  "Main": {
+    "title": "title of the page",
+    "description": "description of the page",
+    "Header": {
+      "free-evaluation": "free evaluation",
+      "call-me": "call me"
     }
   }
+}

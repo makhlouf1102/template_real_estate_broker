@@ -1,6 +1,13 @@
 {
-    "Index": {
-      "title": "Bonjour le monde!"
+  "Index": {
+    "title": "Bonjour le monde!"
+  },
+  "Main": {
+    "title": "Titre de la page",
+    "description": "Description de la page",
+    "Header": {
+      "free-evaluation": "Evaluation gratuite",
+      "call-me": "Appelez maintenant"
     }
   }
-
+}
