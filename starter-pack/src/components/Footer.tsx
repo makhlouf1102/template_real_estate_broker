@@ -8,7 +8,7 @@ export default function Footer() {
     const t = useTranslations('Footer');
     return (
         <>
-            <footer className="w-full flex justify-center pt-16 pb-6 px-6 bg-secondary">
+            <footer className="w-full flex justify-center pt-16 pb-6 px-6 bg-primary-200">
                 <div className="w-3/4 ">
                     <div className=" pb-16 grid grid-cols-3 gap-4 border-b border-white">
                         <div className="col-span-1">
