@@ -31,7 +31,9 @@
     "call-me": "Call now"
   },
   "Footer": {
-    "title": "Footer"
+    "title": "Footer",
+    "contact-me": "Contact me",
+    "I-want-to-buy-or-sell": "I want to buy or sell"
   }
 }
 
