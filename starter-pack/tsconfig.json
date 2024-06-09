@@ -1,0 +1,39 @@
+{
+  "extends": "eslint-config-molindo/tsconfig.json",
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "Bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.jsx",
+    ".next/types/**/*.ts"
+, "src/app/page.jsx", "src/app/not-found.jsx", "src/app/layout.jsx", "src/app/[locale]/not-found.jsx", "src/app/[locale]/page.jsx", "src/components/Navigation.tsx"  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

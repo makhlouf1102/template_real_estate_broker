@@ -1,0 +1,37 @@
+{
+  "Error": {
+    "description": "<p>Une erreur est survenue.</p><p>Vous pouvez essayer de <retry>recharger la page</retry>.</p>",
+    "title": "Une erreur est survenue!"
+  },
+  "IndexPage": {
+    "description": "Ceci est un exemple d'utilisation de <code>next-intl</code> avec le Next.js App Router. Le contenu de cette page change lorsque vous changez la langue dans le coin supérieur droit.",
+    "title": "Exemple de next-intl"
+  },
+  "LocaleLayout": {
+    "title": "Titre de la page"
+  },
+  "LocaleSwitcher": {
+    "label": "Sprache ändern",
+    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
+  },
+  "Manifest": {
+    "description": "",
+    "name": ""
+  },
+  "NotFoundPage": {
+    "description": "Veuillez vérifier la barre d'adresse de votre navigateur ou utilisez la navigation pour accéder à une page connue.",
+    "title": "Page non trouvée"
+  },
+  "AboutPage": {
+    "description": "Ma page d'a propos",
+    "title": "A Propos"
+  },
+  "Navigation": {
+    "free-evaluation": "Evaluation gratuite",
+    "call-me": "Appelez maintenant"
+  },
+  "Footer": {
+    "title": "Pied de page"
+  }
+}
+

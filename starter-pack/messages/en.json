@@ -1,0 +1,37 @@
+{
+  "Error": {
+    "description": "<p>An error occurred.</p><p>You can try <retry>reloading the page</retry>.</p>",
+    "title": "An error occurred!"
+  },
+  "IndexPage": {
+    "description": "This is an example of using <code>next-intl</code> with the Next.js App Router. The content of this page changes when you change the language in the top right corner.",
+    "title": "next-intl example"
+  },
+  "LocaleLayout": {
+    "title": "Page title"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
+  },
+  "Manifest": {
+    "description": "This is a manifest for the next-intl example.",
+    "name": "next-intl example"
+  },
+  "NotFoundPage": {
+    "description": "Please check the browser's address bar or use the navigation to switch to a known page.",
+    "title": "Page not found"
+  },
+  "AboutPage": {
+    "description": "My page about",
+    "title": "About"
+  },
+  "Navigation": {
+    "free-evaluation": "Free evaluation",
+    "call-me": "Call now"
+  },
+  "Footer": {
+    "title": "Footer"
+  }
+}
+
