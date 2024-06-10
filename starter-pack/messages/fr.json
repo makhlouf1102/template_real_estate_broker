@@ -26,8 +26,11 @@
     "description": "Ma page d'a propos",
     "title": "À Propos"
   },
+  "About": {
+    "description": "Biographie de l'agent immobilier mettant en avant l'expérience, les compétences et les succès."
+  },
   "Navigation": {
-    "about": "À Propos",
+    "about": " Propos",
     "services": "Services",
     "properties": "Propriétés",
     "testimonials": "Témoignages",

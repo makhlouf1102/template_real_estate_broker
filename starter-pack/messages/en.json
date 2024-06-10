@@ -26,6 +26,9 @@
     "description": "My page about",
     "title": "About"
   },
+  "About": {
+    "description": "Biographie de l'agent immobilier mettant en avant l'expérience, les compétences et les succès."
+  },
   "Navigation": {
     "about": "About",
     "services": "Services",
