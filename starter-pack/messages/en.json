@@ -35,8 +35,11 @@
   },
   "Footer": {
     "title": "Footer",
-    "contact-me": "Contact me",
-    "I-want-to-buy-or-sell": "I want to buy or sell"
+    "email": "Email",
+    "phone": "Phone",
+    "office": "Office",
+    "legal": "Legal",
+    "privacy": "Privacy"
   }
 }
 

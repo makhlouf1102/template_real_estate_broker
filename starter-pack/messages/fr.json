@@ -34,7 +34,12 @@
     "contact": "Contact"
   },
   "Footer": {
-    "title": "Pied de page"
+    "title": "Pied de page",
+    "email": "Email",
+    "phone": "Téléphone",
+    "office": "Bureau",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité"
   }
 }
 
