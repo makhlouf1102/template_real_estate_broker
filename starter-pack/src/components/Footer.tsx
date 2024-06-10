@@ -2,32 +2,32 @@ import { AGENT_INFO } from '@/constantes/agent.const';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button, ButtonGroup } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
+import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
 
-export default function Footer() {
+
+export default function Footer({ params: { locale } }: { params: { locale: string } }) {
+
+    // enable to render static
+    unstable_setRequestLocale(locale);
+
     const t = useTranslations('Footer');
     return (
         <>
-            <footer className="w-full flex justify-center pt-16 pb-6 px-6 bg-primary-200">
-                <div className="w-3/4 ">
-                    <div className=" pb-16 grid grid-cols-3 gap-4 border-b border-white">
-                        <div className="col-span-1">
-                            <Image src="/logo.png" className='p-3' alt="logo" width={150} height={150} />
-                        </div>
-                        <div className="col-span-1">
-                            <div className="text-xl font-bold border-b border-gray-300 w-full">{t('contact-me')}</div>
-                            <div className='flex flex-col gap-4 my-8'>
-                                <Link href={`tel:${AGENT_INFO.phone}`} className="text-xl">
-                                    {AGENT_INFO.phone}
-                                </Link>
-                                <Link href={`mailto:${AGENT_INFO.email}`} className="text-xl">
-                                    {AGENT_INFO.email}
-                                </Link>
-                            </div>
-                            <div className='my-8 w-2/3'>
-                                <Button size='lg' radius='full' className='text-xl'>{t('I-want-to-buy-or-sell')}</Button>
-                            </div>
-                        </div>
+            <footer className="bg-white border-y border-gray-100 py-4">
+                <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+                    <div className="contact-info text-center md:text-left">
+                        <p>Adresse: Rue de l'Immobilier, Ville, Code Postal</p>
+                        <p>Téléphone: +33 1 23 45 67 89</p>
+                        <p>Email: contact@agentimmobilier.com</p>
+                    </div>
+                    <div className="social-media flex space-x-4 mt-4 md:mt-0">
+                        <Link href="#" className="text-text-50 hover:underline">Facebook</Link>
+                        <Link href="#" className="text-text-50 hover:underline">Twitter</Link>
+                        <Link href="#" className="text-text-50 hover:underline">LinkedIn</Link>
+                    </div>
+                    <div className="legal text-center md:text-right mt-4 md:mt-0">
+                        <p><Link href="#" className="text-accent-500 hover:underline">Mentions légales</Link> | <Link href="#" className="text-accent-500 hover:underline">Politique de confidentialité</Link></p>
                     </div>
                 </div>
             </footer>

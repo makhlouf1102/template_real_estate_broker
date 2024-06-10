@@ -27,8 +27,11 @@
     "title": "About"
   },
   "Navigation": {
-    "free-evaluation": "Free evaluation",
-    "call-me": "Call now"
+    "about": "About",
+    "services": "Services",
+    "properties": "Properties",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
   },
   "Footer": {
     "title": "Footer",

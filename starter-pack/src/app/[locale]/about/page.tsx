@@ -25,20 +25,8 @@ export default function AboutPage({ params: { locale } }: Props) {
     console.log(t('title'));
 
     return (
-        <PageLayout title={t('title')}>
-            <div className="max-w-[490px]">
-                {t.rich('description', {
-                    p: (chunks) => <p className="mt-4">{chunks}</p>,
-                    code: (chunks) => (
-                        <code className="font-mono text-white">{chunks}</code>
-                    )
-                })}
-            </div>
-
-            <div className="flex flex-col items-center">
-                <h2 className="text-2xl font-bold">{t('title')}</h2>
-                <p className="text-lg">{t('description')}</p>
-            </div>
-        </PageLayout>
+        <>
+            {t('title')}
+        </>
     );
 }

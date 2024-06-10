@@ -52,9 +52,9 @@ export default async function LocaleLayout({
       <body className={clsx(inter.className, 'flex h-full flex-col')}>
         <NextUIProvider>
           <NextIntlClientProvider messages={messages}>
-            <Navigation />
+            <Navigation params={{ locale }} />
             {children}
-            <Footer />
+            <Footer params={{ locale }} />
           </NextIntlClientProvider>
         </NextUIProvider>
       </body>

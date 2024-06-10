@@ -24,11 +24,14 @@
   },
   "AboutPage": {
     "description": "Ma page d'a propos",
-    "title": "A Propos"
+    "title": "À Propos"
   },
   "Navigation": {
-    "free-evaluation": "Evaluation gratuite",
-    "call-me": "Appelez maintenant"
+    "about": "À Propos",
+    "services": "Services",
+    "properties": "Propriétés",
+    "testimonials": "Témoignages",
+    "contact": "Contact"
   },
   "Footer": {
     "title": "Pied de page"
