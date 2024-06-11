@@ -1,6 +1,7 @@
 import {useTranslations} from 'next-intl';
 import { unstable_setRequestLocale } from "next-intl/server";
 import About from './components/About';
+import Testimonials from './components/Testimonials';
 
 
 export default function IndexPage({locale}) {
@@ -12,6 +13,7 @@ export default function IndexPage({locale}) {
   return (
     <>
       <About />
+      <Testimonials />
     </>
   );
 }
