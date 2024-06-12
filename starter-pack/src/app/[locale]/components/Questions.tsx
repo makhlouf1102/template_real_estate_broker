@@ -15,9 +15,9 @@ export default function Questions() {
     return (
         <section id="questions" className="py-12">
             <div className="flex flex-col items-center justify-center ">
-                <h2 className="text-2xl font-bold">{t("title")}</h2>
+                <h2 className="text-3xl font-bold">{t("title")}</h2>
             </div>
-            <div className="container mx-auto flex flex-col md:flex-row md:justify-between gap-10 py-20 px-10">
+            <div className="container mx-auto flex flex-col md:flex-row md:justify-between gap-10 py-10 px-10">
                 <div className="flex flex-col justify-between w-full gap-6 md:flex-row">
                     <div className="w-full">
                         <Image src="/image.png" alt="questions-1" width={500} height={500} />
