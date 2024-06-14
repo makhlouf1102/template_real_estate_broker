@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "lint": "eslint src && tsc",
+    "lint:fix": "eslint src --fix && tsc",
     "test": "pnpm run test:playwright && pnpm run test:jest",
     "test:playwright": "playwright test",
     "test:jest": "jest",

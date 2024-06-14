@@ -1,32 +1,32 @@
+import {NextUIProvider} from '@nextui-org/react';
 import clsx from 'clsx';
-import { Inter } from 'next/font/google';
-import { NextIntlClientProvider } from 'next-intl';
+import {Inter} from 'next/font/google';
+import {NextIntlClientProvider} from 'next-intl';
 import {
   getMessages,
   getTranslations,
   unstable_setRequestLocale
 } from 'next-intl/server';
-import { ReactNode } from 'react';
-import Navigation from '@/components/Navigation';
-import { locales } from '@/config';
+import {ReactNode} from 'react';
 import Footer from '@/components/Footer';
-import { NextUIProvider } from "@nextui-org/react"
+import Navigation from '@/components/Navigation';
+import {locales} from '@/config';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({subsets: ['latin']});
 
 type Props = {
   children: ReactNode;
-  params: { locale: string };
+  params: {locale: string};
 };
 
 export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
+  return locales.map((locale) => ({locale}));
 }
 
 export async function generateMetadata({
-  params: { locale }
+  params: {locale}
 }: Omit<Props, 'children'>) {
-  const t = await getTranslations({ locale, namespace: 'LocaleLayout' });
+  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
 
   return {
     title: {
@@ -38,7 +38,7 @@ export async function generateMetadata({
 
 export default async function LocaleLayout({
   children,
-  params: { locale }
+  params: {locale}
 }: Props) {
   // Enable static rendering
   unstable_setRequestLocale(locale);
@@ -52,9 +52,9 @@ export default async function LocaleLayout({
       <body className={clsx(inter.className, 'flex h-full flex-col')}>
         <NextUIProvider>
           <NextIntlClientProvider messages={messages}>
-            <Navigation params={{ locale }} />
+            <Navigation params={{locale}} />
             {children}
-            <Footer params={{ locale }} />
+            <Footer params={{locale}} />
           </NextIntlClientProvider>
         </NextUIProvider>
       </body>

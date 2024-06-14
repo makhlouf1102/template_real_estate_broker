@@ -16,9 +16,5 @@ export default function Error({error, reset}: Props) {
     console.error(error);
   }, [error]);
 
-  return (
-    <>
-      {t('title')}
-    </>
-  );
+  return <>{t('title')}</>;
 }
