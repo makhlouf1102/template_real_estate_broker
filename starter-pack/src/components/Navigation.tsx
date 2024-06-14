@@ -1,17 +1,13 @@
+import {LocaleProps} from '@props/Locale.props';
 import Image from 'next/image';
 import Link from 'next/link';
 import {useTranslations} from 'next-intl';
-import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import {FaPhone} from 'react-icons/fa6';
-import {AGENT_INFO} from '../constantes/agent.const';
+import {unstable_setRequestLocale} from 'next-intl/server';
 import {MobileNav} from './MobileNav'; // Importez le composant MobileNav
 
-export default function Navigation({
-  params: {locale}
-}: {
-  params: {locale: string};
-}) {
+export default function Navigation({locale}: LocaleProps) {
   unstable_setRequestLocale(locale);
+
   const t = useTranslations('Navigation');
 
   const link_style = 'font-medium px-2 py-6 text-text-50 hover:opacity-50';
@@ -29,7 +25,7 @@ export default function Navigation({
             />
           </div>
           <div className="md:hidden">
-            <MobileNav params={{locale}} />{' '}
+            <MobileNav locale={locale} />{' '}
             {/* Utilisez le composant MobileNav */}
           </div>
           <nav className="hidden md:flex">

@@ -1,10 +1,14 @@
 'use client';
 
 import {Accordion, AccordionItem} from '@nextui-org/react';
+import {LocaleProps} from '@props/Locale.props';
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
+import {unstable_setRequestLocale} from 'next-intl/server';
 
-export default function Questions() {
+export default function Questions({locale}: LocaleProps) {
+  unstable_setRequestLocale(locale);
+
   const t = useTranslations('Questions');
 
   const defaultContent =

@@ -26,7 +26,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params: {locale}
 }: Omit<Props, 'children'>) {
-  const t = await getTranslations({locale, namespace: 'LocaleLayout'});
+  await getTranslations({locale, namespace: 'LocaleLayout'});
 
   return {
     title: {
@@ -52,9 +52,9 @@ export default async function LocaleLayout({
       <body className={clsx(inter.className, 'flex h-full flex-col')}>
         <NextUIProvider>
           <NextIntlClientProvider messages={messages}>
-            <Navigation params={{locale}} />
+            <Navigation locale={locale} />
             {children}
-            <Footer params={{locale}} />
+            <Footer locale={locale} />
           </NextIntlClientProvider>
         </NextUIProvider>
       </body>

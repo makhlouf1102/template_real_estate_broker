@@ -9,10 +9,11 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
+    "strict": true,  // Enable strict type checking
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",  // Ensure correct casing for "Bundler"
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
@@ -23,7 +24,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@props/*": ["./src/props/*"]
     }
   },
   "include": [
@@ -31,8 +33,14 @@
     "**/*.ts",
     "**/*.tsx",
     "**/*.jsx",
-    ".next/types/**/*.ts"
-, "src/app/page.jsx", "src/app/not-found.jsx", "src/app/layout.jsx", "src/app/[locale]/not-found.jsx", "src/app/[locale]/page.jsx", "src/components/Navigation.tsx"  ],
+    ".next/types/**/*.ts",
+    "src/app/page.tsx",
+    "src/app/not-found.tsx",
+    "src/app/layout.tsx",
+    "src/app/[locale]/not-found.tsx",
+    "src/app/[locale]/page.tsx",
+    "src/components/Navigation.tsx"
+  ],
   "exclude": [
     "node_modules"
   ]

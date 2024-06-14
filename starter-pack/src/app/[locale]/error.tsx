@@ -2,13 +2,13 @@
 
 import {useTranslations} from 'next-intl';
 import {useEffect} from 'react';
-import PageLayout from '@/components/PageLayout';
 
 type Props = {
   error: Error;
   reset(): void;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function Error({error, reset}: Props) {
   const t = useTranslations('Error');
 

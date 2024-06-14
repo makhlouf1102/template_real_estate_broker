@@ -1,7 +1,10 @@
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
+import {unstable_setRequestLocale} from 'next-intl/server';
+import {LocaleProps} from '@/props/Locale.props';
 
-export default function About() {
+export default function About({locale}: LocaleProps) {
+  unstable_setRequestLocale(locale);
   const t = useTranslations('About');
 
   return (

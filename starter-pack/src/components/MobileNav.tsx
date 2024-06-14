@@ -1,6 +1,8 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import {LocaleProps} from '@props/Locale.props';
 import Link from 'next/link';
-import {useTranslations, useLocale} from 'next-intl';
-import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
+import {useTranslations} from 'next-intl';
+import {unstable_setRequestLocale} from 'next-intl/server';
 import {
   FaBars,
   FaXmark,
@@ -9,10 +11,9 @@ import {
   FaLinkedin
 } from 'react-icons/fa6';
 
-export function MobileNav({params: {locale}}: {params: {locale: string}}) {
+export function MobileNav({locale}: LocaleProps) {
   unstable_setRequestLocale(locale);
   const t = useTranslations('Navigation');
-  const localActive = useLocale();
 
   return (
     <label className="relative z-40 cursor-pointer" htmlFor="mobile-menu">
@@ -26,35 +27,31 @@ export function MobileNav({params: {locale}}: {params: {locale: string}}) {
           </span>
           <menu className="flex flex-col items-center justify-start gap-4">
             <li className="w-full">
-              <label className="block w-full">
-                <input
-                  className="peer hidden"
-                  id="accordion-about"
-                  type="checkbox"
-                />
+              <input
+                className="peer hidden"
+                id="accordion-about"
+                type="checkbox"
+              />
+              <label className="block w-full" htmlFor="accordion-about">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
-                  <Link
-                    className="block w-full"
-                    href="#about"
-                    locale={localActive}
-                  >
+                  <Link className="block w-full" href="#about" locale={locale}>
                     <span>{t('about')}</span>
                   </Link>
                 </div>
               </label>
             </li>
             <li className="w-full">
-              <label className="block w-full">
-                <input
-                  className="peer hidden"
-                  id="accordion-services"
-                  type="checkbox"
-                />
+              <input
+                className="peer hidden"
+                id="accordion-services"
+                type="checkbox"
+              />
+              <label className="block w-full" htmlFor="accordion-services">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
                   <Link
                     className="block w-full"
                     href="#services"
-                    locale={localActive}
+                    locale={locale}
                   >
                     <span>{t('services')}</span>
                   </Link>
@@ -62,17 +59,17 @@ export function MobileNav({params: {locale}}: {params: {locale: string}}) {
               </label>
             </li>
             <li className="w-full">
-              <label className="block w-full">
-                <input
-                  className="peer hidden"
-                  id="accordion-properties"
-                  type="checkbox"
-                />
+              <input
+                className="peer hidden"
+                id="accordion-properties"
+                type="checkbox"
+              />
+              <label className="block w-full" htmlFor="accordion-properties">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
                   <Link
                     className="block w-full"
                     href="#properties"
-                    locale={localActive}
+                    locale={locale}
                   >
                     <span>{t('properties')}</span>
                   </Link>
@@ -80,17 +77,17 @@ export function MobileNav({params: {locale}}: {params: {locale: string}}) {
               </label>
             </li>
             <li className="w-full">
-              <label className="block w-full">
-                <input
-                  className="peer hidden"
-                  id="accordion-testimonials"
-                  type="checkbox"
-                />
+              <input
+                className="peer hidden"
+                id="accordion-testimonials"
+                type="checkbox"
+              />
+              <label className="block w-full" htmlFor="accordion-testimonials">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
                   <Link
                     className="block w-full"
                     href="#testimonials"
-                    locale={localActive}
+                    locale={locale}
                   >
                     <span>{t('testimonials')}</span>
                   </Link>
@@ -98,17 +95,17 @@ export function MobileNav({params: {locale}}: {params: {locale: string}}) {
               </label>
             </li>
             <li className="w-full">
-              <label className="block w-full">
-                <input
-                  className="peer hidden"
-                  id="accordion-contact"
-                  type="checkbox"
-                />
+              <input
+                className="peer hidden"
+                id="accordion-contact"
+                type="checkbox"
+              />
+              <label className="block w-full" htmlFor="accordion-contact">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
                   <Link
                     className="block w-full"
                     href="#contact"
-                    locale={localActive}
+                    locale={locale}
                   >
                     <span>{t('contact')}</span>
                   </Link>
@@ -116,9 +113,6 @@ export function MobileNav({params: {locale}}: {params: {locale: string}}) {
               </label>
             </li>
             <br />
-            {/* <div className="flex items-center justify-start w-full text-lg">
-                            <LanguageSwitch />
-                        </div> */}
             <br />
             <div className="ml-8 flex w-full items-center justify-start">
               <span className="flex space-x-4">
@@ -140,7 +134,6 @@ export function MobileNav({params: {locale}}: {params: {locale: string}}) {
                     size={24}
                   />
                 </Link>
-                {/* Ajoutez d'autres icônes de réseaux sociaux ici */}
               </span>
             </div>
           </menu>

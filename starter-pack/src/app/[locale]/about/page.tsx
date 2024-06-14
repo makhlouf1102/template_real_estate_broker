@@ -1,7 +1,5 @@
-import {Metadata} from 'next';
 import {useTranslations} from 'next-intl';
 import {getTranslations, unstable_setRequestLocale} from 'next-intl/server';
-import PageLayout from '@/components/PageLayout';
 
 export async function generateMetadata({
   params: {locale}
@@ -22,7 +20,6 @@ export default function AboutPage({params: {locale}}: Props) {
   unstable_setRequestLocale(locale);
 
   const t = useTranslations('AboutPage');
-  console.log(t('title'));
 
   return <>{t('title')}</>;
 }

@@ -1,10 +1,11 @@
+import {LocaleProps} from '@props/Locale.props';
 import Link from 'next/link';
 import {useTranslations} from 'next-intl';
 import {unstable_setRequestLocale} from 'next-intl/server';
 import {FaFacebook, FaXTwitter, FaInstagram, FaLinkedin} from 'react-icons/fa6';
 import {AGENT_INFO} from '@/constantes/agent.const';
 
-export default function Footer({params: {locale}}: {params: {locale: string}}) {
+export default function Footer({locale}: LocaleProps) {
   // enable to render static
   unstable_setRequestLocale(locale);
 

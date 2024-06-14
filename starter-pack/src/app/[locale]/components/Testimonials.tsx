@@ -1,15 +1,11 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Divider,
-  Link,
-  Image
-} from '@nextui-org/react';
+import {Card, CardHeader, CardBody, Divider, Image} from '@nextui-org/react';
+import {LocaleProps} from '@props/Locale.props';
 import {useTranslations} from 'next-intl';
+import {unstable_setRequestLocale} from 'next-intl/server';
 
-export default function Testimonials() {
+export default function Testimonials({locale}: LocaleProps) {
+  unstable_setRequestLocale(locale);
+
   const t = useTranslations('Testimonials');
 
   return (
