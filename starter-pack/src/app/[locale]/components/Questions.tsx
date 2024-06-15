@@ -4,10 +4,8 @@ import {Accordion, AccordionItem} from '@nextui-org/react';
 import {LocaleProps} from '@props/Locale.props';
 import Image from 'next/image';
 import {useTranslations} from 'next-intl';
-import {unstable_setRequestLocale} from 'next-intl/server';
 
 export default function Questions({locale}: LocaleProps) {
-  unstable_setRequestLocale(locale);
 
   const t = useTranslations('Questions');
 
@@ -20,7 +18,7 @@ export default function Questions({locale}: LocaleProps) {
         <div className="flex flex-col items-center justify-center ">
           <h2 className="text-3xl font-bold">{t('title')}</h2>
         </div>
-        <div className="flex w-full flex-col justify-between gap-6 md:flex-row">
+        <div className="flex w-full flex-col justify-between gap-6 ">
           <div className="flex w-full justify-center">
             <Image
               alt="questions-1"

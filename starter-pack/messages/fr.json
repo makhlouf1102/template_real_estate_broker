@@ -38,6 +38,11 @@
     "title": "Foire Aux Questions",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
+  "BookCallBanner": {
+    "title": "Prenez rendez-vous avec moi maintenant !",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "button": "Ici !"
+  },
   "Navigation": {
     "about": " Propos",
     "services": "Services",
