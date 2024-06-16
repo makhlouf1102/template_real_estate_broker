@@ -6,7 +6,6 @@ import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 
 export default function Questions({locale}: LocaleProps) {
-
   const t = useTranslations('Questions');
 
   const defaultContent =

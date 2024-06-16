@@ -1,15 +1,17 @@
-import {unstable_setRequestLocale} from 'next-intl/server';
+import { unstable_setRequestLocale } from 'next-intl/server';
 import About from './components/About';
+import BookCallBanner from './components/BookCallBanner';
 import Questions from './components/Questions';
 import Testimonials from './components/Testimonials';
-import BookCallBanner from './components/BookCallBanner';
 
 interface LocaleProps {
-  locale: string;
+  params: {
+    locale: string;
+  };
 }
 
-export default function IndexPage({locale}: LocaleProps) {
-  // Enable static rendering
+export default function IndexPage({ params }: LocaleProps) {
+  const { locale } = params;
   unstable_setRequestLocale(locale);
 
   return (
@@ -20,4 +22,12 @@ export default function IndexPage({locale}: LocaleProps) {
       <BookCallBanner />
     </>
   );
+}
+
+// Generate static paths for locales
+export async function generateStaticParams() {
+  return [
+    { locale: 'en' },
+    { locale: 'fr' },
+  ];
 }

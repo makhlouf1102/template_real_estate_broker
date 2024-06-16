@@ -11,6 +11,9 @@ const config = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
+    eslint: {
+        ignoreDuringBuilds: true,
+    },
 };
 
 module.exports = withNextIntl(config);

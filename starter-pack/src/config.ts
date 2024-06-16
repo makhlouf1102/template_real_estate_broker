@@ -1,4 +1,4 @@
-import {Pathnames} from 'next-intl/navigation';
+import { Pathnames } from 'next-intl/routing';
 
 export const port = process.env.PORT || 3000;
 export const host = process.env.VERCEL_URL
@@ -10,10 +10,6 @@ export const locales = ['en', 'fr'] as const;
 
 export const pathnames = {
   '/': '/',
-  '/about': {
-    en: '/about',
-    fr: '/a-propos'
-  }
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`
