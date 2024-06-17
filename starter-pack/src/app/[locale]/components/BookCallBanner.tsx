@@ -4,9 +4,6 @@ import React from 'react';
 
 function BookCallBanner() {
   const t = useTranslations('BookCallBanner');
-  const handleBookCall = () => {
-    window.location.href = 'https://your-calendar-link.com'; // Replace with your booking link
-  };
 
   return (
     <section className="bg-background-50 p-10 text-center">
