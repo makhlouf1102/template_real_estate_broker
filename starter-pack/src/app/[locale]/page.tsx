@@ -5,6 +5,7 @@ import Questions from './components/Questions';
 import Testimonials from './components/Testimonials';
 import SellPropriety from './components/SellPropriety';
 import BuyPropriety from './components/BuyPropriety';
+import Alerts from './components/Alerts';
 
 interface LocaleProps {
   params: {
@@ -24,6 +25,7 @@ export default function IndexPage({ params }: LocaleProps) {
       <BookCallBanner />
       <SellPropriety />
       <BuyPropriety />
+      <Alerts />
     </>
   );
 }
