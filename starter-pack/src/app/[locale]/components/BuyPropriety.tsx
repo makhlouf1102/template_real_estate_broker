@@ -8,7 +8,7 @@ export default function BuyPropriety() {
     <>
       <section id="sell-propriety" className="bg-primary-400 text-white">
         <div className="container mx-auto flex flex-col-reverse items-center text-center justify-center gap-7 md:flex-row px-10 py-5">
-          <div className="flex flex-col items-center justify-center w-full h-full gap-2 md:flex-1">
+          <div className="flex flex-col items-center justify-center w-full h-full gap-6 md:flex-1">
             <h1 className="text-2xl font-bold">{t("title")}</h1>
             <p className="text-xl text-center">{t("description")}</p>
             <Button className="bg-primary-500 text-white font-bold">{t("button")}</Button>
