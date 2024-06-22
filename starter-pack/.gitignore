@@ -6,3 +6,4 @@ tsconfig.tsbuildinfo
 /playwright-report/
 /playwright/.cache/
 out
+src/components/ContactForm.tsx
