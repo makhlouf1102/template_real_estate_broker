@@ -31,7 +31,7 @@ const ContactForm = () => {
             placeholder="..." 
             name="message" 
           />
-          <Button type="submit">Send</Button>
+          <Button className='bg-primary-500 text-white font-bold' type="submit">Send</Button>
         </form>
       </div>
     </section>
