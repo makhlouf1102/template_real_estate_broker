@@ -1,17 +1,19 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import {LocaleProps} from '@props/Locale.props';
+import { LocaleProps } from '@props/Locale.props';
 import Link from 'next/link';
-import {useTranslations} from 'next-intl';
-import {unstable_setRequestLocale} from 'next-intl/server';
+import { useTranslations } from 'next-intl';
+import { unstable_setRequestLocale } from 'next-intl/server';
 import {
   FaBars,
   FaXmark,
   FaFacebook,
   FaTwitter,
-  FaLinkedin
+  FaLinkedin,
+  FaXTwitter,
+  FaInstagram
 } from 'react-icons/fa6';
 
-export function MobileNav({locale}: LocaleProps) {
+export function MobileNav({ locale }: LocaleProps) {
   unstable_setRequestLocale(locale);
   const t = useTranslations('Navigation');
 
@@ -116,23 +118,17 @@ export function MobileNav({locale}: LocaleProps) {
             <br />
             <div className="ml-8 flex w-full items-center justify-start">
               <span className="flex space-x-4">
-                <Link href="https://facebook.com" target="_blank">
-                  <FaFacebook
-                    className="text-gray-800 hover:opacity-70"
-                    size={24}
-                  />
+                <Link className="hover:opacity-50" href="#">
+                  <FaFacebook size={24}/>
                 </Link>
-                <Link href="https://twitter.com" target="_blank">
-                  <FaTwitter
-                    className="text-gray-800 hover:opacity-70"
-                    size={24}
-                  />
+                <Link className="hover:opacity-50" href="#">
+                  <FaXTwitter size={24}/>
                 </Link>
-                <Link href="https://linkedin.com" target="_blank">
-                  <FaLinkedin
-                    className="text-gray-800 hover:opacity-70"
-                    size={24}
-                  />
+                <Link className="hover:opacity-50" href="#">
+                  <FaInstagram size={24}/>
+                </Link>
+                <Link className="hover:opacity-50" href="#">
+                  <FaLinkedin size={24}/>
                 </Link>
               </span>
             </div>
