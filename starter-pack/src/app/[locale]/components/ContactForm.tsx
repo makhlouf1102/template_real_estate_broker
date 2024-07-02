@@ -7,7 +7,7 @@ const ContactForm = () => {
 
   return (
     <section id='Contact Form'>
-      <div className='container mx-auto flex flex-col gap-4'>
+      <div className='container mx-auto flex flex-col gap-4 px-10 py-5'>
         <h1 className="text-2xl font-bold"></h1>
         
         <form className='flex flex-col gap-4 '>
