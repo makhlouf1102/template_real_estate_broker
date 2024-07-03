@@ -57,7 +57,7 @@
     "title": "Alertes immobilier",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
     "button": "S'incrire aux alertes immobilieres"
-  },  
+  },
   "ContactMeForm": {
     "title": "Laissez moi un message",
     "name": "Nom",
@@ -65,7 +65,6 @@
     "message": "Message",
     "button": "Envoyer"
   },
-
   "Navigation": {
     "about": " Propos",
     "services": "Services",
@@ -80,5 +79,11 @@
     "office": "Bureau",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité"
+  },
+  "Home": {
+    "Meta": {
+      "title": "Accueil",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
   }
 }

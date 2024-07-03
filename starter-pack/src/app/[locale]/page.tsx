@@ -7,6 +7,8 @@ import SellPropriety from './components/SellPropriety';
 import BuyPropriety from './components/BuyPropriety';
 import Alerts from './components/Alerts';
 import ContactForm from './components/ContactForm';
+import Head from 'next/head';
+import { useTranslations } from 'next-intl';
 
 interface LocaleProps {
   params: {
@@ -17,9 +19,16 @@ interface LocaleProps {
 export default function IndexPage({ params }: LocaleProps) {
   const { locale } = params;
   unstable_setRequestLocale(locale);
+  const t = useTranslations('Home');
 
   return (
     <>
+      <>
+        <Head>
+          <title>{t('Meta.title')}</title>
+          <meta name="description" content={t('Meta.description')} />
+        </Head>
+      </>
       <About locale={locale} />
       <Testimonials locale={locale} />
       <Questions locale={locale} />

@@ -21,8 +21,8 @@ export default function Questions({locale}: LocaleProps) {
           <div className="flex w-full justify-center">
             <Image
               alt="questions-1"
+              src="/questions.png"
               height={500}
-              src="/image.png"
               width={500}
             />
           </div>
