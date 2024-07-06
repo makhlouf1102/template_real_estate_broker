@@ -9,12 +9,12 @@ export default function About({locale}: LocaleProps) {
 
   return (
     <section className="py-12 " id="about">
-      <div className="container mx-auto flex flex-col items-center justify-center gap-10 px-10 md:flex-row md:justify-between">
+      <div className="container mx-auto flex flex-col items-center justify-center gap-10 px-10 md:flex-row-reverse md:justify-between">
         <Image
           alt="Photo de l'agent immobilier"
-          height={500}
-          src="/image.png"
-          width={500}
+          src="/Smiling-Real-Estate-Agent-Outside-Modern-Home.png"
+          height={300}
+          width={300}
         />
         <div className="about-text flex flex-col gap-2">
           <h2 className="text-3xl font-bold">{t('title')}</h2>

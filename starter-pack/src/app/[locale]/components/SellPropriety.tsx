@@ -14,7 +14,7 @@ export default function SellPropriety() {
                         <Button className="bg-primary-500 text-white font-bold">{t("button")}</Button>
                     </div>
                     <div className="flex flex-col items-center justify-center w-full h-full md:flex-1">
-                        <Image src="/image.png" alt="Sell your propriety" width={500} height={50} />
+                        <Image src="/Two-Female-Real-Estate-Agents-Showing-Home-For-Sale-Sign.png" alt="Sell your propriety" width={500} height={500} />
                     </div>
                 </div>
             </section>

@@ -96,7 +96,7 @@ export default function Footer({ locale }: LocaleProps) {
   const section_style = 'flex items-center gap-2';
 
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-primary-100 text-white py-8">
       <div className="container mx-auto flex flex-col items-center justify-between gap-4">
         <div className="w-full flex justify-between items-center py-2 gap-4">
           <hr className="w-full h-0.5 bg-gray-600 border-0 rounded " />
@@ -129,15 +129,6 @@ export default function Footer({ locale }: LocaleProps) {
           <Link className="hover:opacity-75" href="#">
             {t('privacy')}
           </Link>
-          {/* <Link className="hover:opacity-75" href="#">
-            {t('security')}
-          </Link>
-          <Link className="hover:opacity-75" href="#">
-            {t('accessibility')}
-          </Link>
-          <Link className="hover:opacity-75" href="#">
-            {t('cookies')}
-          </Link> */}
         </div>
       </div>
     </footer>

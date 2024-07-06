@@ -29,13 +29,13 @@ export default function IndexPage({ params }: LocaleProps) {
   return (
     <>
       <About locale={locale} />
-      <Testimonials locale={locale} />
-      <Questions locale={locale} />
-      <BookCallBanner />
       <SellPropriety />
       <BuyPropriety />
+      <Testimonials locale={locale} />
+      <Questions locale={locale} />
       <Alerts />
-      <ContactForm/>
+      <BookCallBanner />
+      <ContactForm />
     </>
   );
 }
