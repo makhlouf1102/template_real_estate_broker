@@ -20,10 +20,10 @@ export default function Questions({locale}: LocaleProps) {
         <div className="flex w-full flex-col justify-between gap-6 ">
           <div className="flex w-full justify-center">
             <Image
-              alt="Team-of-Real-Estate-Agents-Standing-Outside-Homes"
+              alt="Our team of real estate agents standing outside homes"
               src="/Team-of-Real-Estate-Agents-Standing-Outside-Homes.png"
-              height={500}
-              width={500}
+              width={310} 
+              height={177}
             />
           </div>
           <div className="w-full">

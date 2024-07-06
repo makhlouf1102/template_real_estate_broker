@@ -14,7 +14,7 @@ export default function BuyPropriety() {
             <Button className="bg-primary-500 text-white font-bold">{t("button")}</Button>
           </div>
           <div className="flex flex-col items-center justify-center w-full h-full md:flex-1">
-            <Image src="/Happy-Family-Receiving-Keys-From-Real-Estate-Agent-Outside-New-Home.png" alt="Sell your propriety" width={500} height={500} />
+            <Image src="/Happy-Family-Receiving-Keys-From-Real-Estate-Agent-Outside-New-Home.png" alt="Sell your propriety" width={310} height={177} />
           </div>
         </div>
       </section>
