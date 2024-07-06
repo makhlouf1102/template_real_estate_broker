@@ -10,6 +10,7 @@ import ContactForm from './components/ContactForm';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
+import Myproprieties from './components/Myproprieties';
 
 interface LocaleProps {
   params: {
@@ -36,6 +37,7 @@ export default function IndexPage({ params }: LocaleProps) {
       <Alerts />
       <BookCallBanner />
       <ContactForm />
+      <Myproprieties />
     </>
   );
 }

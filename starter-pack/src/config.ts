@@ -1,5 +1,6 @@
-import { Pathnames } from 'next-intl/routing';
+import { Pathnames } from "next-intl/navigation";
 
+// Removed the import statement as it is causing an error
 export const port = process.env.PORT || 3000;
 export const host = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`

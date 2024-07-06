@@ -27,7 +27,13 @@ export default function Questions({locale}: LocaleProps) {
             />
           </div>
           <div className="w-full">
-            <Accordion>
+            <Accordion
+              isCompact={false}
+              isDisabled={false}
+              hideIndicator={false}
+              disableAnimation={false}
+              disableIndicatorAnimation={false}
+            >
               <AccordionItem
                 key="1"
                 aria-label="Accordion 1"
