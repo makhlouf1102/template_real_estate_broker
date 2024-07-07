@@ -10,7 +10,7 @@ import ContactForm from './components/ContactForm';
 import Head from 'next/head';
 import { useTranslations } from 'next-intl';
 import { Metadata } from 'next';
-import Myproprieties from './components/Myproprieties';
+import Myproprieties from './components/MyProprieties';
 
 interface LocaleProps {
   params: {
