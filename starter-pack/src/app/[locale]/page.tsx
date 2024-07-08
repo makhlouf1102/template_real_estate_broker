@@ -7,10 +7,9 @@ import SellPropriety from './components/SellPropriety';
 import BuyPropriety from './components/BuyPropriety';
 import Alerts from './components/Alerts';
 import ContactForm from './components/ContactForm';
-import Head from 'next/head';
-import { useTranslations } from 'next-intl';
-import { Metadata } from 'next';
 import Myproprieties from './components/MyProprieties';
+import BackToTopButton from '../../components/BackToTopButton'; // Import the BackToTopButton component
+import { Metadata } from 'next';
 
 interface LocaleProps {
   params: {
@@ -29,6 +28,7 @@ export default function IndexPage({ params }: LocaleProps) {
 
   return (
     <>
+      <div id="top"></div> {/* Add this element to ensure smooth scrolling */}
       <About locale={locale} />
       <SellPropriety />
       <BuyPropriety />
@@ -38,6 +38,7 @@ export default function IndexPage({ params }: LocaleProps) {
       <BookCallBanner />
       <ContactForm />
       <Myproprieties />
+      <BackToTopButton /> {/* Add the BackToTopButton component */}
     </>
   );
 }
