@@ -118,7 +118,7 @@ export default function Footer({ locale }: LocaleProps) {
         </div>
 
         <div className="text-center my-4">
-          <h3 className="text-lg font-bold">{AGENT_INFO.name}</h3>
+          <span className="text-lg font-bold">{AGENT_INFO.name}</span>
           <p>© 2023 {AGENT_INFO.name}, Inc.</p>
         </div>
 
