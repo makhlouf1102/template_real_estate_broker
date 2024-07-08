@@ -65,6 +65,10 @@
     "message": "Message",
     "button": "Envoyer"
   },
+  "MyProprieties": {
+    "title": "Mes propriétés",
+    "button": "Voir la propriété"
+  },
   "Navigation": {
     "about": " Propos",
     "services": "Services",

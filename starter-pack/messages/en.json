@@ -65,6 +65,10 @@
     "message": "Message",
     "button": "Send"
   },
+  "MyProprieties": {
+    "title": "My properties",
+    "button": "View the property"
+  },
   "Navigation": {
     "about": "About",
     "services": "Services",

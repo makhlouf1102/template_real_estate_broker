@@ -1,13 +1,11 @@
 'use client'
 
-import { useState } from 'react'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules'
-import 'swiper/css'
-import 'swiper/css/free-mode'
-import 'swiper/css/navigation'
-import 'swiper/css/thumbs'
-import { Card, Image } from '@nextui-org/react'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { FreeMode } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import { Button, Image } from '@nextui-org/react';
+import { useTranslations } from 'next-intl';
 
 const properties = [
     {
@@ -24,64 +22,48 @@ const properties = [
         description: 'A modern apartment in the city center.',
         price: '$350,000',
     },
-]
+];
 
 export default function MyProperties() {
-    const [thumbsSwiper, setThumbsSwiper] = useState(null)
+    const t = useTranslations('MyProprieties');
 
     return (
-        <section className="container mx-auto flex flex-col items-center justify-center px-10 py-5">
-            <h1 className="text-2xl font-bold">Real Estate Agent Properties</h1>
-            <Swiper
-                loop={true}
-                spaceBetween={10}
-                navigation={true}
-                thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className='h-96 w-full rounded-lg'
-            >
-                {properties.map((property) => (
-                    <SwiperSlide key={property.id}>
-                        <Card className="w-full bg-purple-500">
-                            <Image
-                                src={property.image}
-                                alt={property.title}
-                                width={100}
-                                height={200}
-                            />
-                            <h3>{property.title}</h3>
-                            <p>{property.description}</p>
-                            <p>{property.price}</p>
-                        </Card>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-
-            {/* Thumbnail */}
-            <Swiper
-                onSwiper={setThumbsSwiper}
-                loop={true}
-                spaceBetween={12}
-                slidesPerView={4}
-                freeMode={true}
-                watchSlidesProgress={true}
-                modules={[FreeMode, Navigation, Thumbs]}
-                className='thumbs mt-3 h-32 w-full rounded-lg'
-            >
-                {properties.map((property) => (
-                    <SwiperSlide key={property.id}>
-                        <button className='flex h-full w-full items-center justify-center'>
-                            <Image
-                                src={property.image}
-                                alt={property.title}
-                                width={100}
-                                height={200}
-                                className='block h-full w-full object-cover'
-                            />
-                        </button>
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </section>
-    )
+        <>
+            <section id="real-estate-properties" className="bg-transparent">
+                <div className="container mx-auto flex flex-col items-center justify-center px-10 py-5">
+                    <h1 className="text-4xl font-extrabold text-primary-500">{t("title")}</h1>
+                    <Swiper
+                        loop={true}
+                        spaceBetween={20}
+                        modules={[FreeMode]}
+                        className="w-full"
+                    >
+                        {properties.map((property) => (
+                            <SwiperSlide key={property.id}>
+                                <div className="w-full flex justify-center">
+                                    <div className="w-full px-16 py-10 flex justify-between items-center">
+                                        <div className="w-1/2 flex justify-center">
+                                            <Image
+                                                src={property.image}
+                                                alt={property.title}
+                                                width={300}
+                                                height={300}
+                                                className="object-cover h-72 w-72"
+                                            />
+                                        </div>
+                                        <div className="w-1/2 p-5 flex flex-col">
+                                            <h3 className="text-2xl font-semibold text-purple-700 mb-2">{property.title}</h3>
+                                            <p className="text-gray-700 mb-4">{property.description}</p>
+                                            <p className="text-lg font-bold text-purple-600">{property.price}</p>
+                                            <Button className="bg-primary-500 text-white font-bold mt-4">{t("button")}</Button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </div>
+            </section>
+        </>
+    );
 }
