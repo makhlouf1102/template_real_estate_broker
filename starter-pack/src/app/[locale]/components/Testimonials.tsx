@@ -19,18 +19,18 @@ export default function Testimonials({locale}: LocaleProps) {
                 alt="nextui logo"
                 height={40}
                 radius="sm"
-                src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+                src="/testimonials/1.png"
                 width={40}
               />
               <div className="flex flex-col">
-                <p className="text-md">NextUI</p>
-                <p className="text-small text-default-500">nextui.org</p>
+                <p className="text-md">Mark</p>
+                <p className="text-small text-default-500">Via Google</p>
               </div>
             </CardHeader>
             <Divider />
             <CardBody>
               <p>
-                Make beautiful websites regardless of your design experience.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </p>
             </CardBody>
             <Divider />
@@ -41,18 +41,18 @@ export default function Testimonials({locale}: LocaleProps) {
                 alt="nextui logo"
                 height={40}
                 radius="sm"
-                src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+                src="/testimonials/2.png"
                 width={40}
               />
               <div className="flex flex-col">
-                <p className="text-md">NextUI</p>
-                <p className="text-small text-default-500">nextui.org</p>
+                <p className="text-md">David</p>
+                <p className="text-small text-default-500">Via Facebook</p>
               </div>
             </CardHeader>
             <Divider />
             <CardBody>
               <p>
-                Make beautiful websites regardless of your design experience.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </p>
             </CardBody>
             <Divider />
@@ -63,18 +63,18 @@ export default function Testimonials({locale}: LocaleProps) {
                 alt="nextui logo"
                 height={40}
                 radius="sm"
-                src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
+                src="/testimonials/3.png"
                 width={40}
               />
               <div className="flex flex-col">
-                <p className="text-md">NextUI</p>
-                <p className="text-small text-default-500">nextui.org</p>
+                <p className="text-md">Jennifer</p>
+                <p className="text-small text-default-500">Via Instagram</p>
               </div>
             </CardHeader>
             <Divider />
             <CardBody>
               <p>
-                Make beautiful websites regardless of your design experience.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.
               </p>
             </CardBody>
             <Divider />
