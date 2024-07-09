@@ -1,9 +1,9 @@
 'use client'
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 import { Button, Image } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
 
@@ -35,8 +35,11 @@ export default function MyProperties() {
                     <Swiper
                         loop={true}
                         spaceBetween={20}
-                        modules={[FreeMode]}
+                        modules={[Pagination]}
                         className="w-full"
+                        pagination={{
+                            dynamicBullets: true,
+                          }}
                     >
                         {properties.map((property) => (
                             <SwiperSlide key={property.id}>
