@@ -28,7 +28,7 @@ export default function IndexPage({ params }: LocaleProps) {
 
   return (
     <>
-      <div id="top"></div> {/* Add this element to ensure smooth scrolling */}
+      <BackToTopButton />
       <About locale={locale} />
       <SellPropriety />
       <BuyPropriety />
@@ -38,7 +38,6 @@ export default function IndexPage({ params }: LocaleProps) {
       <BookCallBanner />
       <ContactForm />
       <Myproprieties />
-      <BackToTopButton /> {/* Add the BackToTopButton component */}
     </>
   );
 }
