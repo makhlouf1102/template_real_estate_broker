@@ -30,14 +30,14 @@ export default function IndexPage({ params }: LocaleProps) {
     <>
       <BackToTopButton />
       <About locale={locale} />
+      <Myproprieties />
       <SellPropriety />
       <BuyPropriety />
       <Testimonials locale={locale} />
-      <Questions locale={locale} />
       <Alerts />
+      <Questions locale={locale} />
       <BookCallBanner />
       <ContactForm />
-      <Myproprieties />
     </>
   );
 }
