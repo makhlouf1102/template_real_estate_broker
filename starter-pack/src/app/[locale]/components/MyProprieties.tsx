@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
@@ -28,45 +28,41 @@ export default function MyProperties() {
     const t = useTranslations('MyProprieties');
 
     return (
-        <>
-            <section id="real-estate-properties" className="bg-transparent">
-                <div className="container mx-auto flex flex-col items-center justify-center px-10 py-5">
-                    <h1 className="text-4xl font-extrabold text-primary-500">{t("title")}</h1>
-                    <Swiper
-                        loop={true}
-                        spaceBetween={20}
-                        modules={[Pagination]}
-                        className="w-full"
-                        pagination={{
-                            dynamicBullets: true,
-                          }}
-                    >
-                        {properties.map((property) => (
-                            <SwiperSlide key={property.id}>
-                                <div className="w-full flex justify-center">
-                                    <div className="w-full px-16 py-10 flex justify-between items-center">
-                                        <div className="w-1/2 flex justify-center">
-                                            <Image
-                                                src={property.image}
-                                                alt={property.title}
-                                                width={300}
-                                                height={300}
-                                                className="object-cover h-72 w-72"
-                                            />
-                                        </div>
-                                        <div className="w-1/2 p-5 flex flex-col">
-                                            <h3 className="text-2xl font-semibold text-purple-700 mb-2">{property.title}</h3>
-                                            <p className="text-gray-700 mb-4">{property.description}</p>
-                                            <p className="text-lg font-bold text-purple-600">{property.price}</p>
-                                            <Button className="bg-primary-500 text-white font-bold mt-4">{t("button")}</Button>
-                                        </div>
-                                    </div>
+        <section id="real-estate-properties" className="bg-transparent">
+            <div className="container mx-auto flex flex-col items-center justify-center px-4 py-5 md:px-10">
+                <h1 className="text-3xl font-extrabold text-primary-500 md:text-4xl">{t("title")}</h1>
+                <Swiper
+                    loop={true}
+                    spaceBetween={20}
+                    modules={[Pagination]}
+                    className="w-full"
+                    pagination={{
+                        dynamicBullets: true,
+                    }}
+                >
+                    {properties.map((property) => (
+                        <SwiperSlide key={property.id}>
+                            <div className="w-full flex flex-col items-center justify-center md:flex-row">
+                                <div className="w-full px-4 py-4 flex justify-center md:w-1/2 md:px-16 md:py-10">
+                                    <Image
+                                        src={property.image}
+                                        alt={property.title}
+                                        width={300}
+                                        height={300}
+                                        className="object-cover h-72 w-72"
+                                    />
                                 </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
-                </div>
-            </section>
-        </>
+                                <div className="w-full p-5 flex flex-col items-center md:w-1/2 md:items-start">
+                                    <h3 className="text-2xl font-semibold text-purple-700 mb-2 md:text-3xl">{property.title}</h3>
+                                    <p className="text-gray-700 mb-4 text-center md:text-left">{property.description}</p>
+                                    <p className="text-lg font-bold text-purple-600">{property.price}</p>
+                                    <Button className="bg-primary-500 text-white font-bold mt-4">{t("button")}</Button>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+        </section>
     );
 }

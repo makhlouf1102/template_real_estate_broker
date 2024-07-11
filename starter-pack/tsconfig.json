@@ -25,7 +25,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@props/*": ["./src/props/*"]
+      "@props/*": ["./src/props/*"],
+      "@LocalIcons/*": ["./src/components/LocalIcons/*"]
     }
   },
   "include": [
