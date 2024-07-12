@@ -7,11 +7,13 @@ import {
   FaBars,
   FaXmark,
   FaFacebook,
-  FaTwitter,
+  FaRegEnvelope,
   FaLinkedin,
   FaXTwitter,
-  FaInstagram
+  FaInstagram,
+  FaPhone
 } from 'react-icons/fa6';
+import { AGENT_INFO } from '@/constantes/agent.const';
 
 export function MobileNav({ locale }: LocaleProps) {
   unstable_setRequestLocale(locale);
@@ -28,70 +30,21 @@ export function MobileNav({ locale }: LocaleProps) {
             <FaXmark className="cursor-pointer hover:opacity-70" size={28} />
           </span>
           <menu className="flex flex-col items-center justify-start gap-4">
-            <li className="w-full">
+          <li className="w-full">
               <input
                 className="peer hidden"
-                id="accordion-about"
+                id="accordion-contact"
                 type="checkbox"
               />
-              <label className="block w-full" htmlFor="accordion-about">
-                <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
-                  <Link className="block w-full" href="#about" locale={locale}>
-                    <span>{t('about')}</span>
-                  </Link>
-                </div>
-              </label>
-            </li>
-            <li className="w-full">
-              <input
-                className="peer hidden"
-                id="accordion-services"
-                type="checkbox"
-              />
-              <label className="block w-full" htmlFor="accordion-services">
+              <label className="block w-full" htmlFor="accordion-contact">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
                   <Link
-                    className="block w-full"
-                    href="#services"
+                    className="w-full flex items-center gap-2"
+                    href={`tel:${AGENT_INFO.phone}`}
                     locale={locale}
                   >
-                    <span>{t('services')}</span>
-                  </Link>
-                </div>
-              </label>
-            </li>
-            <li className="w-full">
-              <input
-                className="peer hidden"
-                id="accordion-properties"
-                type="checkbox"
-              />
-              <label className="block w-full" htmlFor="accordion-properties">
-                <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
-                  <Link
-                    className="block w-full"
-                    href="#properties"
-                    locale={locale}
-                  >
-                    <span>{t('properties')}</span>
-                  </Link>
-                </div>
-              </label>
-            </li>
-            <li className="w-full">
-              <input
-                className="peer hidden"
-                id="accordion-testimonials"
-                type="checkbox"
-              />
-              <label className="block w-full" htmlFor="accordion-testimonials">
-                <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
-                  <Link
-                    className="block w-full"
-                    href="#testimonials"
-                    locale={locale}
-                  >
-                    <span>{t('testimonials')}</span>
+                    <FaPhone />
+                    {AGENT_INFO.phone}
                   </Link>
                 </div>
               </label>
@@ -105,30 +58,29 @@ export function MobileNav({ locale }: LocaleProps) {
               <label className="block w-full" htmlFor="accordion-contact">
                 <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
                   <Link
-                    className="block w-full"
-                    href="#contact"
+                    className="w-full flex items-center gap-2"
+                    href={`mailto:${AGENT_INFO.email}`}
                     locale={locale}
                   >
-                    <span>{t('contact')}</span>
+                    <FaRegEnvelope />
+                    {AGENT_INFO.email}
                   </Link>
                 </div>
               </label>
             </li>
-            <br />
-            <br />
             <div className="ml-8 flex w-full items-center justify-start">
               <span className="flex space-x-4">
                 <Link className="hover:opacity-50" href="#">
-                  <FaFacebook size={24}/>
+                  <FaFacebook size={24} />
                 </Link>
                 <Link className="hover:opacity-50" href="#">
-                  <FaXTwitter size={24}/>
+                  <FaXTwitter size={24} />
                 </Link>
                 <Link className="hover:opacity-50" href="#">
-                  <FaInstagram size={24}/>
+                  <FaInstagram size={24} />
                 </Link>
                 <Link className="hover:opacity-50" href="#">
-                  <FaLinkedin size={24}/>
+                  <FaLinkedin size={24} />
                 </Link>
               </span>
             </div>
