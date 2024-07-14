@@ -21,9 +21,9 @@ export default function Navigation({ locale }: LocaleProps) {
           <div className="logo">
             <Image
               alt="Logo de l'agent immobilier"
-              height={150}
+              height={100}
               src="/logo.png"
-              width={150}
+              width={200}
             />
           </div>
           <div className="md:hidden">

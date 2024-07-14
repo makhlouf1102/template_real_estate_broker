@@ -56,7 +56,7 @@
   "AlertsSection": {
     "title": "Property alerts",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Subscribe to property alerts"
+    "button": "Join"
   },
   "ContactMeForm": {
     "title": "Leave a message here",
@@ -82,7 +82,9 @@
     "phone": "Phone",
     "office": "Office",
     "legal": "Legal",
-    "privacy": "Privacy"
+    "privacy": "Privacy",
+    "allRights": "All rights reserved",
+    "by": "by"
   },
   "Home": {
     "Meta": {
