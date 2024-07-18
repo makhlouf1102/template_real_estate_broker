@@ -53,9 +53,9 @@ export default function MyProperties() {
                                     />
                                 </div>
                                 <div className="w-full p-5 flex flex-col items-center md:w-1/2 md:items-start">
-                                    <h3 className="text-2xl font-semibold text-purple-700 mb-2 md:text-3xl">{property.title}</h3>
+                                    <h3 className="text-2xl font-semibold text-text-300 mb-2 md:text-3xl">{property.title}</h3>
                                     <p className="text-gray-700 mb-4 text-center md:text-left">{property.description}</p>
-                                    <p className="text-lg font-bold text-purple-600">{property.price}</p>
+                                    <p className="text-lg font-bold text-text-300">{property.price}</p>
                                     <Button className="bg-primary-500 text-white font-bold mt-4">{t("button")}</Button>
                                 </div>
                             </div>

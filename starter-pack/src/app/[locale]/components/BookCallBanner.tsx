@@ -7,7 +7,7 @@ function BookCallBanner() {
   const t = useTranslations('BookCallBanner');
 
   return (
-    <section className="bg-background-50 p-4">
+    <section className="bg-secondary-200 p-4">
       <div className="text-center">
         <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-white">
           {t('title')}
