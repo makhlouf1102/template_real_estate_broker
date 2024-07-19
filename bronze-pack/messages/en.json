@@ -1,0 +1,95 @@
+{
+  "Error": {
+    "description": "<p>An error occurred.</p><p>You can try <retry>reloading the page</retry>.</p>",
+    "title": "An error occurred!"
+  },
+  "IndexPage": {
+    "description": "This is an example of using <code>next-intl</code> with the Next.js App Router. The content of this page changes when you change the language in the top right corner.",
+    "title": "next-intl example"
+  },
+  "LocaleLayout": {
+    "title": "Page title"
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
+  },
+  "Manifest": {
+    "description": "This is a manifest for the next-intl example.",
+    "name": "next-intl example"
+  },
+  "NotFoundPage": {
+    "description": "Please check the browser's address bar or use the navigation to switch to a known page.",
+    "title": "Page not found"
+  },
+  "AboutPage": {
+    "description": "My page about",
+    "title": "About"
+  },
+  "About": {
+    "title": "About me",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  "Testimonials": {
+    "title": "What My Clients Say",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  "Questions": {
+    "title": "Frequently Asked Questions",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  "BookCallBanner": {
+    "title": "Book a call with me right now!",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "button": "Here !"
+  },
+  "SellPropriety": {
+    "title": "Want to sell your propriety?",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "button": "Book a call"
+  },
+  "BuyPropriety": {
+    "title": "Want to buy your propriety?",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "button": "Book a call"
+  },
+  "AlertsSection": {
+    "title": "Property alerts",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "button": "Join"
+  },
+  "ContactMeForm": {
+    "title": "Leave a message here",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "button": "Send"
+  },
+  "MyProprieties": {
+    "title": "My properties",
+    "button": "View the property"
+  },
+  "Navigation": {
+    "about": "About",
+    "services": "Services",
+    "properties": "Properties",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "Footer": {
+    "title": "Footer",
+    "email": "Email",
+    "phone": "Phone",
+    "office": "Office",
+    "legal": "Legal",
+    "privacy": "Privacy",
+    "allRights": "All rights reserved",
+    "by": "by"
+  },
+  "Home": {
+    "Meta": {
+      "title": "Home",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  }
+}
