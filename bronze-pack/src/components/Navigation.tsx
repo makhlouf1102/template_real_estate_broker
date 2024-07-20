@@ -17,12 +17,12 @@ export default function Navigation({ locale }: LocaleProps) {
   return (
     <>
       <header className="border-b border-gray-100 bg-white">
-        <div className="container mx-auto flex items-center justify-between p-4">
+        <div className="flex items-center justify-between py-4 px-40">
           <div className="logo">
             <Image
               alt="Logo de l'agent immobilier"
-              height={100}
               src="/logo.png"
+              height={200}
               width={200}
             />
           </div>
@@ -32,6 +32,10 @@ export default function Navigation({ locale }: LocaleProps) {
           </div>
           <nav className="hidden md:flex">
             <ul className="flex gap-4">
+              <li><Link className={link_style} href="/">Page</Link></li>
+              <li><Link className={link_style} href="/">Page</Link></li>
+              <li><Link className={link_style} href="/">Page</Link></li>
+              <li><Link className={link_style} href="/">Page</Link></li>
               <li>
                 <Link
                   className="hover:opacity-50 text-text-50 font-bold flex items-center gap-2"
