@@ -70,7 +70,7 @@
     "button": "Voir la propriété"
   },
   "Navigation": {
-    "about": " Propos",
+    "about": "À Propos",
     "services": "Services",
     "properties": "Propriétés",
     "testimonials": "Témoignages",
@@ -91,5 +91,9 @@
       "title": "Accueil",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
+  },
+  "AboutPage": {
+    "title": "À Propos",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   }
 }

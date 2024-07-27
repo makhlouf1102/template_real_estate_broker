@@ -11,6 +11,7 @@ export const locales = ['en', 'fr'] as const;
 
 export const pathnames = {
   '/': '/',
+  '/about': '/a-propos',
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`

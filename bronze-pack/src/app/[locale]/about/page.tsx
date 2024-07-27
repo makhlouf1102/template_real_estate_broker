@@ -1,5 +1,4 @@
 import { Avatar } from '@nextui-org/react';
-import { FaHome } from 'react-icons/fa';
 import {
     FaXmark,
     FaFacebook,
@@ -9,7 +8,8 @@ import {
     FaInstagram,
     FaPhone, 
     FaHouse,
-    FaLetterboxd
+    FaLetterboxd,
+    FaUser
   } from 'react-icons/fa6';
 
 export default function Component() {
@@ -74,7 +74,7 @@ export default function Component() {
                   </a>
                 </div>
                 <div className="flex items-center gap-2">
-                  <FaLetterboxd className="h-6 w-6 text-gray-700" />
+                  <FaRegEnvelope className="h-6 w-6 text-gray-700" />
                   <a href="#" className="text-gray-700 hover:underline">
                     john@example.com
                   </a>
