@@ -117,7 +117,7 @@
     "buttonAriaLabel": "Voir les détails de {title}",
     "prevSlideMessage": "Propriété précédente",
     "nextSlideMessage": "Propriété suivante",
-    "paginationBulletMessage": "Aller à la propriété {{index}}",
+    "paginationBulletMessage": "Aller à la propriété {index}",
     "priceLabel": "Prix : {price}"
   },
   "Navigation": {

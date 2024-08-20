@@ -51,7 +51,7 @@ export default function Alerts() {
                         name="email" 
                         type="email" 
                         required
-                        className="text-lg bg-white text-primary-800 border-primary-300 focus:border-primary-500 rounded-lg"
+                        className="text-lg bg-white text-primary-300 border-primary-300 focus:border-primary-500 rounded-lg"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={isLoading}

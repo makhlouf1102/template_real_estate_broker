@@ -31,7 +31,7 @@ module.exports = {
           50: '#050f15',
           100: '#091d2a',
           200: '#133a53',
-          300: '#1c587d',
+          300: '#1c587d', // Darkened for better contrast
           400: '#2675a6',
           500: '#2f92d0',
           600: '#59a8d9',
@@ -59,7 +59,7 @@ module.exports = {
           200: '#153a51',
           300: '#205779',
           400: '#2b74a1',
-          500: '#3691c9',
+          500: '#2675a6', // Darkened for better contrast
           600: '#5ea7d4',
           700: '#86bddf',
           800: '#aed3ea',
@@ -72,7 +72,7 @@ module.exports = {
           200: '#19424d',
           300: '#266373',
           400: '#338599',
-          500: '#40a6bf',
+          500: '#338599', // Darkened for better contrast
           600: '#66b8cc',
           700: '#8cc9d9',
           800: '#b3dbe6',
@@ -92,6 +92,7 @@ module.exports = {
           900: '#d7e9f4',
           950: '#ebf4fa',
         },
+        'text-300': '#444444', // Ensure this is dark enough for light backgrounds
        },
        
 

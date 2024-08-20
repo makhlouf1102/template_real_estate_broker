@@ -45,12 +45,12 @@ export default function MyProperties() {
                     a11y={{
                         prevSlideMessage: t("prevSlideMessage"),
                         nextSlideMessage: t("nextSlideMessage"),
-                        paginationBulletMessage: t("paginationBulletMessage", { index: '{{index}}' }),
+                        paginationBulletMessage: t("paginationBulletMessage", { index: '{index}' }),
                     }}
                 >
                     {properties.map((property) => (
                         <SwiperSlide key={property.id}>
-                            <div className="flex flex-col md:flex-row items-center justify-between">
+                            <div className="flex flex-col md:flex-row items-center justify-between mb-8">
                                 <div className="w-full md:w-1/2 mb-6 md:mb-0">
                                     <Image
                                         src={property.image}
@@ -61,7 +61,7 @@ export default function MyProperties() {
                                     />
                                 </div>
                                 <div className="w-full md:w-1/2 md:pl-8">
-                                    <h3 className="text-2xl font-semibold text-text-300 mb-3 md:text-3xl">
+                                    <h3 className="text-2xl font-semibold text-gray-800 mb-3 md:text-3xl">
                                         {property.title}
                                     </h3>
                                     <p className="text-gray-700 mb-4">{property.description}</p>

@@ -130,7 +130,7 @@
     "buttonAriaLabel": "View details for {title}",
     "prevSlideMessage": "Previous property",
     "nextSlideMessage": "Next property",
-    "paginationBulletMessage": "Go to property {{index}}",
+    "paginationBulletMessage": "Go to property {index}",
     "priceLabel": "Price: {price}"
   },
   "Navigation": {

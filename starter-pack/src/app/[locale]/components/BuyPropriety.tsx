@@ -30,7 +30,7 @@ export default function BuyPropriety() {
                 url="https://calendly.com/mak-hennine/30min"
                 rootElement={rootRef.current}
                 text={t("button")}
-                className="bg-secondary-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-secondary-600 transition duration-300"
+                className="bg-secondary-300 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-secondary-600 transition duration-300"
                 prefill={{
                   email: t('emailPlaceholder'),
                   firstName: t('firstNamePlaceholder'),
