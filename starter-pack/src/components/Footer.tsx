@@ -6,6 +6,7 @@ import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin, FaYoutube, FaPinterest,
 import { AGENT_INFO } from '@/constantes/agent.const';
 import Image from 'next/image';
 import { IconType } from 'react-icons';
+import { FaXTwitter } from 'react-icons/fa6';
 
 interface SocialLinkProps {
   href: string;
@@ -40,7 +41,7 @@ export default function Footer({ locale }: LocaleProps) {
     { href: "https://www.youtube.com/channel/your-channel", icon: FaYoutube, label: "Subscribe to our YouTube channel" },
     { href: "https://www.facebook.com/your-page", icon: FaFacebook, label: "Like us on Facebook" },
     { href: "https://www.pinterest.com/your-profile", icon: FaPinterest, label: "Follow us on Pinterest" },
-    { href: "https://twitter.com/your-profile", icon: FaTwitter, label: "Follow us on Twitter" },
+    { href: "https://twitter.com/your-profile", icon: FaXTwitter, label: "Follow us on Twitter" },
     { href: "https://www.instagram.com/your-profile", icon: FaInstagram, label: "Follow us on Instagram" },
   ];
 
@@ -91,7 +92,7 @@ export default function Footer({ locale }: LocaleProps) {
 
         {/* Copyright */}
         <div className="text-center text-sm border-t border-primary-300 pt-8">
-          <p>© {new Date().getFullYear()} {t('companyName')}. {t('allRights')}</p>
+          <p>© {new Date().getFullYear()} {AGENT_INFO.name} {t('allRights')}</p>
           <p className="mt-2">
             {t('websiteBy')} <a href="https://www.otowsolution.com" target="_blank" rel="noopener noreferrer" className="hover:underline transition-colors duration-200 text-primary-700">OTOW SOLUTION</a>
           </p>
