@@ -6,14 +6,18 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { MobileNav } from './MobileNav';
 import { AGENT_INFO } from '@/constantes/agent.const';
-import { FaPhone } from "react-icons/fa6";
+import { FaPhone, FaChevronDown } from "react-icons/fa6";
 import { useRouter, usePathname } from '@/navigation';
 import LanguageToggle from './LanguageToggle';
+import { useState } from 'react';
 
 export default function Navigation({ locale }: LocaleProps) {
   const t = useTranslations('Navigation');
+  const tLegal = useTranslations('LegalAndPrivacy');
   const router = useRouter();
   const pathname = usePathname();
+  const [isLegalDropdownOpen, setIsLegalDropdownOpen] = useState(false);
+  const [isPrivacyDropdownOpen, setIsPrivacyDropdownOpen] = useState(false);
 
   return (
     <header className="border-b border-gray-100 bg-white" role="banner">
@@ -32,7 +36,7 @@ export default function Navigation({ locale }: LocaleProps) {
           <MobileNav locale={locale} />
         </div>
         <nav className="hidden md:block" aria-label={t('mainNavigation')}>
-          <ul className="flex gap-4">
+          <ul className="flex gap-4 items-center">
             <li>
               <Link
                 className="hover:opacity-70 text-text-50 font-bold flex items-center gap-2 p-2 rounded transition-opacity"
@@ -46,7 +50,6 @@ export default function Navigation({ locale }: LocaleProps) {
             <li>
               <LanguageToggle locale={locale} />
             </li>
-            {/* Additional navigation items can be added here */}
           </ul>
         </nav>
       </div>

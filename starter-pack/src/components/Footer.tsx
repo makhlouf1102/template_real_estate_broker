@@ -45,8 +45,7 @@ export default function Footer({ locale }: LocaleProps) {
   ];
 
   const quickLinks = [
-    { href: "/legal", label: t('legal') },
-    { href: "/privacy", label: t('privacy') },
+    { href: "/legal-and-privacy", label: t('legalAndPrivacy') },
   ];
 
   return (

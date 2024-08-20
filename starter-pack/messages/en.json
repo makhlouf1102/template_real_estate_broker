@@ -158,19 +158,50 @@
     "termsOfService": {
       "title": "Terms of Service",
       "intro": "Welcome to our real estate agency website. By using our website and services, you agree to comply with and be bound by the following terms:",
-      "serviceDescription": "Service Description: Our website provides real estate services, including listings, property information, and contact forms for inquiries. The information provided on this site is for informational purposes only and should not be construed as professional advice.",
-      "userObligations": "User Obligations: Users must provide accurate and current contact information when engaging with our services. Misuse of the website, including but not limited to providing false information, spamming, or any unlawful activities, is strictly prohibited.",
-      "termination": "Termination: We reserve the right to suspend or terminate access to our services if we believe that a user has violated these terms or engaged in unlawful or harmful conduct.",
-      "liability": "Liability: We are not liable for any direct, indirect, incidental, or consequential damages arising out of your use of our website or services. All information on the site is provided \"as is\" without any warranties of any kind.",
-      "disputeResolution": "Dispute Resolution: Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
+      "serviceDescription": {
+        "title":"Service Description: ",
+        "content":"Our website provides real estate services, including listings, property information, and contact forms for inquiries. The information provided on this site is for informational purposes only and should not be construed as professional advice."
+      },
+      "userObligations": {
+        "title":"User Obligations: ",
+        "content":"Users must provide accurate and current contact information when engaging with our services. Misuse of the website, including but not limited to providing false information, spamming, or any unlawful activities, is strictly prohibited."
+      },
+      "termination": {
+        "title":"Termination: ",
+        "content":"We reserve the right to suspend or terminate access to our services if we believe that a user has violated these terms or engaged in unlawful or harmful conduct."
+      },
+      "liability": {
+        "title":"Liability: ",
+        "content":"We are not liable for any direct, indirect, incidental, or consequential damages arising out of your use of our website or services. All information on the site is provided \"as is\" without any warranties of any kind."
+      },
+      "disputeResolution": {
+        "title":"Dispute Resolution: ",
+        "content":"Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
+      }
     },
     "privacyPolicy": {
       "title": "Privacy Policy",
       "intro": "We are committed to protecting your privacy. This privacy policy outlines the types of personal information we collect and how we use, disclose, and protect that information.",
-      "dataCollection": "Data Collection: We only collect personal information that you voluntarily provide to us, such as your email address and testimonials. This information is collected when you contact us through our website or submit feedback/testimonials.",
-      "dataUse": "Data Use: Your email address is used solely for communication purposes, such as responding to your inquiries or sending you updates related to our services. Testimonials may be used on our website for promotional purposes, with your consent.",
-      "userRights": "User Rights: You have the right to request access to, correction of, or deletion of your personal information at any time. If you wish to have a testimonial removed, please contact us, and we will promptly comply.",
-      "securityMeasures": "Security Measures: We take reasonable precautions to protect your personal information from unauthorized access, use, or disclosure. However, please be aware that no data transmission over the internet can be guaranteed to be completely secure."
+      "dataCollection": {
+        "title":"Data Collection: ",
+        "content":"We only collect personal information that you voluntarily provide to us, such as your email address and testimonials. This information is collected when you contact us through our website or submit feedback/testimonials."
+      },
+      "dataUse": {
+        "title":"Data Use: ",
+        "content":"Your email address is used solely for communication purposes, such as responding to your inquiries or sending you updates related to our services. Testimonials may be used on our website for promotional purposes, with your consent."
+      },
+      "userRights": {
+        "title":"User Rights: ",
+        "content":"You have the right to request access to, correction of, or deletion of your personal information at any time. If you wish to have a testimonial removed, please contact us, and we will promptly comply."
+      },
+      "securityMeasures": {
+        "title":"Security Measures: ",
+        "content":"We take reasonable precautions to protect your personal information from unauthorized access, use, or disclosure. However, please be aware that no data transmission over the internet can be guaranteed to be completely secure."
+      },
+      "disputeResolution": {
+        "title":"Dispute Resolution: ",
+        "content":"Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
+      }
     },
     "cookiePolicy": {
       "title": "Cookie Policy",
@@ -209,7 +240,8 @@
     "termsOfService": "Terms of Service",
     "cookiePolicy": "Cookie Policy",
     "accessibility": "Accessibility",
-    "sitemap": "Sitemap"
+    "sitemap": "Sitemap",
+    "legalAndPrivacy": "Legal and Privacy"
   },
   "Home": {
     "Meta": {

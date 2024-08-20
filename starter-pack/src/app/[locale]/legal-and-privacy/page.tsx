@@ -14,15 +14,15 @@ const LegalAndPrivacyPage: React.FC = () => {
         <p>
           {t('termsOfService.intro')}
           <br /><br />
-          <strong>{t('termsOfService.serviceDescription')}</strong>
+          <strong>{t('termsOfService.serviceDescription.title')}</strong> {t('termsOfService.serviceDescription.content')}
           <br /><br />
-          <strong>{t('termsOfService.userObligations')}</strong>
+          <strong>{t('termsOfService.userObligations.title')}</strong> {t('termsOfService.userObligations.content')}  
           <br /><br />
-          <strong>{t('termsOfService.termination')}</strong>
+          <strong>{t('termsOfService.termination.title')}</strong> {t('termsOfService.termination.content')}  
           <br /><br />
-          <strong>{t('termsOfService.liability')}</strong>
+          <strong>{t('termsOfService.liability.title')}</strong> {t('termsOfService.liability.content')}
           <br /><br />
-          <strong>{t('termsOfService.disputeResolution')}</strong>
+          <strong>{t('termsOfService.disputeResolution.title')}</strong> {t('termsOfService.disputeResolution.content')}
         </p>
       </section>
 
@@ -31,13 +31,13 @@ const LegalAndPrivacyPage: React.FC = () => {
         <p>
           {t('privacyPolicy.intro')}
           <br /><br />
-          <strong>{t('privacyPolicy.dataCollection')}</strong>
+          <strong>{t('privacyPolicy.dataCollection.title')}</strong> {t('privacyPolicy.dataCollection.content')}
           <br /><br />
-          <strong>{t('privacyPolicy.dataUse')}</strong>
+          <strong>{t('privacyPolicy.dataUse.title')}</strong> {t('privacyPolicy.dataUse.content')}
           <br /><br />
-          <strong>{t('privacyPolicy.userRights')}</strong>
+          <strong>{t('privacyPolicy.userRights.title')}</strong> {t('privacyPolicy.userRights.content')}
           <br /><br />
-          <strong>{t('privacyPolicy.securityMeasures')}</strong>
+          <strong>{t('privacyPolicy.securityMeasures.title')}</strong> {t('privacyPolicy.securityMeasures.content')}
         </p>
       </section>
 
