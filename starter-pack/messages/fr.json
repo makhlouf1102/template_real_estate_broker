@@ -210,38 +210,38 @@
       "email": "Courriel",
       "phone": "Téléphone",
       "address": "Adresse"
-    },
-    "Footer": {
-      "title": "Pied de page",
-      "email": "E-mail",
-      "phone": "Téléphone",
-      "office": "Bureau",
-      "legal": "Mentions légales",
-      "privacy": "Politique de confidentialité",
-      "allRights": "Tous droits réservés",
-      "by": "par",
-      "companyName": "Nom de Votre Entreprise",
-      "quickLinks": "Liens Rapides",
-      "websiteBy": "Site web par",
-      "followUs": "Suivez-nous",
-      "address": "Adresse",
-      "contactUs": "Contactez-nous",
-      "services": "Nos Services",
-      "buyProperty": "Acheter un bien",
-      "sellProperty": "Vendre un bien",
-      "rentProperty": "Louer un bien",
-      "propertyManagement": "Gestion locative",
-      "termsOfService": "Conditions d'utilisation",
-      "cookiePolicy": "Politique des cookies",
-      "accessibility": "Accessibilité",
-      "sitemap": "Plan du site",
-      "legalAndPrivacy": "Mentions légales et politique de confidentialité"
-    },
-    "Home": {
-      "Meta": {
-        "title": "Accueil",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-      }
+    }
+  },
+  "Footer": {
+    "title": "Pied de page",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "office": "Bureau",
+    "legal": "Mentions légales",
+    "privacy": "Politique de confidentialité",
+    "allRights": "Tous droits réservés",
+    "by": "par",
+    "companyName": "Nom de Votre Entreprise",
+    "quickLinks": "Liens Rapides",
+    "websiteBy": "Site web par",
+    "followUs": "Suivez-nous",
+    "address": "Adresse",
+    "contactUs": "Contactez-nous",
+    "services": "Nos Services",
+    "buyProperty": "Acheter un bien",
+    "sellProperty": "Vendre un bien",
+    "rentProperty": "Louer un bien",
+    "propertyManagement": "Gestion locative",
+    "termsOfService": "Conditions d'utilisation",
+    "cookiePolicy": "Politique des cookies",
+    "accessibility": "Accessibilité",
+    "sitemap": "Plan du site",
+    "legalAndPrivacy": "Mentions légales et politique de confidentialité"
+  },
+  "Home": {
+    "Meta": {
+      "title": "Accueil",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
   }
 }
