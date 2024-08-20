@@ -6,18 +6,14 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { MobileNav } from './MobileNav';
 import { AGENT_INFO } from '@/constantes/agent.const';
-import { FaPhone, FaLanguage } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
 import { useRouter, usePathname } from '@/navigation';
+import LanguageToggle from './LanguageToggle';
 
 export default function Navigation({ locale }: LocaleProps) {
   const t = useTranslations('Navigation');
   const router = useRouter();
   const pathname = usePathname();
-
-  const toggleLanguage = () => {
-    const newLocale = locale === 'en' ? 'fr' : 'en';
-    router.push(pathname, { locale: newLocale });
-  };
 
   return (
     <header className="border-b border-gray-100 bg-white" role="banner">
@@ -33,7 +29,7 @@ export default function Navigation({ locale }: LocaleProps) {
           />
         </Link>
         <div className="md:hidden">
-          <MobileNav />
+          <MobileNav locale={locale} />
         </div>
         <nav className="hidden md:block" aria-label={t('mainNavigation')}>
           <ul className="flex gap-4">
@@ -48,14 +44,7 @@ export default function Navigation({ locale }: LocaleProps) {
               </Link>
             </li>
             <li>
-              <button
-                className="hover:opacity-70 text-text-50 font-bold flex items-center gap-2 p-2 rounded transition-opacity"
-                aria-label={t('toggleLanguage')}
-                onClick={toggleLanguage}
-              >
-                <FaLanguage aria-hidden="true" />
-                <span>{locale === 'en' ? 'FR' : 'EN'}</span>
-              </button>
+              <LanguageToggle locale={locale} />
             </li>
             {/* Additional navigation items can be added here */}
           </ul>

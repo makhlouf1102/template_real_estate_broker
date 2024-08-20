@@ -16,8 +16,9 @@ import {
 } from 'react-icons/fa6';
 import { AGENT_INFO } from '@/constantes/agent.const';
 import { useState, useEffect } from 'react';
+import LanguageToggle from './LanguageToggle';
 
-export function MobileNav() {
+export function MobileNav({ locale }: LocaleProps) {
   const t = useTranslations('Navigation');
   const [isOpen, setIsOpen] = useState(false);
 
@@ -102,6 +103,13 @@ export function MobileNav() {
                     <Icon size={24} aria-hidden="true" />
                   </Link>
                 ))}
+              </div>
+            </li>
+            
+            {/* Add LanguageToggle component */}
+            <li className="w-full">
+              <div className="p-4">
+                <LanguageToggle locale={locale} />
               </div>
             </li>
           </ul>
