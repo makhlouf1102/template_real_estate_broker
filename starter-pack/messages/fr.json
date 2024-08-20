@@ -28,46 +28,97 @@
   },
   "About": {
     "title": "À Propos",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "agentPhotoAlt": "Photo d'un agent immobilier souriant debout à l'extérieur d'une maison moderne",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "additionalInfo": "Avec des années d'expérience sur le marché immobilier, je suis dévoué à vous aider à trouver la maison de vos rêves ou à vendre votre propriété au meilleur prix possible."
   },
   "Testimonials": {
-    "title": "Ce Que Disent Mes Clients",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "title": "Ce Que Disent Nos Clients",
+    "description": "Ne vous fiez pas seulement à notre parole. Voici ce que certains de nos clients satisfaits ont à dire sur leur expérience de travail avec nous.",
+    "imageAlt": "Photo de profil de {name}",
+    "via": "Via {platform}",
+    "testimonial1": {
+      "name": "Marc Dupont",
+      "role": "Premier Acheteur",
+      "text": "En tant que premier acheteur, j'étais nerveux à propos du processus. Cette équipe immobilière l'a rendu fluide et sans stress. Leur expertise et leur patience ont été inestimables !"
+    },
+    "testimonial2": {
+      "name": "Sophie Martin",
+      "role": "Vendeuse de Propriété",
+      "text": "Je ne pourrais pas être plus satisfaite du service que j'ai reçu. La stratégie marketing et les compétences de négociation de l'agent m'ont aidée à vendre ma propriété au-dessus du prix demandé en seulement deux semaines !"
+    },
+    "testimonial3": {
+      "name": "Isabelle Lefebvre",
+      "role": "Cliente Régulière",
+      "text": "C'est la troisième fois que je travaille avec cette équipe, et ils ne déçoivent jamais. Leur connaissance du marché et leur approche personnalisée font d'eux mon choix incontournable pour tout ce qui concerne l'immobilier."
+    },
+    "platformIcon": "Icône {platform}",
+    "ratingLabel": "Note de {rating} étoiles"
   },
   "Questions": {
     "title": "Foire Aux Questions",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
   },
   "BookCallBanner": {
-    "title": "Prenez rendez-vous avec moi maintenant !",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Ici !"
+    "title": "Planifiez Votre Consultation Aujourd'hui",
+    "description": "Faites le premier pas vers vos objectifs immobiliers. Réservez un appel avec moi pour discuter de vos besoins et de la façon dont je peux vous aider à les atteindre.",
+    "button": "Réserver Maintenant",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "firstNamePlaceholder": "Votre Prénom",
+    "lastNamePlaceholder": "Votre Nom"
   },
   "SellPropriety": {
-    "title": "Voulez-vous vendre votre propriété ?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Prendre rendez-vous"
+    "title": "Prêt à vendre votre propriété ?",
+    "description": "Maximisez la valeur de votre maison avec nos stratégies de vente expertes. Nous vous aiderons à naviguer sur le marché et à trouver le bon acheteur pour votre propriété.",
+    "button": "Obtenir une Estimation Gratuite",
+    "imageAlt": "Agents immobiliers montrant une pancarte de maison à vendre",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "firstNamePlaceholder": "Votre Prénom",
+    "lastNamePlaceholder": "Votre Nom"
   },
   "BuyPropriety": {
-    "title": "Voulez-vous acheter votre propriété ?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Prendre rendez-vous"
+    "title": "Vous cherchez à acheter la maison de vos rêves ?",
+    "description": "Découvrez la propriété parfaite qui répond à tous vos besoins. Notre équipe d'experts est là pour vous guider à chaque étape du processus d'achat.",
+    "button": "Planifier une Consultation",
+    "imageAlt": "Famille heureuse recevant les clés d'un agent immobilier devant leur nouvelle maison",
+    "emailPlaceholder": "votre.email@exemple.com",
+    "firstNamePlaceholder": "Votre Prénom",
+    "lastNamePlaceholder": "Votre Nom"
   },
   "AlertsSection": {
     "title": "Alertes immobilier",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Rejoindre"
+    "emailLabel": "Adresse courriel",
+    "emailPlaceholder": "Entrez votre adresse courriel",
+    "button": "Rejoindre",
+    "successMessage": "Merci de vous être abonné à nos alertes immobilières !",
+    "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard.",
+    "loadingButton": "Envoi en cours..."
   },
   "ContactMeForm": {
-    "title": "Laissez moi un message",
+    "title": "Contactez-moi",
+    "description": "Vous avez une question ou souhaitez discuter de vos besoins immobiliers ? Remplissez le formulaire ci-dessous, et je vous répondrai dans les plus brefs délais.",
     "name": "Nom",
+    "namePlaceholder": "Entrez votre nom complet",
     "email": "Courriel",
+    "emailPlaceholder": "Entrez votre adresse e-mail",
     "message": "Message",
-    "button": "Envoyer"
+    "messagePlaceholder": "Comment puis-je vous aider ?",
+    "button": "Envoyer le message",
+    "successMessage": "Votre message a été envoyé avec succès. Nous vous contacterons bientôt.",
+    "errorMessage": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer.",
+    "submitting": "Envoi en cours...",
+    "formAriaLabel": "Formulaire de contact"
   },
   "MyProprieties": {
-    "title": "Mes propriétés",
-    "button": "Voir la propriété"
+    "title": "Propriétés en Vedette",
+    "button": "Voir la Propriété",
+    "imageAlt": "Vue intérieure de {title}",
+    "buttonAriaLabel": "Voir les détails de {title}",
+    "prevSlideMessage": "Propriété précédente",
+    "nextSlideMessage": "Propriété suivante",
+    "paginationBulletMessage": "Aller à la propriété {{index}}",
+    "priceLabel": "Prix : {price}"
   },
   "Navigation": {
     "about": " Propos",
@@ -78,13 +129,28 @@
   },
   "Footer": {
     "title": "Pied de page",
-    "email": "Email",
+    "email": "E-mail",
     "phone": "Téléphone",
     "office": "Bureau",
     "legal": "Mentions légales",
     "privacy": "Politique de confidentialité",
-    "allRights": "Tous droits réservés |",
-    "by": "Réalisé par"
+    "allRights": "Tous droits réservés",
+    "by": "par",
+    "companyName": "Nom de Votre Entreprise",
+    "quickLinks": "Liens Rapides",
+    "websiteBy": "Site web par",
+    "followUs": "Suivez-nous",
+    "address": "Adresse",
+    "contactUs": "Contactez-nous",
+    "services": "Nos Services",
+    "buyProperty": "Acheter un bien",
+    "sellProperty": "Vendre un bien",
+    "rentProperty": "Louer un bien",
+    "propertyManagement": "Gestion locative",
+    "termsOfService": "Conditions d'utilisation",
+    "cookiePolicy": "Politique des cookies",
+    "accessibility": "Accessibilité",
+    "sitemap": "Plan du site"
   },
   "Home": {
     "Meta": {

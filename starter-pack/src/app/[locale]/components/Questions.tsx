@@ -8,53 +8,41 @@ import {useTranslations} from 'next-intl';
 export default function Questions({locale}: LocaleProps) {
   const t = useTranslations('Questions');
 
-  const defaultContent =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.';
+  const faqs = [
+    { question: t('faq1.question'), answer: t('faq1.answer') },
+    { question: t('faq2.question'), answer: t('faq2.answer') },
+    { question: t('faq3.question'), answer: t('faq3.answer') },
+  ];
 
   return (
-    <section className="py-12" id="questions">
-      <div className="container mx-auto flex flex-col items-center justify-center gap-12 px-10">
-        <div className="flex flex-col items-center justify-center ">
-          <h2 className="text-3xl font-bold">{t('title')}</h2>
+    <section className="py-12 bg-gray-50" id="questions" aria-labelledby="questions-heading">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 id="questions-heading" className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">{t('title')}</h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">{t('description')}</p>
         </div>
-        <div className="flex w-full flex-col justify-between gap-6 ">
-          <div className="flex w-full justify-center">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-12">
+          <div className="lg:w-1/2">
             <Image
-              alt="Our team of real estate agents standing outside homes"
+              alt={t('imageAlt')}
               src="/Team-of-Real-Estate-Agents-Standing-Outside-Homes.png"
-              width={310} 
-              height={177}
+              width={500} 
+              height={300}
+              className="rounded-lg shadow-lg"
             />
           </div>
-          <div className="w-full">
-            <Accordion
-              isCompact={false}
-              isDisabled={false}
-              hideIndicator={false}
-              disableAnimation={false}
-              disableIndicatorAnimation={false}
-            >
-              <AccordionItem
-                key="1"
-                aria-label="Accordion 1"
-                title="Accordion 1"
-              >
-                {defaultContent}
-              </AccordionItem>
-              <AccordionItem
-                key="2"
-                aria-label="Accordion 2"
-                title="Accordion 2"
-              >
-                {defaultContent}
-              </AccordionItem>
-              <AccordionItem
-                key="3"
-                aria-label="Accordion 3"
-                title="Accordion 3"
-              >
-                {defaultContent}
-              </AccordionItem>
+          <div className="lg:w-1/2">
+            <Accordion>
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  aria-label={faq.question}
+                  title={faq.question}
+                  className="mb-4"
+                >
+                  <p className="text-gray-700">{faq.answer}</p>
+                </AccordionItem>
+              ))}
             </Accordion>
           </div>
         </div>

@@ -28,46 +28,110 @@
   },
   "About": {
     "title": "About me",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "agentPhotoAlt": "Smiling real estate agent standing outside a modern home",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "additionalInfo": "With years of experience in the real estate market, I'm dedicated to helping you find your dream home or sell your property at the best possible price."
   },
   "Testimonials": {
-    "title": "What My Clients Say",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "title": "What Our Clients Say",
+    "description": "Don't just take our word for it. Here's what some of our satisfied clients have to say about their experience working with us.",
+    "imageAlt": "{name}'s profile picture",
+    "via": "Via {platform}",
+    "testimonial1": {
+      "name": "Mark Johnson",
+      "role": "First-time Homebuyer",
+      "text": "As a first-time homebuyer, I was nervous about the process. This real estate team made it smooth and stress-free. Their expertise and patience were invaluable!"
+    },
+    "testimonial2": {
+      "name": "Sarah Davis",
+      "role": "Property Seller",
+      "text": "I couldn't be happier with the service I received. The agent's marketing strategy and negotiation skills helped me sell my property above asking price in just two weeks!"
+    },
+    "testimonial3": {
+      "name": "Jennifer Smith",
+      "role": "Repeat Client",
+      "text": "This is the third time I've worked with this team, and they never disappoint. Their market knowledge and personalized approach make them my go-to for all things real estate."
+    },
+    "platformIcon": "{platform} icon",
+    "ratingLabel": "{rating} star rating"
   },
   "Questions": {
     "title": "Frequently Asked Questions",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    "description": "Find answers to common questions about our real estate services.",
+    "imageAlt": "Our team of real estate agents standing outside homes",
+    "faq1": {
+      "question": "What services do you offer?",
+      "answer": "We offer a comprehensive range of real estate services, including property buying, selling, and rental assistance."
+    },
+    "faq2": {
+      "question": "How long does it typically take to sell a house?",
+      "answer": "The time to sell a house can vary depending on market conditions, but on average, it takes about 2-3 months from listing to closing."
+    },
+    "faq3": {
+      "question": "What should I look for when buying a home?",
+      "answer": "Consider factors such as location, property condition, price, and potential for appreciation. Our agents can guide you through the process."
+    }
   },
   "BookCallBanner": {
-    "title": "Book a call with me right now!",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Here !"
+    "title": "Schedule Your Consultation Today",
+    "description": "Take the first step towards your real estate goals. Book a call with me to discuss your needs and how I can help you achieve them.",
+    "button": "Book Now",
+    "emailPlaceholder": "your.email@example.com",
+    "firstNamePlaceholder": "Your First Name",
+    "lastNamePlaceholder": "Your Last Name"
   },
   "SellPropriety": {
-    "title": "Want to sell your propriety?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Book a call"
+    "title": "Ready to Sell Your Property?",
+    "description": "Maximize the value of your home with our expert selling strategies. We'll help you navigate the market and find the right buyer for your property.",
+    "button": "Get a Free Valuation",
+    "imageAlt": "Real estate agents showing home for sale sign",
+    "emailPlaceholder": "your.email@example.com",
+    "firstNamePlaceholder": "Your First Name",
+    "lastNamePlaceholder": "Your Last Name"
   },
   "BuyPropriety": {
-    "title": "Want to buy your propriety?",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Book a call"
+    "title": "Looking to Buy Your Dream Home?",
+    "description": "Discover the perfect property that meets all your needs. Our expert team is here to guide you through every step of the home buying process.",
+    "button": "Schedule a Consultation",
+    "imageAlt": "Happy family receiving keys from real estate agent outside new home",
+    "emailPlaceholder": "your.email@example.com",
+    "firstNamePlaceholder": "Your First Name",
+    "lastNamePlaceholder": "Your Last Name"
   },
   "AlertsSection": {
     "title": "Property alerts",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "button": "Join"
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "Enter your email address",
+    "button": "Join",
+    "successMessage": "Thank you for subscribing to our real estate alerts!",
+    "errorMessage": "An error occurred. Please try again later.",
+    "loadingButton": "Sending..."
   },
   "ContactMeForm": {
-    "title": "Leave a message here",
+    "title": "Contact Me",
+    "description": "Have a question or want to discuss your real estate needs? Fill out the form below, and I'll get back to you as soon as possible.",
     "name": "Name",
+    "namePlaceholder": "Enter your full name",
     "email": "Email",
+    "emailPlaceholder": "Enter your email address",
     "message": "Message",
-    "button": "Send"
+    "messagePlaceholder": "How can I help you?",
+    "button": "Send Message",
+    "successMessage": "Your message has been sent successfully. We'll be in touch soon.",
+    "errorMessage": "An error occurred while sending the message. Please try again.",
+    "submitting": "Submitting...",
+    "formAriaLabel": "Contact form"
   },
   "MyProprieties": {
-    "title": "My properties",
-    "button": "View the property"
+    "title": "Featured Properties",
+    "button": "View Property",
+    "imageAlt": "Interior view of {title}",
+    "buttonAriaLabel": "View details for {title}",
+    "prevSlideMessage": "Previous property",
+    "nextSlideMessage": "Next property",
+    "paginationBulletMessage": "Go to property {{index}}",
+    "priceLabel": "Price: {price}"
   },
   "Navigation": {
     "about": "About",
@@ -82,9 +146,24 @@
     "phone": "Phone",
     "office": "Office",
     "legal": "Legal",
-    "privacy": "Privacy",
+    "privacy": "Privacy Policy",
     "allRights": "All rights reserved",
-    "by": "by"
+    "by": "by",
+    "companyName": "Your Company Name",
+    "quickLinks": "Quick Links",
+    "websiteBy": "Website by",
+    "followUs": "Follow Us",
+    "address": "Address",
+    "contactUs": "Contact Us",
+    "services": "Our Services",
+    "buyProperty": "Buy Property",
+    "sellProperty": "Sell Property",
+    "rentProperty": "Rent Property",
+    "propertyManagement": "Property Management",
+    "termsOfService": "Terms of Service",
+    "cookiePolicy": "Cookie Policy",
+    "accessibility": "Accessibility",
+    "sitemap": "Sitemap"
   },
   "Home": {
     "Meta": {
