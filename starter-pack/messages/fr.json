@@ -137,7 +137,8 @@
     "facebookLink": "Visitez notre page Facebook",
     "twitterLink": "Visitez notre page Twitter",
     "instagramLink": "Visitez notre page Instagram",
-    "linkedinLink": "Visitez notre page LinkedIn"
+    "linkedinLink": "Visitez notre page LinkedIn",
+    "toggleLanguage": "Changer de langue"
   },
   "LegalAndPrivacy": {
     "title": "Mentions légales et politique de confidentialité",

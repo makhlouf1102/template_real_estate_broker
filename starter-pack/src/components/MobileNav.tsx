@@ -1,8 +1,9 @@
+'use client';
+
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { LocaleProps } from '@props/Locale.props';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
-import { unstable_setRequestLocale } from 'next-intl/server';
 import {
   FaBars,
   FaXmark,
@@ -14,79 +15,98 @@ import {
   FaPhone
 } from 'react-icons/fa6';
 import { AGENT_INFO } from '@/constantes/agent.const';
+import { useState, useEffect } from 'react';
 
-export function MobileNav({ locale }: LocaleProps) {
-  unstable_setRequestLocale(locale);
+export function MobileNav() {
   const t = useTranslations('Navigation');
+  const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  const closeNav = () => setIsOpen(false);
 
   return (
-    <label className="relative z-40 cursor-pointer" htmlFor="mobile-menu">
-      <input className="peer hidden" id="mobile-menu" type="checkbox" />
-      <FaBars className="cursor-pointer hover:opacity-70" size={28} />
+    <>
+      <button
+        className="relative z-40 cursor-pointer"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label={isOpen ? t('closeMenu') : t('openMenu')}
+      >
+        {isOpen ? (
+          <FaXmark className="cursor-pointer hover:opacity-70" size={28} />
+        ) : (
+          <FaBars className="cursor-pointer hover:opacity-70" size={28} />
+        )}
+      </button>
 
-      <div className="fixed right-0 top-0 z-40 h-full w-full translate-x-full overflow-y-auto overscroll-y-none transition duration-500 peer-checked:translate-x-0">
-        <div className="float-right min-h-full w-[75%] bg-white p-4 px-6 shadow-2xl">
-          <span className="flex h-10 w-full items-center justify-end">
-            <FaXmark className="cursor-pointer hover:opacity-70" size={28} />
-          </span>
-          <menu className="flex flex-col items-center justify-start gap-4">
-          <li className="w-full">
-              <input
-                className="peer hidden"
-                id="accordion-contact"
-                type="checkbox"
-              />
-              <label className="block w-full" htmlFor="accordion-contact">
-                <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
-                  <Link
-                    className="w-full flex items-center gap-2"
-                    href={`tel:${AGENT_INFO.phone}`}
-                    locale={locale}
-                  >
-                    <FaPhone />
-                    {AGENT_INFO.phone}
-                  </Link>
-                </div>
-              </label>
+      <nav
+        className={`fixed right-0 top-0 z-40 h-full w-full overflow-y-auto overscroll-y-none transition-transform duration-300 ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="float-right min-h-full w-full max-w-sm bg-white p-6 shadow-2xl">
+          <button
+            className="absolute top-4 right-4 text-slate-700 hover:text-slate-900"
+            onClick={closeNav}
+            aria-label={t('closeMenu')}
+          >
+            <FaXmark size={28} />
+          </button>
+          <ul className="flex flex-col items-start justify-start gap-6 mt-12">
+            <li className="w-full">
+              <Link
+                className="flex w-full items-center gap-2 border-b border-slate-100 p-4 text-left font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                href={`tel:${AGENT_INFO.phone}`}
+                onClick={closeNav}
+              >
+                <FaPhone aria-hidden="true" />
+                <span>{AGENT_INFO.phone}</span>
+              </Link>
             </li>
             <li className="w-full">
-              <input
-                className="peer hidden"
-                id="accordion-contact"
-                type="checkbox"
-              />
-              <label className="block w-full" htmlFor="accordion-contact">
-                <div className="group relative flex w-full cursor-pointer items-center border-b border-solid border-slate-100 p-4 text-left font-semibold text-slate-700 transition-all ease-in">
-                  <Link
-                    className="w-full flex items-center gap-2"
-                    href={`mailto:${AGENT_INFO.email}`}
-                    locale={locale}
-                  >
-                    <FaRegEnvelope />
-                    {AGENT_INFO.email}
-                  </Link>
-                </div>
-              </label>
+              <Link
+                className="flex w-full items-center gap-2 border-b border-slate-100 p-4 text-left font-semibold text-slate-700 hover:bg-slate-50 transition-colors"
+                href={`mailto:${AGENT_INFO.email}`}
+                onClick={closeNav}
+              >
+                <FaRegEnvelope aria-hidden="true" />
+                <span>{AGENT_INFO.email}</span>
+              </Link>
             </li>
-            <div className="ml-8 flex w-full items-center justify-start">
-              <span className="flex space-x-4">
-                <Link className="hover:opacity-50" href="#">
-                  <FaFacebook size={24} />
-                </Link>
-                <Link className="hover:opacity-50" href="#">
-                  <FaXTwitter size={24} />
-                </Link>
-                <Link className="hover:opacity-50" href="#">
-                  <FaInstagram size={24} />
-                </Link>
-                <Link className="hover:opacity-50" href="#">
-                  <FaLinkedin size={24} />
-                </Link>
-              </span>
-            </div>
-          </menu>
+            <li className="w-full">
+              <div className="flex items-center justify-start space-x-6 p-4">
+                {[
+                  { icon: FaFacebook, href: AGENT_INFO.facebook, label: 'Facebook' },
+                  { icon: FaXTwitter, href: AGENT_INFO.twitter, label: 'Twitter' },
+                  { icon: FaInstagram, href: AGENT_INFO.instagram, label: 'Instagram' },
+                  { icon: FaLinkedin, href: AGENT_INFO.linkedin, label: 'LinkedIn' },
+                ].map(({ icon: Icon, href, label }) => (
+                  <Link
+                    key={label}
+                    className="text-slate-700 hover:text-slate-900 transition-colors"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    onClick={closeNav}
+                  >
+                    <Icon size={24} aria-hidden="true" />
+                  </Link>
+                ))}
+              </div>
+            </li>
+          </ul>
         </div>
-      </div>
-    </label>
+      </nav>
+    </>
   );
 }

@@ -150,7 +150,8 @@
     "facebookLink": "Visit our Facebook page",
     "twitterLink": "Visit our Twitter page",
     "instagramLink": "Visit our Instagram page",
-    "linkedinLink": "Visit our LinkedIn page"
+    "linkedinLink": "Visit our LinkedIn page",
+    "toggleLanguage": "Toggle language"
   },
   "LegalAndPrivacy": {
     "title": "Legal and Privacy",
