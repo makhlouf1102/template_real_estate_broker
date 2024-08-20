@@ -139,6 +139,39 @@
     "instagramLink": "Visitez notre page Instagram",
     "linkedinLink": "Visitez notre page LinkedIn"
   },
+  "LegalAndPrivacy": {
+    "title": "Mentions légales et politique de confidentialité",
+    "termsOfService": {
+      "title": "Conditions d'utilisation",
+      "intro": "Bienvenue sur le site web de notre agence immobilière. En utilisant notre site web et nos services, vous acceptez de vous conformer et d'être lié par les conditions suivantes :",
+      "serviceDescription": "Description du service : Notre site web fournit des services immobiliers, y compris des annonces, des informations sur les propriétés et des formulaires de contact pour les demandes de renseignements. Les informations fournies sur ce site sont à titre informatif uniquement et ne doivent pas être interprétées comme des conseils professionnels.",
+      "userObligations": "Obligations de l'utilisateur : Les utilisateurs doivent fournir des informations de contact exactes et à jour lorsqu'ils utilisent nos services. L'utilisation abusive du site web, y compris, mais sans s'y limiter, la fourniture de fausses informations, le spam ou toute activité illégale, est strictement interdite.",
+      "termination": "Résiliation : Nous nous réservons le droit de suspendre ou de mettre fin à l'accès à nos services si nous estimons qu'un utilisateur a violé ces conditions ou s'est engagé dans une conduite illégale ou préjudiciable.",
+      "liability": "Responsabilité : Nous ne sommes pas responsables des dommages directs, indirects, accessoires ou consécutifs résultant de votre utilisation de notre site web ou de nos services. Toutes les informations sur le site sont fournies \"telles quelles\" sans aucune garantie d'aucune sorte.",
+      "disputeResolution": "Résolution des litiges : Tout litige découlant de l'utilisation de notre site web ou de nos services sera régi par les lois de [Votre État], et vous acceptez de vous soumettre à la juridiction de ses tribunaux."
+    },
+    "privacyPolicy": {
+      "title": "Politique de confidentialité",
+      "intro": "Nous nous engageons à protéger votre vie privée. Cette politique de confidentialité décrit les types d'informations personnelles que nous collectons et comment nous les utilisons, les divulguons et les protégeons.",
+      "dataCollection": "Collecte de données : Nous ne collectons que les informations personnelles que vous nous fournissez volontairement, telles que votre adresse e-mail et vos témoignages. Ces informations sont collectées lorsque vous nous contactez via notre site web ou soumettez des commentaires/témoignages.",
+      "dataUse": "Utilisation des données : Votre adresse e-mail est utilisée uniquement à des fins de communication, comme répondre à vos demandes ou vous envoyer des mises à jour liées à nos services. Les témoignages peuvent être utilisés sur notre site web à des fins promotionnelles, avec votre consentement.",
+      "userRights": "Droits des utilisateurs : Vous avez le droit de demander l'accès, la correction ou la suppression de vos informations personnelles à tout moment. Si vous souhaitez faire supprimer un témoignage, veuillez nous contacter et nous nous conformerons rapidement à votre demande.",
+      "securityMeasures": "Mesures de sécurité : Nous prenons des précautions raisonnables pour protéger vos informations personnelles contre l'accès, l'utilisation ou la divulgation non autorisés. Cependant, veuillez noter qu'aucune transmission de données sur Internet ne peut être garantie comme totalement sécurisée."
+    },
+    "cookiePolicy": {
+      "title": "Politique des cookies",
+      "content": "Nous n'utilisons pas de cookies sur notre site web. Par conséquent, aucune donnée personnelle n'est collectée ou stockée via des cookies."
+    },
+    "contactInformation": {
+      "title": "Coordonnées",
+      "content": "Si vous avez des questions concernant nos politiques légales, veuillez nous contacter à l'adresse suivante :"
+    },
+    "name": "Nom",
+    "email": "Courriel",
+    "phone": "Téléphone",
+    "address": "Adresse"
+  },
+  
   "Footer": {
     "title": "Pied de page",
     "email": "E-mail",
