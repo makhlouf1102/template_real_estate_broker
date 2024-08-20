@@ -121,11 +121,23 @@
     "priceLabel": "Prix : {price}"
   },
   "Navigation": {
-    "about": " Propos",
+    "about": "À Propos",
     "services": "Services",
     "properties": "Propriétés",
     "testimonials": "Témoignages",
-    "contact": "Contact"
+    "contact": "Contact",
+    "homeLink": "Retour à la page d'accueil",
+    "logoAlt": "Logo de l'agent immobilier",
+    "mainNavigation": "Navigation principale",
+    "callAgent": "Appeler l'agent",
+    "mobileNavLabel": "Navigation Mobile",
+    "openMenu": "Ouvrir le menu mobile",
+    "closeMenu": "Fermer le menu mobile",
+    "followUs": "Suivez-nous",
+    "facebookLink": "Visitez notre page Facebook",
+    "twitterLink": "Visitez notre page Twitter",
+    "instagramLink": "Visitez notre page Instagram",
+    "linkedinLink": "Visitez notre page LinkedIn"
   },
   "Footer": {
     "title": "Pied de page",

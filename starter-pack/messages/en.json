@@ -138,7 +138,19 @@
     "services": "Services",
     "properties": "Properties",
     "testimonials": "Testimonials",
-    "contact": "Contact"
+    "contact": "Contact",
+    "homeLink": "Return to homepage",
+    "logoAlt": "Real estate agent logo",
+    "mainNavigation": "Main navigation",
+    "callAgent": "Call agent",
+    "mobileNavLabel": "Mobile Navigation",
+    "openMenu": "Open mobile menu",
+    "closeMenu": "Close mobile menu",
+    "followUs": "Follow Us",
+    "facebookLink": "Visit our Facebook page",
+    "twitterLink": "Visit our Twitter page",
+    "instagramLink": "Visit our Instagram page",
+    "linkedinLink": "Visit our LinkedIn page"
   },
   "Footer": {
     "title": "Footer",
