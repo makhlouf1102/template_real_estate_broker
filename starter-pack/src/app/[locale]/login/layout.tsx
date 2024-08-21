@@ -1,5 +1,4 @@
 import { NextUIProvider } from "@nextui-org/react"
-import Sidebar from "./components/sidebar"
 
 export default function DashboardLayout({
   children,
@@ -10,7 +9,6 @@ export default function DashboardLayout({
     <html lang="en">
       <body>
         <NextUIProvider>
-          <Sidebar />
           <div className="dashboard-layout">
             <main className="min-h-screen">
               {children}

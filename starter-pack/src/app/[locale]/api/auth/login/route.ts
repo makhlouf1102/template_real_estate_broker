@@ -31,6 +31,7 @@ export async function POST(request: Request) {
             process.env.JWT_SECRET || 'fallback_secret',
             { expiresIn: '1h' }
         );
+        console.log(token);
 
         return NextResponse.json({ token }, { status: 200 });
     } catch (error) {
@@ -38,3 +39,4 @@ export async function POST(request: Request) {
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
+

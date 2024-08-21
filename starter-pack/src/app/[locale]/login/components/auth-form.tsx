@@ -1,47 +1,22 @@
 'use client';
 
-import { useState, useRef } from 'react';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { Button, Input, Card, CardBody, CardHeader, Spacer } from "@nextui-org/react";
 import { Spinner } from "@nextui-org/spinner";
 
-export default function AuthForm() {
+interface AuthFormProps {
+    onSubmit: (email: string, password: string) => Promise<void>;
+    error: string;
+    isSubmitting: boolean;
+}
+
+export default function AuthForm({ onSubmit, error, isSubmitting }: AuthFormProps) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const router = useRouter();
-    const formRef = useRef<HTMLFormElement>(null);
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        setError('');
-        setIsSubmitting(true);
-
-        try {
-            const response = await fetch('api/auth/', {
-                method: 'POST',
-                redirect: 'follow',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ email, password }),
-            });
-
-            const data = await response.json();
-
-            if (response.ok) {
-                // Sign-in successful
-                router.push('/dashboard'); // Redirect to dashboard or desired page
-            } else {
-                // Sign-in failed
-                setError(data.error || 'Invalid email or password');
-            }
-        } catch (error) {
-            setError('An error occurred. Please try again.');
-        } finally {
-            setIsSubmitting(false);
-        }
+        onSubmit(email, password);
     };
 
     const inputClasses = {
@@ -65,7 +40,7 @@ export default function AuthForm() {
                                 {error}
                             </div>
                         )}
-                        <form ref={formRef} onSubmit={handleSubmit} className="space-y-6" aria-label="Sign in form">
+                        <form onSubmit={handleSubmit} className="space-y-6" aria-label="Sign in form">
                             <Input
                                 type="email"
                                 label="Email"

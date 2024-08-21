@@ -1,6 +1,6 @@
 import {NextUIProvider} from '@nextui-org/react';
 import clsx from 'clsx';
-import {Inter} from 'next/font/google';
+import {Inter, Poppins} from 'next/font/google';
 import {NextIntlClientProvider} from 'next-intl';
 import {
   getMessages,
@@ -13,6 +13,10 @@ import Navigation from '@/components/Navigation';
 import {locales} from '@/config';
 
 const inter = Inter({subsets: ['latin']});
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: '400',
+});
 
 type Props = {
   children: ReactNode;
@@ -49,7 +53,7 @@ export default async function LocaleLayout({
 
   return (
     <html className="h-full" lang={locale}>
-      <body className={clsx(inter.className, 'flex h-full flex-col')}>
+      <body className={clsx(poppins.className, 'flex h-full flex-col')}>
         <NextUIProvider>
           <NextIntlClientProvider messages={messages}>
             <Navigation locale={locale} />
