@@ -2,13 +2,16 @@
 
 import { Button, Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import confetti from 'canvas-confetti';
+import {Spinner} from "@nextui-org/spinner";
 
 export default function Alerts() {
     const t = useTranslations("AlertsSection");
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState("");
+    const [showConfetti, setShowConfetti] = useState(false);
     const {isOpen, onOpen, onClose} = useDisclosure();
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -17,27 +20,24 @@ export default function Alerts() {
     };
 
     const confirmSubscription = async () => {
-        onClose(); // Close the modal
         setIsLoading(true);
         setMessage("");
-
+        
         try {
-            console.log("hey");
-            console.log(process.env.NEXT_PUBLIC_API_SECRET_KEY);
             const response = await fetch('/api/subscribe', {
                 method: 'POST',
                 headers: { 
                     'Content-Type': 'application/json',
-                    'X-API-Key': process.env.NEXT_PUBLIC_API_SECRET_KEY || '',
                 },
                 body: JSON.stringify({ email }),
             });
-
+            
             const data = await response.json();
 
             if (data.success) {
                 setMessage(t("successMessage"));
                 setEmail("");
+                setShowConfetti(true);
             } else {
                 setMessage(data.error || t("errorMessage"));
             }
@@ -45,8 +45,36 @@ export default function Alerts() {
             setMessage(t("errorMessage"));
         } finally {
             setIsLoading(false);
+            onClose(); // Close the modal
         }
     };
+
+    useEffect(() => {
+        if (showConfetti) {
+            let duration = 5 * 1000;
+            let animationEnd = Date.now() + duration;
+            let defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            const randomInRange = (min: number, max: number): number => {
+                return Math.random() * (max - min) + min;
+            };
+
+            let interval = setInterval(function() {
+                let timeLeft = animationEnd - Date.now();
+
+                if (timeLeft <= 0) {
+                    setShowConfetti(false);
+                    return clearInterval(interval);
+                }
+
+                let particleCount = 50 * (timeLeft / duration);
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+                confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            return () => clearInterval(interval);
+        }
+    }, [showConfetti]);
 
     return (
         <section id="real-estate-alerts" className="bg-gradient-to-r from-primary-100 to-primary-200 py-16 md:py-24" aria-labelledby="alerts-title">
@@ -72,7 +100,8 @@ export default function Alerts() {
                         className="bg-primary-500 text-white font-bold py-3 px-6 rounded-lg text-lg hover:bg-primary-600 transition duration-300"
                         disabled={isLoading}
                     >
-                        {isLoading ? t("loadingButton") : t("button")}
+                        {/* {isLoading ? t("loadingButton") : t("button")} */}
+                        {t("button")}
                     </Button>
                 </form>
                 {message && <p className="text-center mt-4 text-primary-700 font-semibold">{message}</p>}
@@ -92,7 +121,7 @@ export default function Alerts() {
                                     {t("cancelButton")}
                                 </Button>
                                 <Button color="default" onPress={confirmSubscription}>
-                                    {t("confirmButton")}
+                                    {isLoading ? <Spinner /> : t("confirmButton")}
                                 </Button>
                             </ModalFooter>
                         </>

@@ -7,7 +7,7 @@ const DB_PATH = path.join(process.cwd(), 'data', 'subscribers.sqlite');
 
 async function openDb() {
   return open({
-    filename: "database.db",
+    filename: "src/app/[locale]/api/database.db",
     driver: sqlite3.Database
   });
 }
