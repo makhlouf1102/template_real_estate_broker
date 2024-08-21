@@ -1,8 +1,14 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import { AGENT_INFO } from '@/constantes/agent.const';
+import { unstable_setRequestLocale } from 'next-intl/server';
 
-const LegalAndPrivacyPage: React.FC = () => {
+type Props = {
+  params: { locale: string }
+};
+
+const LegalAndPrivacyPage: React.FC<Props> = ({ params: { locale } }) => {
+  unstable_setRequestLocale(locale);
   const t = useTranslations('LegalAndPrivacy');
 
   return (

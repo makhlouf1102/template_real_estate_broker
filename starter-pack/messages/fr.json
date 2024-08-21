@@ -197,20 +197,20 @@
       "securityMeasures": {
         "title": "Mesures de sécurité : ",
         "content": "Nous prenons des précautions raisonnables pour protéger vos informations personnelles contre l'accès, l'utilisation ou la divulgation non autorisés. Cependant, veuillez noter qu'aucune transmission de données sur Internet ne peut être garantie comme totalement sécurisée."
-      },
-      "cookiePolicy": {
-        "title": "Politique des cookies",
-        "content": "Nous n'utilisons pas de cookies sur notre site web. Par conséquent, aucune donnée personnelle n'est collectée ou stockée via des cookies."
-      },
-      "contactInformation": {
-        "title": "Coordonnées",
-        "content": "Si vous avez des questions concernant nos politiques légales, veuillez nous contacter à l'adresse suivante :"
-      },
-      "name": "Nom",
-      "email": "Courriel",
-      "phone": "Téléphone",
-      "address": "Adresse"
-    }
+      }
+    },
+    "cookiePolicy": {
+      "title": "Politique des cookies",
+      "content": "Nous n'utilisons pas de cookies sur notre site web. Par conséquent, aucune donnée personnelle n'est collectée ou stockée via des cookies."
+    },
+    "contactInformation": {
+      "title": "Coordonnées",
+      "content": "Si vous avez des questions concernant nos politiques légales, veuillez nous contacter à l'adresse suivante :"
+    },
+    "name": "Nom",
+    "email": "Courriel",
+    "phone": "Téléphone",
+    "address": "Adresse"
   },
   "Footer": {
     "title": "Pied de page",

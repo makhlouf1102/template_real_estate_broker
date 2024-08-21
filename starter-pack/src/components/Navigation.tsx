@@ -6,10 +6,11 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { MobileNav } from './MobileNav';
 import { AGENT_INFO } from '@/constantes/agent.const';
-import { FaPhone, FaChevronDown } from "react-icons/fa6";
+import { FaPhone } from "react-icons/fa6";
 import { useRouter, usePathname } from '@/navigation';
 import LanguageToggle from './LanguageToggle';
 import { useState } from 'react';
+import logo from '../../public/logo.svg';
 
 export default function Navigation({ locale }: LocaleProps) {
   const t = useTranslations('Navigation');
@@ -25,9 +26,9 @@ export default function Navigation({ locale }: LocaleProps) {
         <Link href="/" aria-label={t('homeLink')} className="logo">
           <Image
             alt={t('logoAlt')}
-            height={100}
-            src="/logo.png"
-            width={200}
+            height={10}
+            src={logo}
+            width={150}
             priority
             loading="eager"
           />

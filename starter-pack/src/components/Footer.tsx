@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { IconType } from 'react-icons';
 import { FaXTwitter } from 'react-icons/fa6';
 import OTWOLOGO from "../../public/OTWOSOLlogo.svg"
+import logo from "../../public/logo-2.svg"
 
 interface SocialLinkProps {
   href: string;
@@ -57,11 +58,11 @@ export default function Footer({ locale }: LocaleProps) {
           {/* Company Info */}
           <div className="flex flex-col items-center md:items-start">
             <Image
-              src="/logo.png"
+              src={logo}
               alt={t('companyName')}
-              width={180}
-              height={50}
-              className="mb-6"
+              width={200}
+              height={20}
+              // className="mb-6"
             />
             <address className="not-italic text-center md:text-left">
               <ContactLink href={`mailto:${AGENT_INFO.email}`} icon={FaEnvelope}>{AGENT_INFO.email}</ContactLink>
@@ -102,7 +103,6 @@ export default function Footer({ locale }: LocaleProps) {
                 alt="OTOW SOLUTION"
                 width={200}
                 height={20}
-                className="ml-1"
               />
             </a>
           </p>
