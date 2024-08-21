@@ -106,7 +106,12 @@
     "button": "Join",
     "successMessage": "Thank you for subscribing to our real estate alerts!",
     "errorMessage": "An error occurred. Please try again later.",
-    "loadingButton": "Sending..."
+    "loadingButton": "Sending...",
+    "confirmModalTitle": "Confirm Subscription",
+    "confirmModalBody": "Are you sure you want to subscribe with the email {email} ?",
+    "informAboutUsage": "We will use your email address to send you real estate alerts. You can unsubscribe at any time, for more details, please refer to our privacy policy.",
+    "cancelButton": "Cancel",
+    "confirmButton": "Confirm"
   },
   "ContactMeForm": {
     "title": "Contact Me",

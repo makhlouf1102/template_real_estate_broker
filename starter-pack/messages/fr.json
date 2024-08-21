@@ -106,7 +106,12 @@
     "button": "Rejoindre",
     "successMessage": "Merci de vous être abonné à nos alertes immobilières !",
     "errorMessage": "Une erreur s'est produite. Veuillez réessayer plus tard.",
-    "loadingButton": "Envoi en cours..."
+    "loadingButton": "Envoi en cours...",
+    "confirmModalTitle": "Confirmer l'abonnement",
+    "confirmModalBody": "Êtes-vous sûr de vouloir vous abonner avec l'adresse e-mail {email} ?",
+    "informAboutUsage": "Nous utiliserons votre adresse e-mail pour vous envoyer des alertes immobiliers. Vous pouvez vous désabonner à tout moment, Pour plus de détails, veuillez consulter notre politique de confidentialité.",
+    "cancelButton": "Annuler",
+    "confirmButton": "Confirmer"
   },
   "ContactMeForm": {
     "title": "Contactez-moi",

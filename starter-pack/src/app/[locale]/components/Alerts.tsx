@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Input } from "@nextui-org/react";
+import { Button, Input, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 
@@ -9,16 +9,27 @@ export default function Alerts() {
     const [email, setEmail] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [message, setMessage] = useState("");
+    const {isOpen, onOpen, onClose} = useDisclosure();
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        onOpen(); // Open the confirmation modal
+    };
+
+    const confirmSubscription = async () => {
+        onClose(); // Close the modal
         setIsLoading(true);
         setMessage("");
 
         try {
+            console.log("hey");
+            console.log(process.env.NEXT_PUBLIC_API_SECRET_KEY);
             const response = await fetch('/api/subscribe', {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
+                headers: { 
+                    'Content-Type': 'application/json',
+                    'X-API-Key': process.env.NEXT_PUBLIC_API_SECRET_KEY || '',
+                },
                 body: JSON.stringify({ email }),
             });
 
@@ -28,7 +39,7 @@ export default function Alerts() {
                 setMessage(t("successMessage"));
                 setEmail("");
             } else {
-                setMessage(t("errorMessage"));
+                setMessage(data.error || t("errorMessage"));
             }
         } catch (error) {
             setMessage(t("errorMessage"));
@@ -66,6 +77,28 @@ export default function Alerts() {
                 </form>
                 {message && <p className="text-center mt-4 text-primary-700 font-semibold">{message}</p>}
             </div>
+
+            <Modal backdrop="blur" isOpen={isOpen} onClose={onClose}>
+                <ModalContent>
+                    {(onClose) => (
+                        <>
+                            <ModalHeader className="flex flex-col gap-1">{t("confirmModalTitle")}</ModalHeader>
+                            <ModalBody>
+                                <p>{t("confirmModalBody", { email })}</p>
+                                <p>{t("informAboutUsage")}</p>
+                            </ModalBody>
+                            <ModalFooter>
+                                <Button color="danger" variant="light" onPress={onClose}>
+                                    {t("cancelButton")}
+                                </Button>
+                                <Button color="default" onPress={confirmSubscription}>
+                                    {t("confirmButton")}
+                                </Button>
+                            </ModalFooter>
+                        </>
+                    )}
+                </ModalContent>
+            </Modal>
         </section>
     );
 }
