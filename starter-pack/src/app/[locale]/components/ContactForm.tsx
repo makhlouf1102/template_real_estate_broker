@@ -1,19 +1,27 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Input, Textarea, Button } from '@nextui-org/react';
 import { useTranslations } from 'next-intl';
+import {Spinner} from "@nextui-org/spinner";
 
 const ContactForm = () => {
   const t = useTranslations("ContactMeForm");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setFormStatus('idle');
 
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData.entries());
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      message: formData.get('message') as string,
+    };
 
     try {
       const response = await fetch('/api/contact', {
@@ -25,14 +33,21 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        alert(t("successMessage"));
-        e.currentTarget.reset();
+        const result = await response.json();
+        if (result.success) {
+          setFormStatus('success');
+          if (formRef.current) {
+            formRef.current.reset();
+          }
+        } else {
+          throw new Error(result.error || 'Unknown error');
+        }
       } else {
-        alert(t("errorMessage"));
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert(t("errorMessage"));
+      setFormStatus('error');
     } finally {
       setIsSubmitting(false);
     }
@@ -50,7 +65,17 @@ const ContactForm = () => {
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl'>
         <h2 id="contact-form-title" className="text-3xl font-bold text-center mb-4">{t("title")}</h2>
         <p className="text-center text-gray-600 mb-8">{t("description")}</p>
-        <form className='flex flex-col gap-6' onSubmit={handleSubmit} aria-label={t("formAriaLabel")}>
+        {formStatus === 'success' && (
+          <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-md">
+            {t("successMessage")}
+          </div>
+        )}
+        {formStatus === 'error' && (
+          <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-md">
+            {t("errorMessage")}
+          </div>
+        )}
+        <form ref={formRef} className='flex flex-col gap-6' onSubmit={handleSubmit} aria-label={t("formAriaLabel")}>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label htmlFor="name" className="sr-only">{t("name")}</label>
@@ -97,7 +122,7 @@ const ContactForm = () => {
             size="lg"
             disabled={isSubmitting}
           >
-            {isSubmitting ? t("submitting") : t("button")}
+            {isSubmitting ? <Spinner /> : t("button")}
           </Button>
         </form>
       </div>
