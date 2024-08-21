@@ -8,8 +8,9 @@ import BuyPropriety from './components/BuyPropriety';
 import Alerts from './components/Alerts';
 import ContactForm from './components/ContactForm';
 import Myproprieties from './components/MyProprieties';
-import BackToTopButton from '../../components/BackToTopButton'; // Import the BackToTopButton component
+import BackToTopButton from '../../../components/BackToTopButton'; // Import the BackToTopButton component
 import { Metadata } from 'next';
+import LocaleLayout from './layout';
 
 interface LocaleProps {
   params: {
@@ -49,3 +50,7 @@ export async function generateStaticParams() {
     { locale: 'fr' },
   ];
 }
+
+
+
+

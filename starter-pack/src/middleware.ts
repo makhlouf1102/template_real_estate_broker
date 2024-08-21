@@ -20,6 +20,7 @@ export const config = {
     // Enable redirects that add missing locales
     // (e.g. `/pathnames` -> `/en/pathnames`),
     // while excluding specific routes like _next, _vercel, manage, and files.
-    '/((?!manage|_next|_vercel|.*\\..*).*)',
+    '/((?!dashboard|_next|_vercel|.*\\..*).*)',
+    // '/((?!_next|_vercel|.*\\..*).*)',
   ]
 };

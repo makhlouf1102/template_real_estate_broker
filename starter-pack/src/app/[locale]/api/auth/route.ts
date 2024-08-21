@@ -1,83 +1,40 @@
-import NextAuth from 'next-auth';
-import CredentialsProvider from 'next-auth/providers/credentials';
+import { NextResponse } from 'next/server';
 import sqlite3 from 'sqlite3';
 import { open } from 'sqlite';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
-// Function to open the SQLite database and create tables if they do not exist
+// Function to open the SQLite database
 async function sqliteConnection() {
     const db = await open({
-        filename: './database.sqlite',
+        filename: "./database.db",
         driver: sqlite3.Database,
     });
-
-    // Create the users table if it doesn't exist
-    await db.exec(`
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            email TEXT UNIQUE,
-            password TEXT
-        );
-    `);
-
-    // Create the sessions table if it doesn't exist
-    await db.exec(`
-        CREATE TABLE IF NOT EXISTS sessions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            sessionToken TEXT UNIQUE NOT NULL,
-            userId INTEGER NOT NULL,
-            expires DATETIME NOT NULL,
-            FOREIGN KEY(userId) REFERENCES users(id)
-        );
-    `);
 
     return db;
 }
 
-// NextAuth configuration
-declare module "next-auth" {
-    interface Session {
-        user: {
-            id: string;
-            name?: string | null;
-            email?: string | null;
-            image?: string | null;
+export async function POST(request: Request) {
+    const { email, password } = await request.json();
+
+    try {
+        const db = await sqliteConnection();
+        const user = await db.get('SELECT * FROM users WHERE email = ?', [email]);
+
+        if (!user || !bcrypt.compareSync(password, user.password)) {
+            return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 });
         }
+
+        // Generate JWT token
+        const token = jwt.sign(
+            { userId: user.id, email: user.email },
+            process.env.JWT_SECRET || 'fallback_secret',
+            { expiresIn: '1h' }
+        );
+
+        return NextResponse.json({ token }, { status: 200 });
+    } catch (error) {
+        console.error('Login error:', error);
+        return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
     }
 }
-
-export default NextAuth({
-    providers: [
-        CredentialsProvider({
-            name: 'Credentials',
-            credentials: {
-                email: { label: "Email", type: "text" },
-                password: { label: "Password", type: "password" }
-            },
-            authorize: async (credentials) => {
-                if (!credentials) return null;
-                
-                const db = await sqliteConnection();
-                const user = await db.get('SELECT * FROM users WHERE email = ?', [credentials.email]);
-
-                if (user && bcrypt.compareSync(credentials.password, user.password)) {
-                    return { id: user.id, name: user.name, email: user.email };
-                } else {
-                    return null;
-                }
-            }
-        })
-    ],
-    session: {
-        strategy: "jwt",
-    },
-    callbacks: {
-        async session({ session, token }) {
-            if (session.user) {
-                session.user.id = token.sub!;
-            }
-            return session;
-        },
-    },
-});
