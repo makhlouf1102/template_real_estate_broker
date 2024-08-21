@@ -105,8 +105,6 @@ export function MobileNav({ locale }: LocaleProps) {
                 ))}
               </div>
             </li>
-            
-            {/* Add LanguageToggle component */}
             <li className="w-full">
               <div className="p-4">
                 <LanguageToggle locale={locale} />
