@@ -1,5 +1,6 @@
 import { NextUIProvider } from "@nextui-org/react"
-import Sidebar from "./components/sidebar"
+import Sidebar from "./components/ui/sidebar"
+
 
 export default function DashboardLayout({
   children,
