@@ -8,11 +8,10 @@
     "title": "next-intl example"
   },
   "LocaleLayout": {
-    "title": "Page title"
+    "title": "Home"
   },
-  "LocaleSwitcher": {
-    "label": "Change language",
-    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
+  "LoginLayout": {
+    "title": "Login"
   },
   "Manifest": {
     "description": "This is a manifest for the next-intl example.",
@@ -164,48 +163,48 @@
       "title": "Terms of Service",
       "intro": "Welcome to our real estate agency website. By using our website and services, you agree to comply with and be bound by the following terms:",
       "serviceDescription": {
-        "title":"Service Description: ",
-        "content":"Our website provides real estate services, including listings, property information, and contact forms for inquiries. The information provided on this site is for informational purposes only and should not be construed as professional advice."
+        "title": "Service Description: ",
+        "content": "Our website provides real estate services, including listings, property information, and contact forms for inquiries. The information provided on this site is for informational purposes only and should not be construed as professional advice."
       },
       "userObligations": {
-        "title":"User Obligations: ",
-        "content":"Users must provide accurate and current contact information when engaging with our services. Misuse of the website, including but not limited to providing false information, spamming, or any unlawful activities, is strictly prohibited."
+        "title": "User Obligations: ",
+        "content": "Users must provide accurate and current contact information when engaging with our services. Misuse of the website, including but not limited to providing false information, spamming, or any unlawful activities, is strictly prohibited."
       },
       "termination": {
-        "title":"Termination: ",
-        "content":"We reserve the right to suspend or terminate access to our services if we believe that a user has violated these terms or engaged in unlawful or harmful conduct."
+        "title": "Termination: ",
+        "content": "We reserve the right to suspend or terminate access to our services if we believe that a user has violated these terms or engaged in unlawful or harmful conduct."
       },
       "liability": {
-        "title":"Liability: ",
-        "content":"We are not liable for any direct, indirect, incidental, or consequential damages arising out of your use of our website or services. All information on the site is provided \"as is\" without any warranties of any kind."
+        "title": "Liability: ",
+        "content": "We are not liable for any direct, indirect, incidental, or consequential damages arising out of your use of our website or services. All information on the site is provided \"as is\" without any warranties of any kind."
       },
       "disputeResolution": {
-        "title":"Dispute Resolution: ",
-        "content":"Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
+        "title": "Dispute Resolution: ",
+        "content": "Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
       }
     },
     "privacyPolicy": {
       "title": "Privacy Policy",
       "intro": "We are committed to protecting your privacy. This privacy policy outlines the types of personal information we collect and how we use, disclose, and protect that information.",
       "dataCollection": {
-        "title":"Data Collection: ",
-        "content":"We only collect personal information that you voluntarily provide to us, such as your email address and testimonials. This information is collected when you contact us through our website or submit feedback/testimonials."
+        "title": "Data Collection: ",
+        "content": "We only collect personal information that you voluntarily provide to us, such as your email address and testimonials. This information is collected when you contact us through our website or submit feedback/testimonials."
       },
       "dataUse": {
-        "title":"Data Use: ",
-        "content":"Your email address is used solely for communication purposes, such as responding to your inquiries or sending you updates related to our services. Testimonials may be used on our website for promotional purposes, with your consent."
+        "title": "Data Use: ",
+        "content": "Your email address is used solely for communication purposes, such as responding to your inquiries or sending you updates related to our services. Testimonials may be used on our website for promotional purposes, with your consent."
       },
       "userRights": {
-        "title":"User Rights: ",
-        "content":"You have the right to request access to, correction of, or deletion of your personal information at any time. If you wish to have a testimonial removed, please contact us, and we will promptly comply."
+        "title": "User Rights: ",
+        "content": "You have the right to request access to, correction of, or deletion of your personal information at any time. If you wish to have a testimonial removed, please contact us, and we will promptly comply."
       },
       "securityMeasures": {
-        "title":"Security Measures: ",
-        "content":"We take reasonable precautions to protect your personal information from unauthorized access, use, or disclosure. However, please be aware that no data transmission over the internet can be guaranteed to be completely secure."
+        "title": "Security Measures: ",
+        "content": "We take reasonable precautions to protect your personal information from unauthorized access, use, or disclosure. However, please be aware that no data transmission over the internet can be guaranteed to be completely secure."
       },
       "disputeResolution": {
-        "title":"Dispute Resolution: ",
-        "content":"Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
+        "title": "Dispute Resolution: ",
+        "content": "Any disputes arising from the use of our website or services will be governed by the laws of [Your State], and you agree to submit to the jurisdiction of its courts."
       }
     },
     "cookiePolicy": {
@@ -216,7 +215,6 @@
       "title": "Contact Information",
       "content": "If you have any questions about our legal policies, please contact us at:"
     },
-
     "name": "Name",
     "email": "Email",
     "phone": "Phone",
@@ -253,5 +251,20 @@
       "title": "Home",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
+  },
+  "LoginPage": {
+    "title": "Login",
+    "loginError": "Invalid email or password. Please try again.",
+    "genericError": "An error occurred. Please try again later.",
+    "verifying": "Verifying your session...",
+    "loginButton": "Log In",
+    "emailPlaceholder": "Enter your email",
+    "passwordPlaceholder": "Enter your password",
+    "welcomeBack": "Welcome Back",
+    "signInPrompt": "Sign in to your account",
+    "signInFormAriaLabel": "Sign in form",
+    "emailLabel": "Email",
+    "passwordLabel": "Password",
+    "signInButton": "Sign in"
   }
 }

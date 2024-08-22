@@ -15,6 +15,10 @@ export const pathnames = {
     en: '/legal-and-privacy',
     fr: '/mentions-legales-et-politique-de-confidentialite',
   },
+  '/login': {
+    en: '/login',
+    fr: '/connexion',
+  },
 } satisfies Pathnames<typeof locales>;
 
 // Use the default: `always`

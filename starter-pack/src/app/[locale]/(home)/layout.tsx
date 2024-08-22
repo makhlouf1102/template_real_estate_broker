@@ -1,6 +1,6 @@
 import {NextUIProvider} from '@nextui-org/react';
 import clsx from 'clsx';
-import {Inter, Poppins} from 'next/font/google';
+import {Poppins} from 'next/font/google';
 import {NextIntlClientProvider} from 'next-intl';
 import {
   getMessages,
@@ -12,7 +12,7 @@ import Footer from '@/components/Footer';
 import Navigation from '@/components/Navigation';
 import {locales} from '@/config';
 
-const inter = Inter({subsets: ['latin']});
+
 const poppins = Poppins({
   subsets: ['latin'],
   weight: '400',
@@ -30,7 +30,7 @@ export function generateStaticParams() {
 export async function generateMetadata({
   params: {locale}
 }: Omit<Props, 'children'>) {
-  await getTranslations({locale, namespace: 'LocaleLayout'});
+  await getTranslations({locale, namespace: "LocaleLayout" });
 
   return {
     title: {

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import AuthForm from "./components/auth-form";
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Spinner } from "@nextui-org/react";
 
 export default function LoginPage() {
@@ -12,6 +12,7 @@ export default function LoginPage() {
     const [isVerifying, setIsVerifying] = useState(true);
     const router = useRouter();
     const locale = useLocale();
+    const t = useTranslations('LoginPage');
 
     const verifyToken = async () => {
         const token = localStorage.getItem('token');
@@ -48,10 +49,10 @@ export default function LoginPage() {
                 localStorage.setItem('token', data.token);
                 router.push(`/${locale}/dashboard`);
             } else {
-                setError(data.error || 'Invalid email or password');
+                setError(t('loginError') || data.error);
             }
         } catch (error) {
-            setError('An error occurred. Please try again.');
+            setError(t('genericError'));
         } finally {
             setIsSubmitting(false);
         }
@@ -70,12 +71,21 @@ export default function LoginPage() {
     }
 
     return (
-        <div>
-            <AuthForm
-                onSubmit={handleLogin}
-                error={error}
-                isSubmitting={isSubmitting}
-            />
+        <div className="min-h-screen bg-gradient-to-r from-secondary-400 to-primary-200 flex items-center justify-center px-4 sm:px-6 lg:px-8">
+            <div className="max-w-md w-full space-y-8">
+                <div className="bg-white shadow-2xl rounded-lg p-8">
+                    <AuthForm
+                        onSubmit={handleLogin}
+                        error={error}
+                        isSubmitting={isSubmitting}
+                    />
+                </div>
+                <div className="text-center">
+                    <p className="text-xs text-white mt-4">
+                        {t('signInPrompt')}
+                    </p>
+                </div>
+            </div>
         </div>
     );
 }

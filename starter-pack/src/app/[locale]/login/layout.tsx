@@ -1,19 +1,61 @@
 import { NextUIProvider } from "@nextui-org/react"
+import clsx from "clsx"
+import { Poppins } from "next/font/google"
+import { NextIntlClientProvider } from "next-intl"
+import {
+  getMessages,
+  getTranslations,
+  unstable_setRequestLocale
+} from "next-intl/server"
+import { ReactNode } from "react"
+import { locales } from "@/config"
 
-export default function DashboardLayout({
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: "400",
+})
+
+type Props = {
+  children: ReactNode
+  params: { locale: string }
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }))
+}
+
+export async function generateMetadata({
+  params: { locale }
+}: Omit<Props, "children">) {
+  await getTranslations({ locale, namespace: "LoginLayout" })
+
+  return {
+    title: {
+      default: 'Login',
+      template: '%s | Eva'
+    }
+  }
+}
+
+export default async function LoginLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+  params: { locale }
+}: Props) {
+  // Enable static rendering
+  unstable_setRequestLocale(locale)
+
+  // Providing all messages to the client side
+  const messages = await getMessages()
+
   return (
-    <html lang="en">
-      <body>
+    <html className="h-full" lang={locale}>
+      <body className={clsx(poppins.className, "flex h-full flex-col")}>
         <NextUIProvider>
-          <div className="dashboard-layout">
+          <NextIntlClientProvider messages={messages}>
             <main className="min-h-screen">
               {children}
             </main>
-          </div>
+          </NextIntlClientProvider>
         </NextUIProvider>
       </body>
     </html>

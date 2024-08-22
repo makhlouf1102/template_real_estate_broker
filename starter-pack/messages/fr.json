@@ -8,11 +8,10 @@
     "title": "Exemple de next-intl"
   },
   "LocaleLayout": {
-    "title": "Titre de la page"
+    "title": "Page principale"
   },
-  "LocaleSwitcher": {
-    "label": "Sprache ändern",
-    "locale": "{locale, select, de {🇩🇪 Deutsch} en {🇺🇸 English} other {Unbekannt}}"
+  "LoginLayout": {
+    "title": "Page de connexion"
   },
   "Manifest": {
     "description": "",
@@ -248,5 +247,20 @@
       "title": "Accueil",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     }
+  },
+  "LoginPage": {
+    "title": "Connexion",
+    "loginError": "Email ou mot de passe invalide. Veuillez réessayer.",
+    "genericError": "Une erreur s'est produite. Veuillez réessayer plus tard.",
+    "verifying": "Vérification de votre session...",
+    "loginButton": "Se connecter",
+    "emailPlaceholder": "Entrez votre email",
+    "passwordPlaceholder": "Entrez votre mot de passe",
+    "welcomeBack": "Bienvenue",
+    "signInPrompt": "Connectez-vous à votre compte",
+    "signInFormAriaLabel": "Formulaire de connexion",
+    "emailLabel": "Email",
+    "passwordLabel": "Mot de passe",
+    "signInButton": "Se connecter"
   }
 }
