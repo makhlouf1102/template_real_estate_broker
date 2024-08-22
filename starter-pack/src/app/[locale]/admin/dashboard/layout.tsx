@@ -52,17 +52,13 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   }, [router]);
 
   return (
-    <html lang="en">
-      <body>
-        <div className="dashboard-layout flex w-full gap-4 h-screen">
-          <div className="w-1/6 sm:w-1/5 lg:w-1/6 bg-gray-100">
-            <Sidebar />
-          </div>
-          <div className="w-full">
-            {children}
-          </div>
-        </div>
-      </body>
-    </html>
+    <div className="dashboard-layout flex w-full gap-4 h-screen">
+      <div className="w-1/6 sm:w-1/5 lg:w-1/6 bg-gray-100">
+        <Sidebar />
+      </div>
+      <div className="w-full">
+        {children}
+      </div>
+    </div>
   );
 }

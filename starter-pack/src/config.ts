@@ -15,9 +15,13 @@ export const pathnames = {
     en: '/legal-and-privacy',
     fr: '/mentions-legales-et-politique-de-confidentialite',
   },
-  '/login': {
-    en: '/login',
-    fr: '/connexion',
+  '/admin': {
+    en: '/admin',
+    fr: '/admin',
+  },
+  '/admin/login': {
+    en: '/admin/login',
+    fr: '/admin/connexion',
   },
 } satisfies Pathnames<typeof locales>;
 

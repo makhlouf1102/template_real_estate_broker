@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import AuthForm from "./components/auth-form";
 import { useLocale, useTranslations } from 'next-intl';
 import { Spinner } from "@nextui-org/react";
+import { getTranslations } from 'next-intl/server';
+
 
 export default function LoginPage() {
     const [error, setError] = useState('');
@@ -25,7 +27,7 @@ export default function LoginPage() {
             if (response.ok) {
                 const data = await response.json();
                 if (data.valid) {
-                    router.push(`/${locale}/dashboard`);
+                    router.push(`/${locale}/admin/dashboard`);
                 }
             }
         }
@@ -47,7 +49,7 @@ export default function LoginPage() {
 
             if (response.ok) {
                 localStorage.setItem('token', data.token);
-                router.push(`/${locale}/dashboard`);
+                router.push(`/${locale}/admin/dashboard`);
             } else {
                 setError(t('loginError') || data.error);
             }

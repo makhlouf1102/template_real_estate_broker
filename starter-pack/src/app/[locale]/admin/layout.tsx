@@ -4,7 +4,6 @@ import { Poppins } from "next/font/google"
 import { NextIntlClientProvider } from "next-intl"
 import {
   getMessages,
-  getTranslations,
   unstable_setRequestLocale
 } from "next-intl/server"
 import { ReactNode } from "react"
@@ -24,20 +23,8 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }))
 }
 
-export async function generateMetadata({
-  params: { locale }
-}: Omit<Props, "children">) {
-  await getTranslations({ locale, namespace: "LoginLayout" })
 
-  return {
-    title: {
-      default: 'Login',
-      template: '%s | Eva'
-    }
-  }
-}
-
-export default async function LoginLayout({
+export default async function AdminLayout({
   children,
   params: { locale }
 }: Props) {

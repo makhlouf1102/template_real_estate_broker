@@ -23,7 +23,7 @@ export default function Sidebar() {
                     <ul>
                         <li>
                             <Link
-                                href="/en/dashboard/newsletter"
+                                href="/en/admin/dashboard/newsletter"
                                 className={`flex items-center justify-start px-3 py-2 gap-2 hover:bg-gray-100 rounded-md ${currentPage === 'newsletter' ? 'bg-gray-200' : ''}`}
                             >
                                 <FaRegEnvelope className="w-5 h-5" aria-hidden="true" />
@@ -32,7 +32,7 @@ export default function Sidebar() {
                         </li>
                         <li>
                             <Link
-                                href="/en/dashboard/contacts"
+                                href="/en/admin/dashboard/contacts"
                                 className={`flex items-center justify-start px-3 py-2 gap-2 hover:bg-gray-100 rounded-md ${currentPage === 'contacts' ? 'bg-gray-200' : ''}`}
                             >
                                 <FaEnvelopeOpenText className="w-5 h-5" aria-hidden="true" />
