@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Spinner } from "@nextui-org/react";
+import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, Spinner, Card } from "@nextui-org/react";
 
 interface Subscriber {
     id: string;
@@ -45,20 +45,30 @@ export default function NewsletterSubscribers() {
     return (
         <div className="p-4">
             <h1 className="text-2xl font-bold mb-4">Newsletter Subscribers</h1>
-            <Table aria-label="Newsletter subscribers">
-                <TableHeader>
-                    <TableColumn>Email</TableColumn>
-                    <TableColumn>Subscribed On</TableColumn>
-                </TableHeader>
-                <TableBody>
-                    {subscribers.map((subscriber) => (
-                        <TableRow key={subscriber.id}>
-                            <TableCell>{subscriber.email}</TableCell>
-                            <TableCell>{new Date(subscriber.createdAt).toLocaleDateString()}</TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+            <div className="hidden md:block">
+                <Table aria-label="Newsletter subscribers">
+                    <TableHeader>
+                        <TableColumn>Email</TableColumn>
+                        <TableColumn>Subscribed On</TableColumn>
+                    </TableHeader>
+                    <TableBody>
+                        {subscribers.map((subscriber) => (
+                            <TableRow key={subscriber.id}>
+                                <TableCell>{subscriber.email}</TableCell>
+                                <TableCell>{new Date(subscriber.createdAt).toLocaleDateString()}</TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </div>
+            <div className="md:hidden">
+                {subscribers.map((subscriber) => (
+                    <Card key={subscriber.id} className="mb-4 p-4">
+                        <p className="font-semibold">{subscriber.email}</p>
+                        <p className="text-sm text-gray-600">Subscribed on: {new Date(subscriber.createdAt).toLocaleDateString()}</p>
+                    </Card>
+                ))}
+            </div>
         </div>
     );
 }

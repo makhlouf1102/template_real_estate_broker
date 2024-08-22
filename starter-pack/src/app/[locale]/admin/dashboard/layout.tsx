@@ -9,6 +9,7 @@ interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
+
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState<string | null>(null);
