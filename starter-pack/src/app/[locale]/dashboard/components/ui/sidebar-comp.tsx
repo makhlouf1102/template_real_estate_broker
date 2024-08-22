@@ -1,7 +1,7 @@
 'use client';
 import { useState, ReactNode } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { Button, Card } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 
 interface SidebarProps {
     children: ReactNode;
@@ -20,19 +20,18 @@ export function SidebarComp({ children }: SidebarProps) {
                 onClick={toggleSidebar}
                 aria-controls="cta-button-sidebar"
                 isIconOnly
-                className="sm:hidden mt-2 ms-3 z-50"
+                className="sm:hidden mt-2 ms-3"
                 size="sm"
             >
                 <FaBars className="w-5 h-5" aria-hidden="true" />
             </Button>}
 
-
-            <Card
+            <aside
                 id="cta-button-sidebar"
-                className={`fixed top-0 left-0 z-40 w-64 h-screen py-4 transition-transform ${
+                className={`fixed top-0 left-0 w-64 h-screen py-4 transition-transform ${
                     isOpen ? 'translate-x-0' : '-translate-x-full'
-                    } sm:translate-x-0 rounded-none`}
-                    aria-label="Sidebar"
+                } sm:translate-x-0`}
+                aria-label="Sidebar"
             >
                 <h1 className="text-xl flex items-start justify-start px-3 font-bold">Dashboard</h1>
                 <div className="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
@@ -45,11 +44,9 @@ export function SidebarComp({ children }: SidebarProps) {
                     >
                         <FaTimes className="w-5 h-5" aria-hidden="true" />
                     </Button>
-                    <ul className="space-y-2 font-medium">
-                        {children}
-                    </ul>
+                    {children}
                 </div>
-            </Card>
+            </aside>
         </div>
     );
 }
