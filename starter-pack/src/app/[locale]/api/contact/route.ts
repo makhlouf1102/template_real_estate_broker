@@ -11,13 +11,6 @@ async function openDb() {
 }
 
 export async function POST(request: NextRequest) {
-  // Check the referer
-  const referer = request.headers.get('referer');
-  const allowedOrigin = "http://localhost:3000";
-  if (!referer || !allowedOrigin || !referer.startsWith(allowedOrigin)) {
-    return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
-  }
-
   const { name, email, message } = await request.json();
 
   try {
