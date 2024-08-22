@@ -2,7 +2,8 @@
 
 import { useState, ReactNode, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import Sidebar from './components/ui/sidebar';
+import Sidebar from './components/sidebar';
+import MobileSidebar from './components/mobile-sidebar';
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
@@ -41,10 +42,10 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         const response = await verifyToken();
         if (!response || !response.valid) {
           localStorage.removeItem('token');
-          router.push('/login');
+          router.push('/admin/login');
         }
       } else {
-        router.push('/login');
+        router.push('/admin/login');
       }
     };
 
@@ -52,11 +53,14 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
   }, [router]);
 
   return (
-    <div className="dashboard-layout flex w-full gap-4 h-screen">
-      <div className="w-1/6 sm:w-1/5 lg:w-1/6 bg-gray-100">
+    <div className="dashboard-layout flex h-screen">
+      <div className="hidden sm:block">
         <Sidebar />
       </div>
-      <div className="w-full">
+      <div className="sm:hidden">
+        <MobileSidebar />
+      </div>
+      <div className="flex-grow overflow-auto p-4 sm:p-8">
         {children}
       </div>
     </div>
