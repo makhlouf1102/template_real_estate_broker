@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .min-h-screen.bg-base-200.flex.items-center.justify-center
+    .max-w-md.w-full.p-6.bg-base-100.rounded-lg.shadow-xl
+      h1.text-3xl.font-bold.text-center.mb-6 Welcome to My App
+      h2.text-2xl.font-semibold.text-center.mb-6 Login
+      form(action='/login' method='POST')
+        .form-control
+          label.label(for='username')
+            span.label-text Username
+          input#username.input.input-bordered(type='text' name='username' required)
+        .form-control.mt-4
+          label.label(for='password')
+            span.label-text Password
+          input#password.input.input-bordered(type='password' name='password' required)
+        .form-control.mt-6
+          button.btn.btn-primary(type='submit') Login
+      .text-center.mt-4
+        p Don't have an account? 
+          a.link.link-primary(href='/register') Register here

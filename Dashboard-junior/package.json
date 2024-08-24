@@ -4,12 +4,19 @@
   "description": "a dashboard for people taking the junior package from O-TWO SOLUTION",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build:css & nodemon app.js",
+    "build:css:watch": "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/style.css --watch",
+    "build:css": "npx tailwindcss -i ./public/css/tailwind.css -o ./public/css/style.css"
   },
   "author": "Mak 1102, Salah EO",
   "license": "ISC",
   "dependencies": {
     "express": "^4.19.2",
     "pug": "^3.0.3"
+  },
+  "devDependencies": {
+    "daisyui": "^4.12.10",
+    "tailwindcss": "^3.4.10"
   }
 }
