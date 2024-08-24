@@ -1,0 +1,15 @@
+{
+  "name": "dashboard-junior",
+  "version": "1.0.0",
+  "description": "a dashboard for people taking the junior package from O-TWO SOLUTION",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mak 1102, Salah EO",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "pug": "^3.0.3"
+  }
+}
