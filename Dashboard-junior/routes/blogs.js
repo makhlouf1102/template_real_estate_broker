@@ -8,7 +8,7 @@ router.get('/', blogController.getBlogView);
 router.get('/create', blogController.getCreateBlogView);
 
 // Get a specific blog
-router.get('/all', authMiddleware, blogController.getAllBlogsByUser);
+router.post('/all', authMiddleware, blogController.getAllBlogsByUser);
 
 // Create a new blog
 router.post('/', blogController.createBlog);

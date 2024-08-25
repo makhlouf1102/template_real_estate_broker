@@ -10,10 +10,23 @@
   <link href="/css/quill.snow.css" rel="stylesheet">
 
   <script>
-    // validate the token 
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-      window.location.href = '/login';
+    async function validateToken() {
+      const token = localStorage.getItem('authToken');
+      if (!token) {
+        window.location.href = '/login';
+      }
+      const response = await fetch('/validate-token', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
+      if (!response.ok) {
+        window.location.href = '/login';
+        console.log('Token validation failed');
+      }
+      const data = await response.json();
+      localStorage.setItem('authToken', data.token);
     }
   </script>
 </head>
@@ -44,11 +57,10 @@
   </div>
 
   <script>
-    // if no token 
-    // hide the loading screen
     document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         document.getElementById('loading').style.display = 'none';
+        validateToken();
         document.getElementById('main-content').style.display = 'block';
       }, 400);
     });

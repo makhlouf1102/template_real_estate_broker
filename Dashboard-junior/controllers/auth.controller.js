@@ -35,3 +35,31 @@ exports.authLogin = async (req, res) => {
     res.status(500).json({ message: 'An error occurred during login' });
   }
 };
+
+exports.validateToken = (req, res) => {
+    const authHeader = req.headers['authorization'];
+    console.log('Auth header:', authHeader);  // Debug log
+
+    const token = authHeader && authHeader.split(' ')[1];
+    console.log('Extracted token:', token);  // Debug log
+
+    if (token == null) {
+        console.log('No token provided');  // Debug log
+        return res.sendStatus(401);
+    }
+
+    jwt.verify(token, process.env.JWT_SECRET || 'secret', (err, user) => {
+        if (err) {
+            console.error('Token verification error:', err);
+            return res.sendStatus(403);
+        }
+        console.log('Token verified successfully');  // Debug log
+        // generate new token
+        const newToken = jwt.sign(
+            { userId: user.userId, username: user.username },
+            process.env.JWT_SECRET || 'secret',
+            { expiresIn: '1h' }
+        );
+        return res.status(200).json({ message: 'Token verified successfully', token: newToken });
+    });
+};
