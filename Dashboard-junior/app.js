@@ -1,6 +1,7 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const loginRoute = require('./routes/login');
+const authRoute = require('./routes/auth');
 const app = express();
 const port = 3000;
 
@@ -17,6 +18,7 @@ app.use(expressLayouts);
 app.set('layout', 'layout');
 
 app.use('/login', loginRoute);
+app.use('/auth', authRoute);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');

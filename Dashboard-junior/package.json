@@ -18,9 +18,12 @@
   "author": "Mak 1102, Salah EO",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "sqlite3": "^5.1.7"
   },
   "devDependencies": {
     "daisyui": "^4.12.10",
