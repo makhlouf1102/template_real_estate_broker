@@ -5,10 +5,13 @@ const authMiddleware = require('../middleware/auth');
 
 // Get all blogs
 router.get('/', blogController.getBlogView);
-router.get('/create', blogController.getCreateBlogView);
+router.get('/editor', blogController.getCreateBlogView);
+// router.get('/editor/:id', blogController.getEditBlogView);
 
 // Get a specific blog
 router.post('/all', authMiddleware, blogController.getAllBlogsByUser);
+
+router.post('/init', blogController.initBlog);
 
 // Create a new blog
 router.post('/', blogController.createBlog);

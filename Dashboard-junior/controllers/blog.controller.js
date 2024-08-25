@@ -79,5 +79,13 @@ exports.deleteBlog = async (req, res) => {
 };
 
 exports.getCreateBlogView = async (req, res) => {
-    res.render('dashboard/blogs/create', {layout: 'dashboard/side-bar-layout', path: '/dashboard/blogs/create'});
+    res.render('dashboard/blogs/editor', {layout: 'dashboard/side-bar-layout', path: '/dashboard/blogs/editor'});
+};
+
+exports.initBlog = async (req, res) => {
+    const userId = req.userId;
+    const {title, content} = req.body;
+    const blog = new Blog(null, title, content, userId, null, null, false);
+    await blog.save();
+    res.status(201).json({id: blog.id});
 };
