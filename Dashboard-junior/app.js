@@ -23,7 +23,6 @@ app.use('/', indexRoute);
 app.use('/auth', authRoute);
 app.use('/dashboard', dashboardRoute);
 
-
 app.use((req, res, next) => {
   res.status(404).render('not-found');
 });

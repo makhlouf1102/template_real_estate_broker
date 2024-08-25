@@ -6,7 +6,7 @@ const authMiddleware = (req, res, next) => {
 
     // Check if token doesn't exist
     if (!token) {
-        return res.status(401).json({ message: 'No token, authorization denied' });
+        return res.redirect('/login');
     }
 
     try {
@@ -15,6 +15,7 @@ const authMiddleware = (req, res, next) => {
         
         // Add user from payload
         req.user = decoded;
+        req.userId = decoded.id;
         next();
     } catch (error) {
         res.status(401).json({ message: 'Token is not valid' });

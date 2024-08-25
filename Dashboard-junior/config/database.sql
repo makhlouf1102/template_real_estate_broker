@@ -16,5 +16,7 @@ CREATE TABLE IF NOT EXISTS blog_posts (
     content TEXT NOT NULL, -- Markdown format
     author_id TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_published BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (author_id) REFERENCES users(id)
 );
