@@ -9,7 +9,7 @@ exports.getLoginView = (req, res) => {
 
 exports.authLogin = async (req, res) => {
   const { username, password } = req.body;
-
+  console.log(username);
   if (!username || !password) {
     return res.status(400).json({ message: 'Username and password are required' });
   }
@@ -31,12 +31,9 @@ exports.authLogin = async (req, res) => {
     // Create JWT token
     const token = jwt.sign(
       { userId: user.id, username: user.username },
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET || 'secret',
       { expiresIn: '1h' }
     );
-
-    const redirectUrl = req.body.redirect || '/dashboard';
-    res.redirect(redirectUrl);
 
     res.status(200).json({ message: 'Login successful', token });
   } catch (error) {

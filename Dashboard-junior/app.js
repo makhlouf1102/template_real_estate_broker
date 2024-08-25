@@ -5,6 +5,7 @@ const authRoute = require('./routes/auth');
 const app = express();
 const port = 3000;
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static('public'));
 
@@ -22,6 +23,10 @@ app.use('/auth', authRoute);
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
+});
+
+app.use((req, res, next) => {
+  res.status(404).render('not-found');
 });
 
 app.listen(port, () => {
