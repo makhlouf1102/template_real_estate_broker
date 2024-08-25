@@ -6,22 +6,17 @@ const layout = 'dashboard/side-bar-layout';
 
 // Dashboard home page
 router.get('/', (req, res) => {
-    res.render('dashboard/home-dash', { layout });
-});
-
-// Profile page
-router.get('/profile', (req, res) => {
-    res.render('dashboard/profile', { layout });
+    res.render('dashboard/home-dash', { layout, path: '/dashboard' });
 });
 
 // Settings page
 router.get('/settings', (req, res) => {
-    res.render('dashboard/settings', { layout });
+    res.render('dashboard/settings', { layout, path: '/dashboard/settings' });
 });
 
-// make a not found page 
-router.get('*', (req, res) => {
-    res.render('dashboard/not-found', { layout });
+// 404 handler for dashboard routes
+router.use((req, res) => {
+    res.status(404).render('dashboard/not-found', { layout, path: req.originalUrl });
 });
 
 module.exports = router;

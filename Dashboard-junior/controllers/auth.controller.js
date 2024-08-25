@@ -2,11 +2,6 @@ const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-exports.getLoginView = (req, res) => {
-  res.render('login', {layout: 'layout'});
-};
-
-
 exports.authLogin = async (req, res) => {
   const { username, password } = req.body;
   console.log(username);

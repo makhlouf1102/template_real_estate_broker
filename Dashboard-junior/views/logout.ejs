@@ -1,0 +1,21 @@
+<div class="flex flex-col items-center justify-center min-h-screen bg-base-200">
+    <div id="loader" class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
+    <p id="message" class="mt-4 text-lg text-base-content">Logging out...</p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            // Delete the token from local storage
+            localStorage.removeItem('token');
+            
+            // Update the message
+            document.getElementById('message').textContent = 'Logout successful. Redirecting...';
+            
+            // Redirect to login page after a short delay
+            setTimeout(function() {
+                window.location.href = '/login';
+            }, 1000);
+        }, 2000); // Simulate some processing time
+    });
+</script>

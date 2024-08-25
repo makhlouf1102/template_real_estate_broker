@@ -1,11 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const indexController = require('../controllers/indexController');
+const indexController = require('../controllers/index.controller');
 
-router.get('/', indexController.getIndex);
-router.post('/login', indexController.postLogin);
-router.get('/logout', indexController.getLogout);
-router.get('/register', indexController.getRegister);
-router.post('/register', indexController.postRegister);
+router.get('/login', indexController.getLoginView);
+router.get('/logout', indexController.getLogoutView);
 
 module.exports = router;
