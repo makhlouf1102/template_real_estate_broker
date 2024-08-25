@@ -5,17 +5,17 @@ const authMiddleware = require('../middleware/auth');
 const layout = 'dashboard/side-bar-layout';
 
 // Dashboard home page
-router.get('/', authMiddleware, (req, res) => {
-    res.render('dashboard/home', { layout });
+router.get('/', (req, res) => {
+    res.render('dashboard/home-dash', { layout });
 });
 
 // Profile page
-router.get('/profile', authMiddleware, (req, res) => {
+router.get('/profile', (req, res) => {
     res.render('dashboard/profile', { layout });
 });
 
 // Settings page
-router.get('/settings', authMiddleware, (req, res) => {
+router.get('/settings', (req, res) => {
     res.render('dashboard/settings', { layout });
 });
 
