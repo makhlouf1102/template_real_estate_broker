@@ -1,3 +1,3 @@
 exports.getLoginView = (req, res) => {
-  res.render('login');
+  res.render('login', {layout: 'layout'});
 };
