@@ -77,3 +77,7 @@ exports.deleteBlog = async (req, res) => {
         res.status(500).json({ message: 'Error deleting blog', error: error.message });
     }
 };
+
+exports.getCreateBlogView = async (req, res) => {
+    res.render('dashboard/blogs/create', {layout: 'dashboard/side-bar-layout', path: '/dashboard/blogs/create'});
+};

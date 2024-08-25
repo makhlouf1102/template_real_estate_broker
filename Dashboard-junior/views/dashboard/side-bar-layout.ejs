@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link href="/css/style.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <script>
-        // validate the token 
-        const token = localStorage.getItem('authToken');
-        if (!token) {
-            window.location.href = '/login';
-        }
-    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="/css/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="/css/quill.snow.css" rel="stylesheet">
+
+  <script>
+    // validate the token 
+    const token = localStorage.getItem('authToken');
+    if (!token) {
+      window.location.href = '/login';
+    }
+  </script>
 </head>
+
 <body class="bg-base-200 font-['Poppins']">
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-base-100 text-base-content">
-            <div class="p-4">
-                <h1 class="text-2xl font-bold">Dashboard</h1>
-            </div>
-            <nav class="mt-6">
-                <a href="/dashboard" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard' ? 'bg-base-200 font-semibold' : '' %>">Home</a>
-                <a href="/dashboard/profile" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard/profile' ? 'bg-base-200 font-semibold' : '' %>">Profile</a>
-                <a href="/dashboard/settings" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard/settings' ? 'bg-base-200 font-semibold' : '' %>">Settings</a>
-                <a href="/dashboard/blogs" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard/blogs' ? 'bg-base-200 font-semibold' : '' %>">Blogs</a>
-                <a href="/logout" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200">Logout</a>
-            </nav>
-        </aside>
+  <div class="flex h-screen">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-base-100 text-base-content">
+      <div class="p-4">
+        <h1 class="text-2xl font-bold">Dashboard</h1>
+      </div>
+      <nav class="mt-6">
+        <a href="/dashboard" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard' ? 'bg-base-200 font-semibold' : '' %>">Home</a>
+        <a href="/dashboard/profile" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard/profile' ? 'bg-base-200 font-semibold' : '' %>">Profile</a>
+        <a href="/dashboard/settings" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard/settings' ? 'bg-base-200 font-semibold' : '' %>">Settings</a>
+        <a href="/dashboard/blogs" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200 <%= path === '/dashboard/blogs' ? 'bg-base-200 font-semibold' : '' %>">Blogs</a>
+        <a href="/logout" class="block py-2 px-4 text-sm hover:bg-base-200 transition-colors duration-200">Logout</a>
+      </nav>
+    </aside>
 
-        <!-- Main Content -->
-        <main id="main-content" class="flex-1 p-8 overflow-y-auto" style="display: none;">
-            <%- body %>
-        </main>
-        <div id="loading" class="flex-1 flex items-center justify-center">
-            <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
-        </div>
+    <!-- Main Content -->
+    <main id="main-content" class="flex-1 p-8 overflow-y-auto" style="display: none;">
+      <%- body %>
+    </main>
+    <div id="loading" class="flex-1 flex items-center justify-center">
+      <div class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-primary"></div>
     </div>
+  </div>
 
-    <script>
-        // if no token 
-        // hide the loading screen
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('main-content').style.display = 'block';
-            }, 400);
-        });
-    </script>
+  <script>
+    // if no token 
+    // hide the loading screen
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('main-content').style.display = 'block';
+      }, 400);
+    });
+  </script>
 </body>
+
 </html>
