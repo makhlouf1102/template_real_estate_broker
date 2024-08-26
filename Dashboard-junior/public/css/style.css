@@ -2262,8 +2262,25 @@ html {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
 .inset-0 {
   inset: 0px;
+}
+
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
+.right-0 {
+  right: 0px;
 }
 
 .z-50 {
@@ -2477,6 +2494,12 @@ html {
   margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
 }
 
+.space-y-8 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2rem * var(--tw-space-y-reverse));
+}
+
 .overflow-x-auto {
   overflow-x: auto;
 }
@@ -2639,6 +2662,14 @@ html {
   padding-bottom: 2rem;
 }
 
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
+.pr-3 {
+  padding-right: 0.75rem;
+}
+
 .text-center {
   text-align: center;
 }
@@ -2687,6 +2718,11 @@ html {
   line-height: 1.75rem;
 }
 
+.text-base {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
 .font-bold {
   font-weight: 700;
 }
@@ -2697,6 +2733,10 @@ html {
 
 .font-semibold {
   font-weight: 600;
+}
+
+.leading-5 {
+  line-height: 1.25rem;
 }
 
 .text-base-100 {
@@ -2866,6 +2906,17 @@ html {
 .hover\:btn-secondary:hover.btn-outline.btn-active {
   --tw-text-opacity: 1;
   color: var(--fallback-sc,oklch(var(--sc)/var(--tw-text-opacity)));
+}
+
+.focus\:input-primary:focus {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+}
+
+.focus\:input-primary:focus:focus,.focus\:input-primary:focus:focus-within {
+  --tw-border-opacity: 1;
+  border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity)));
+  outline-color: var(--fallback-p,oklch(var(--p)/1));
 }
 
 .hover\:scale-105:hover {
