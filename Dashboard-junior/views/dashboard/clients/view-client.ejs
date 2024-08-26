@@ -29,6 +29,17 @@
                     </label>
                     <textarea id="client-address" name="address" class="textarea textarea-bordered h-24 focus:textarea-primary"></textarea>
                 </div>
+                <!-- select the status of the client -->
+                <div class="form-control">
+                    <label for="client-status" class="label">
+                        <span class="label-text text-base">Status</span>
+                    </label>
+                    <select id="client-status" name="status" class="select select-bordered w-full focus:select-primary">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                        <option value="ask for feedback">ask for feedback</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -55,12 +66,11 @@
                     'Authorization': `Bearer ${localStorage.getItem('authToken')}`
                 }
             });
-            if (!response.ok) throw new Error('Failed to fetch client data');
+            if (response.status !== 200) throw new Error('Failed to fetch client data');
 
             const client = await response.json();
             
-            // Populate form with client data
-            const fields = ['name', 'email', 'phone', 'address'];
+            const fields = ['name', 'email', 'phone', 'address', 'status'];
             fields.forEach(field => {
                 const element = document.getElementById(`client-${field}`);
                 if (element) {

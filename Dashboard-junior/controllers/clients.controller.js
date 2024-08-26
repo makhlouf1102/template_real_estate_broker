@@ -29,9 +29,10 @@ exports.create = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-    const { id, name, email, phone, address, city, status } = req.body;
+    const { id, name, email, phone, address, status } = req.body;
+    console.log(req.body);
     try {
-        const client = await Client.update(id, name, email, phone, address, city, status);
+        const client = await Client.update(id, name, email, phone, address, status);
         res.json(client);
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' });
