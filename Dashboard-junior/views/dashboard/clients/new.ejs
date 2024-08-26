@@ -1,0 +1,94 @@
+<div class="container mx-auto px-4 py-8">
+    <h1 class="text-4xl font-bold mb-8 text-center text-primary">Add New Client</h1>
+
+    <form id="newClientForm" class="max-w-lg mx-auto bg-base-100 shadow-xl rounded-lg p-8">
+        <div class="mb-6">
+            <label for="name" class="block text-sm font-medium text-base-content mb-2">Name</label>
+            <input type="text" id="name" name="name" required class="input input-bordered w-full">
+        </div>
+
+        <div class="mb-6">
+            <label for="email" class="block text-sm font-medium text-base-content mb-2">Email</label>
+            <input type="email" id="email" name="email" required class="input input-bordered w-full">
+        </div>
+
+        <div class="mb-6">
+            <label for="phone" class="block text-sm font-medium text-base-content mb-2">Phone</label>
+            <input type="tel" id="phone" name="phone" class="input input-bordered w-full">
+        </div>
+
+        <div class="mb-6">
+            <label for="address" class="block text-sm font-medium text-base-content mb-2">Address</label>
+            <input type="text" id="address" name="address" class="input input-bordered w-full">
+        </div>
+
+        <div class="mb-6">
+            <label for="city" class="block text-sm font-medium text-base-content mb-2">City</label>
+            <input type="text" id="city" name="city" class="input input-bordered w-full">
+        </div>
+
+        <div class="mb-6">
+            <label for="status" class="block text-sm font-medium text-base-content mb-2">Status</label>
+            <select id="status" name="status" class="select select-bordered w-full">
+                <option value="active">Active</option>
+                <option value="inactive">Inactive</option>
+                <option value="pending">Pending</option>
+            </select>
+        </div>
+
+        <div class="mt-8 text-center">
+            <button type="submit" class="btn btn-primary btn-wide">Add Client</button>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('newClientForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(e.target);
+            const clientData = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch('/dashboard/clients/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+                    },
+                    body: JSON.stringify(clientData)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to add client');
+                }
+
+                // Use a modal or toast notification instead of alert
+                const modal = document.createElement('div');
+                modal.innerHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                        <div class="bg-white p-8 rounded-lg shadow-xl">
+                            <h2 class="text-2xl font-bold mb-4">Success!</h2>
+                            <p>Client added successfully!</p>
+                            <button class="mt-4 btn btn-primary" onclick="this.closest('.fixed').remove(); window.location.href = '/dashboard/clients';">OK</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            } catch (error) {
+                console.error('Error adding client:', error);
+                // Use a modal or toast notification for error as well
+                const errorModal = document.createElement('div');
+                errorModal.innerHTML = `
+                    <div class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                        <div class="bg-white p-8 rounded-lg shadow-xl">
+                            <h2 class="text-2xl font-bold mb-4 text-red-600">Error</h2>
+                            <p>Failed to add client. Please try again.</p>
+                            <button class="mt-4 btn btn-error" onclick="this.closest('.fixed').remove();">Close</button>
+                        </div>
+                    </div>
+                `;
+                document.body.appendChild(errorModal);
+            }
+        });
+    </script>
+</div>

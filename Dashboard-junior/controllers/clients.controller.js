@@ -12,12 +12,18 @@ exports.findAll = async (req, res) => {
 };
 
 exports.create = async (req, res) => {
-    const userId = req.userId;
-    const { name, email, phone, address, city, state } = req.body;
+    const userId = req.userId; // Ensure this is set by your authentication middleware
+    const { name, email, phone, address, city, status } = req.body;
+    
+    if (!userId) {
+        return res.status(401).json({ message: 'User not authenticated' });
+    }
+
     try {
-        const client = await Client.create(userId, name, email, phone, address, city, state);
+        const client = await Client.create(name, email, phone, address, city, status, userId);
         res.json(client);
     } catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
