@@ -60,7 +60,7 @@ class Client {
     });
   }
 
-  update(id, name, email, phone, address, city, status) {
+  static update(id, name, email, phone, address, city, status) {
     return new Promise((resolve, reject) => {
       const sql = 'UPDATE clients SET name = ?, email = ?, phone = ?, address = ?, city = ?, status = ? WHERE id = ?';
       db.run(sql, [name, email, phone, address, city, status, id], (err) => {
@@ -73,7 +73,7 @@ class Client {
     });
   }
 
-  delete(id) {
+  static delete(id) {
     return new Promise((resolve, reject) => {
       const sql = 'DELETE FROM clients WHERE id = ?';
       db.run(sql, [id], (err) => {

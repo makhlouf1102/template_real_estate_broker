@@ -1,16 +1,16 @@
-<div class="container mx-auto px-4">
-  <h1 class="text-3xl font-bold mb-6">My Clients</h1>
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-3xl font-bold mb-6 text-center sm:text-left">My Clients</h1>
 
   <div id="clientsContainer" class="overflow-x-auto">
     <table class="table w-full">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>City</th>
-          <th>Status</th>
-          <th>Actions</th>
+          <th class="px-4 py-2">Name</th>
+          <th class="px-4 py-2 hidden sm:table-cell">Email</th>
+          <th class="px-4 py-2 hidden md:table-cell">Phone</th>
+          <th class="px-4 py-2 hidden lg:table-cell">City</th>
+          <th class="px-4 py-2">Status</th>
+          <th class="px-4 py-2">Actions</th>
         </tr>
       </thead>
       <tbody id="clientsTableBody">
@@ -18,7 +18,7 @@
       </tbody>
     </table>
   </div>
-  <p id="noClientsMessage" class="text-lg" style="display: none;">No clients found. Add your first client to get started!</p>
+  <p id="noClientsMessage" class="text-lg text-center mt-4" style="display: none;">No clients found. Add your first client to get started!</p>
 
   <script>
     async function fetchClients() {
@@ -48,14 +48,17 @@
       if (clients && clients.length > 0) {
         tableBody.innerHTML = clients.map(client => `
                 <tr>
-                    <td>${client.name}</td>
-                    <td>${client.email}</td>
-                    <td>${client.phone}</td>
-                    <td>${client.city}</td>
-                    <td>${client.status}</td>
-                    <td>
-                        <a href="/dashboard/clients/${client.id}" class="btn btn-sm btn-primary">View</a>
-                        <a href="/dashboard/clients/${client.id}/edit" class="btn btn-sm btn-secondary">Edit</a>
+                    <td class="px-4 py-2">${client.name}</td>
+                    <td class="px-4 py-2 hidden sm:table-cell">${client.email}</td>
+                    <td class="px-4 py-2 hidden md:table-cell">${client.phone}</td>
+                    <td class="px-4 py-2 hidden lg:table-cell">${client.city}</td>
+                    <td class="px-4 py-2">${client.status}</td>
+                    <td class="px-4 py-2">
+                        <div class="flex flex-col sm:flex-row gap-2">
+                          <a href="/dashboard/clients/manage/${client.id}" class="btn btn-sm btn-primary w-full sm:w-auto">
+                            Edit / Delete
+                          </a>
+                        </div>
                     </td>
                 </tr>
             `).join('');
@@ -70,7 +73,7 @@
     document.addEventListener('DOMContentLoaded', fetchClients);
   </script>
 
-  <div class="mt-6">
-    <a href="/dashboard/clients/new" class="btn btn-primary">Add New Client</a>
+  <div class="mt-6 text-center sm:text-left">
+    <a href="/dashboard/clients/new" class="btn btn-primary w-full sm:w-auto">Add New Client</a>
   </div>
 </div>
