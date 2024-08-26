@@ -29,10 +29,9 @@ exports.create = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-    const userId = req.userId;
-    const { id, name, email, phone, address, city, state } = req.body;
+    const { id, name, email, phone, address, city, status } = req.body;
     try {
-        const client = await Client.update(userId, id, name, email, phone, address, city, state);
+        const client = await Client.update(id, name, email, phone, address, city, status);
         res.json(client);
     } catch (error) {
         res.status(500).json({ message: 'Internal server error' });
@@ -40,12 +39,23 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
-    const userId = req.userId;
     const { id } = req.params;
     try {
-        await Client.delete(userId, id);
+        await Client.delete(id);
         res.json({ message: 'Client deleted successfully' });
     } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+exports.findById = async (req, res) => {
+    const id = req.params.id;
+    console.log(id);
+    try {
+        const client = await Client.findById(id);
+        res.json(client);
+    } catch (error) {
+        console.log(error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
