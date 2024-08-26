@@ -10,7 +10,7 @@ const authMiddleware = (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET || 'secret');
-        req.user = decoded;
+        req.userId = decoded.userId;
 
         // Generate new token
         const newToken = jwt.sign(
@@ -18,9 +18,6 @@ const authMiddleware = (req, res, next) => {
             process.env.JWT_SECRET || 'secret',
             { expiresIn: '1h' }
         );
-
-        // Set the new token in the response header
-        res.setHeader('X-New-Token', newToken);
 
         next();
     } catch (error) {

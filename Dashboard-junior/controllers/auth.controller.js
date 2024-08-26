@@ -38,10 +38,8 @@ exports.authLogin = async (req, res) => {
 
 exports.validateToken = (req, res) => {
     const authHeader = req.headers['authorization'];
-    console.log('Auth header:', authHeader);  // Debug log
 
     const token = authHeader && authHeader.split(' ')[1];
-    console.log('Extracted token:', token);  // Debug log
 
     if (token == null) {
         console.log('No token provided');  // Debug log
@@ -53,8 +51,6 @@ exports.validateToken = (req, res) => {
             console.error('Token verification error:', err);
             return res.sendStatus(403);
         }
-        console.log('Token verified successfully');  // Debug log
-        // generate new token
         const newToken = jwt.sign(
             { userId: user.userId, username: user.username },
             process.env.JWT_SECRET || 'secret',

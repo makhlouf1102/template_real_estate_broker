@@ -1,11 +1,7 @@
 const express = require('express');
 const router = express.Router();
-const authMiddleware = require('../middleware/auth');
-const blogRouter = require('./blogs');
 
 const layout = 'dashboard/side-bar-layout';
-
-router.use('/blogs', blogRouter);
 
 // Dashboard home page
 router.get('/', (req, res) => {
