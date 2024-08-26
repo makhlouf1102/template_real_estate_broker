@@ -1,7 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const clientsRouter = require('./clients');
 
 const layout = 'dashboard/side-bar-layout';
+
+router.use('/clients', clientsRouter);
 
 // Dashboard home page
 router.get('/', (req, res) => {
