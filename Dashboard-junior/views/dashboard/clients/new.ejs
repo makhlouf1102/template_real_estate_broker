@@ -3,37 +3,48 @@
 
     <form id="newClientForm" class="max-w-lg mx-auto bg-base-100 shadow-xl rounded-lg p-8">
         <div class="mb-6">
-            <label for="name" class="block text-sm font-medium text-base-content mb-2">Name</label>
+            <label for="name" class="block text-sm font-medium text-base-content mb-2">First Name</label>
             <input type="text" id="name" name="name" required class="input input-bordered w-full">
         </div>
 
         <div class="mb-6">
-            <label for="email" class="block text-sm font-medium text-base-content mb-2">Email</label>
-            <input type="email" id="email" name="email" required class="input input-bordered w-full">
+            <label for="last_name" class="block text-sm font-medium text-base-content mb-2">Last Name</label>
+            <input type="text" id="last_name" name="last_name" required class="input input-bordered w-full">
         </div>
-
         <div class="mb-6">
             <label for="phone" class="block text-sm font-medium text-base-content mb-2">Phone</label>
-            <input type="tel" id="phone" name="phone" class="input input-bordered w-full">
-        </div>
-
-        <div class="mb-6">
-            <label for="address" class="block text-sm font-medium text-base-content mb-2">Address</label>
-            <input type="text" id="address" name="address" class="input input-bordered w-full">
-        </div>
-
-        <div class="mb-6">
-            <label for="city" class="block text-sm font-medium text-base-content mb-2">City</label>
-            <input type="text" id="city" name="city" class="input input-bordered w-full">
-        </div>
-
-        <div class="mb-6">
-            <label for="status" class="block text-sm font-medium text-base-content mb-2">Status</label>
-            <select id="status" name="status" class="select select-bordered w-full">
-                <option value="active">Active</option>
-                <option value="inactive">Inactive</option>
-                <option value="ask_for_review">Ask for Review</option>
-            </select>
+            <div class="flex">
+                <select id="areaCode" name="areaCode" class="select select-bordered w-24 mr-2">
+                    <option value="514">514</option>
+                    <option value="438">438</option>
+                    <option value="450">450</option>
+                    <option value="418">418</option>
+                    <option value="468">468</option>
+                    <option value="263">263</option>
+                    <option value="354">354</option>
+                    <option value="367">367</option>
+                    <option value="579">579</option>
+                    <option value="581">581</option>
+                    <option value="891">891</option>
+                </select>
+                <div class="relative flex-grow">
+                    <input type="tel" id="phone1" name="phone1" required 
+                           class="input input-bordered w-full" 
+                           pattern="^\d{3}$" 
+                           title="Please enter a valid 3-digit number."
+                           placeholder="XXX"
+                           maxlength="3">
+                </div>
+                <div class="relative flex-grow ml-2">
+                    <input type="tel" id="phone2" name="phone2" required 
+                           class="input input-bordered w-full" 
+                           pattern="^\d{4}$" 
+                           title="Please enter a valid 4-digit number."
+                           placeholder="XXXX"
+                           maxlength="4">
+                </div>
+            </div>
+            <p class="mt-2 text-sm text-gray-500">Select area code and enter a 7-digit phone number</p>
         </div>
 
         <div class="mt-8 text-center">
@@ -47,6 +58,17 @@
             
             const formData = new FormData(e.target);
             const clientData = Object.fromEntries(formData.entries());
+
+            // Merge phone number fields
+            const areaCode = clientData.areaCode;
+            const phone1 = clientData.phone1;
+            const phone2 = clientData.phone2;
+            clientData.phone = `+1${areaCode}${phone1}${phone2}`;
+
+            // Remove individual phone fields
+            delete clientData.areaCode;
+            delete clientData.phone1;
+            delete clientData.phone2;
 
             try {
                 const response = await fetch('/dashboard/clients/add', {

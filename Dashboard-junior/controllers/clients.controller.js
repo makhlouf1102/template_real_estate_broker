@@ -1,64 +1,50 @@
 const Client = require('../models/client');
 
-
 exports.findAll = async (req, res) => {
-    const userId = req.userId;
     try {
-        const clients = await Client.findAll(userId);
-        res.json(clients);
+        const user_id = req.userId;
+        const clients = await Client.findAll(user_id);
+        res.status(200).json(clients);
     } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ error: error.message });
     }
-};
+}
 
 exports.create = async (req, res) => {
-    const userId = req.userId; // Ensure this is set by your authentication middleware
-    const { name, email, phone, address, city, status } = req.body;
-    
-    if (!userId) {
-        return res.status(401).json({ message: 'User not authenticated' });
-    }
-
     try {
-        const client = await Client.create(name, email, phone, address, city, status, userId);
-        res.json(client);
+        const { name, last_name, phone} = req.body;
+        const user_id = req.userId;
+        const client = await Client.create(name, last_name, phone, user_id);
+        res.status(201).json(client);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ error: error.message });
     }
-};
-
-exports.update = async (req, res) => {
-    const {name, email, phone, address, status } = req.body;
-    const id = req.params.id;
-    console.log(req.body);
-    try {
-        const client = await Client.update(id, name, email, phone, address, 'Montreal',status);
-        res.json(client);
-    } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'Internal server error' });
-    }
-};
-
-exports.delete = async (req, res) => {
-    const { id } = req.params;
-    try {
-        await Client.delete(id);
-        res.json({ message: 'Client deleted successfully' });
-    } catch (error) {
-        res.status(500).json({ message: 'Internal server error' });
-    }
-};
+}
 
 exports.findById = async (req, res) => {
-    const id = req.params.id;
-    console.log(id);
     try {
-        const client = await Client.findById(id);
-        res.json(client);
+        const client = await Client.findById(req.params.id);
+        res.status(200).json(client);
     } catch (error) {
-        console.log(error);
-        res.status(500).json({ message: 'Internal server error' });
+        res.status(500).json({ error: error.message });
     }
-};
+}
+
+exports.update = async (req, res) => {
+    try {
+        const { name, last_name, phone, status } = req.body;
+        const client = await Client.update(req.params.id, name, last_name, phone, status);
+        res.status(200).json(client);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+exports.delete = async (req, res) => {
+    try {
+        await Client.delete(req.params.id);
+        res.status(204).send();
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}

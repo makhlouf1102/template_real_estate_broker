@@ -7,39 +7,54 @@
             <div class="space-y-6">
                 <div class="form-control">
                     <label for="client-name" class="label">
-                        <span class="label-text text-base">Client Name</span>
+                        <span class="label-text text-base">First Name</span>
                     </label>
                     <input type="text" id="client-name" name="name" required class="input input-bordered w-full focus:input-primary">
                 </div>
                 <div class="form-control">
-                    <label for="client-email" class="label">
-                        <span class="label-text text-base">Email</span>
+                    <label for="client-last-name" class="label">
+                        <span class="label-text text-base">Last Name</span>
                     </label>
-                    <input type="email" id="client-email" name="email" required class="input input-bordered w-full focus:input-primary">
+                    <input type="text" id="client-last-name" name="last_name" required class="input input-bordered w-full focus:input-primary">
                 </div>
                 <div class="form-control">
                     <label for="client-phone" class="label">
                         <span class="label-text text-base">Phone</span>
                     </label>
-                    <input type="tel" id="client-phone" name="phone" class="input input-bordered w-full focus:input-primary">
+                    <div class="flex">
+                        <select id="client-area-code" name="areaCode" class="select select-bordered w-24 mr-2">
+                            <option value="514">514</option>
+                            <option value="438">438</option>
+                            <option value="450">450</option>
+                            <option value="418">418</option>
+                            <option value="468">468</option>
+                            <option value="263">263</option>
+                            <option value="354">354</option>
+                            <option value="367">367</option>
+                            <option value="579">579</option>
+                            <option value="581">581</option>
+                            <option value="891">891</option>
+                        </select>
+                        <div class="relative flex-grow">
+                            <input type="tel" id="client-phone-1" name="phone1" required 
+                                   class="input input-bordered w-full" 
+                                   pattern="^\d{3}$" 
+                                   title="Please enter a valid 3-digit number."
+                                   placeholder="XXX"
+                                   maxlength="3">
+                        </div>
+                        <div class="relative flex-grow ml-2">
+                            <input type="tel" id="client-phone-2" name="phone2" required 
+                                   class="input input-bordered w-full" 
+                                   pattern="^\d{4}$" 
+                                   title="Please enter a valid 4-digit number."
+                                   placeholder="XXXX"
+                                   maxlength="4">
+                        </div>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Select area code and enter a 7-digit phone number</p>
                 </div>
-                <div class="form-control">
-                    <label for="client-address" class="label">
-                        <span class="label-text text-base">Address</span>
-                    </label>
-                    <textarea id="client-address" name="address" class="textarea textarea-bordered h-24 focus:textarea-primary"></textarea>
-                </div>
-                <!-- select the status of the client -->
-                <div class="form-control">
-                    <label for="client-status" class="label">
-                        <span class="label-text text-base">Status</span>
-                    </label>
-                    <select id="client-status" name="status" class="select select-bordered w-full focus:select-primary">
-                        <option value="active">Active</option>
-                        <option value="inactive">Inactive</option>
-                        <option value="ask_for_review">Ask for Review</option>
-                    </select>
-                </div>
+                <!-- Remove email and address fields as they're not in the database schema -->
             </div>
         </div>
 
@@ -84,19 +99,26 @@
 
             const client = await response.json();
             
-            const fields = ['name', 'email', 'phone', 'address', 'status'];
+            const fields = ['name', 'last_name'];
             fields.forEach(field => {
-                const element = document.getElementById(`client-${field}`);
+                const element = document.getElementById(`client-${field.replace('_', '-')}`);
                 if (element) {
                     element.value = client[field] || '';
                 } else {
-                    console.warn(`Element with id 'client-${field}' not found`);
+                    console.warn(`Element with id 'client-${field.replace('_', '-')}' not found`);
                 }
             });
 
-            // Handle city and status separately as they're not in the HTML
-            // console.log('City:', client.city);
-            // console.log('Status:', client.status);
+            // Handle phone number
+            if (client.phone) {
+                const phoneMatch = client.phone.match(/^\+1(\d{3})(\d{3})(\d{4})$/);
+                if (phoneMatch) {
+                    document.getElementById('client-area-code').value = phoneMatch[1];
+                    document.getElementById('client-phone-1').value = phoneMatch[2];
+                    document.getElementById('client-phone-2').value = phoneMatch[3];
+                }
+            }
+
         } catch (error) {
             console.error('Error fetching client data:', error);
             showModal('Error', 'Failed to load client data. Please try again.', 'error');
@@ -108,6 +130,17 @@
         const clientId = '<%= id %>';
         const formData = new FormData(e.target);
         const clientData = Object.fromEntries(formData.entries());
+
+        // Merge phone number fields
+        const areaCode = clientData.areaCode;
+        const phone1 = clientData.phone1;
+        const phone2 = clientData.phone2;
+        clientData.phone = `+1${areaCode}${phone1}${phone2}`;
+
+        // Remove individual phone fields
+        delete clientData.areaCode;
+        delete clientData.phone1;
+        delete clientData.phone2;
 
         try {
             const response = await fetch(`/dashboard/clients/edit/${clientId}`, {

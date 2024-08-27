@@ -1,0 +1,100 @@
+<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+  <h1 class="text-3xl font-bold mb-6 text-center sm:text-left">Create Review Request</h1>
+  
+  <form id="reviewRequestForm" class="space-y-6">
+    <div class="form-control">
+      <label for="clientSelect" class="label">
+        <span class="label-text text-base">Select Client</span>
+      </label>
+      <select id="clientSelect" name="clientId" class="select select-bordered w-full" required>
+        <option value="">Select a client</option>
+        <!-- Client options will be populated here -->
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label for="language" class="label">
+        <span class="label-text text-base">Language</span>
+      </label>
+      <select id="language" name="language" class="select select-bordered w-full" required>
+        <option value="">Select a language</option>
+        <option value="english">English</option>
+        <option value="french">French</option>
+      </select>
+    </div>
+
+    <div class="form-control">
+      <label for="googleReviewLink" class="label">
+        <span class="label-text text-base">Google Review Link</span>
+      </label>
+      <input type="url" id="googleReviewLink" name="googleReviewLink" class="input input-bordered" placeholder="Enter your Google Review link here" required>
+    </div>
+
+    <div class="form-control">
+      <button type="submit" class="btn btn-primary">Send Review Request</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  let clients = [];
+
+  async function fetchClients() {
+    try {
+      const response = await fetch('/dashboard/clients/all', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+          'Content-Type': 'application/json'
+        }
+      });
+      if (!response.ok) {
+        throw new Error('Failed to fetch clients');
+      }
+      clients = await response.json();
+      populateClientSelect();
+    } catch (error) {
+      console.error('Error fetching clients:', error);
+    }
+  }
+
+  function populateClientSelect() {
+    const clientSelect = document.getElementById('clientSelect');
+    clientSelect.innerHTML = '<option value="">Select a client</option>';
+    clients.forEach(client => {
+      const option = document.createElement('option');
+      option.value = client.id;
+      option.textContent = `${client.name} ${client.last_name}`;
+      clientSelect.appendChild(option);
+    });
+  }
+
+  document.getElementById('reviewRequestForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const reviewRequestData = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch('/dashboard/review-requests/create', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
+        },
+        body: JSON.stringify(reviewRequestData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create review request');
+      }
+
+      alert('Review request sent successfully!');
+      e.target.reset();
+    } catch (error) {
+      console.error('Error creating review request:', error);
+      alert('Failed to send review request. Please try again.');
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', fetchClients);
+</script>
