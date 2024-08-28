@@ -42,7 +42,6 @@ exports.validateToken = (req, res) => {
     const token = authHeader && authHeader.split(' ')[1];
 
     if (token == null) {
-        console.log('No token provided');  // Debug log
         return res.sendStatus(401);
     }
 

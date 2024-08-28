@@ -19,6 +19,9 @@
     #additionalInfo {
       display: none;
     }
+    #thankYouMessage {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -61,6 +64,10 @@
         </div>
       </form>
     </div>
+    <div id="thankYouMessage" class="mui-panel">
+      <h2 class="mui--text-center">Thank You for Your Review!</h2>
+      <p class="mui--text-center">We appreciate your feedback.</p>
+    </div>
   </div>
 
   <script>
@@ -71,6 +78,7 @@
       const ratingSection = document.getElementById('ratingSection');
       const additionalInfo = document.getElementById('additionalInfo');
       const additionalInfoForm = document.getElementById('additionalInfoForm');
+      const thankYouMessage = document.getElementById('thankYouMessage');
 
       starRating.addEventListener('click', function(e) {
         if (e.target.classList.contains('fa-star')) {
@@ -80,6 +88,8 @@
           
           if (rating >= 4) {
             // Redirect to the Google Review Link
+            // redirect to the google review link
+            
             window.location.href = '<%= googleReviewLink %>';
           } else {
             // Show additional info form
@@ -106,14 +116,39 @@
         }
       }
 
-      additionalInfoForm.addEventListener('submit', function(e) {
+      additionalInfoForm.addEventListener('submit', async function(e) {
         e.preventDefault();
-        // Here you can handle the form submission, e.g., send data to server
-        console.log('Form submitted');
-        console.log('First Name:', document.getElementById('firstName').value);
-        console.log('Last Name:', document.getElementById('lastName').value);
-        console.log('Comment:', document.getElementById('comment').value);
-        console.log('Rating:', selectedRating.value);
+        const firstName = document.getElementById('firstName').value;
+        const lastName = document.getElementById('lastName').value;
+        const comment = document.getElementById('comment').value;
+        const rating = selectedRating.value;
+        const reviewRequestId = window.location.pathname.split('/').pop();
+
+        try {
+          const response = await fetch('/update-review-request/' + reviewRequestId, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              firstName,
+              lastName,
+              comment,
+              rating,
+            }),
+          });
+          
+          if (!response.ok) {
+            const errorText = await response.text();
+            throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+          }
+          
+          additionalInfo.style.display = 'none';
+          thankYouMessage.style.display = 'block';
+        } catch (error) {
+          console.error('Error:', error);
+          alert(`An error occurred while updating the review request: ${error.message}`);
+        }
       });
     });
   </script>

@@ -7,5 +7,5 @@ router.get('/login', indexController.getLoginView);
 router.get('/logout', indexController.getLogoutView);
 router.post('/validate-token', authController.validateToken);
 router.get('/review-requests/review/me/rn/:id', indexController.getReviewRequestsView);
-
+router.post('/update-review-request/:id', indexController.updateReviewRequest);
 module.exports = router;

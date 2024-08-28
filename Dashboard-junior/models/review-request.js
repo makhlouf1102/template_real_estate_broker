@@ -17,19 +17,12 @@ class ReviewRequest {
     return new Promise((resolve, reject) => {
       const id = uuidv4();
       const sql = 'INSERT INTO review_requests (id, request_link, request_status, number_of_stars, review_text, user_id, client_id, language) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';    
+
       db.run(sql, [id, requestLink, requestStatus, numberOfStars, reviewText, userId, clientId, language], function(err) {
         if (err) {
           reject(err);
         } else {
-          // Get the ID of the newly inserted row
-          db.get('SELECT last_insert_rowid() as id', (err, row) => {
-            if (err) {
-              reject(err);
-            } else {
-              console.log(id);
-              resolve(new ReviewRequest(id, requestLink, requestStatus, numberOfStars, reviewText, userId, clientId, language));
-            }
-          });
+          resolve(new ReviewRequest(id, requestLink, requestStatus, numberOfStars, reviewText, userId, clientId, language));
         }
       });
     });
