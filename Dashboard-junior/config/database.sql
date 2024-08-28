@@ -23,11 +23,13 @@ CREATE TABLE IF NOT EXISTS variables (
 -- create a table for sending review requests with time and date
 CREATE TABLE IF NOT EXISTS review_requests (
     id TEXT PRIMARY KEY NOT NULL DEFAULT (lower(hex(randomblob(16)))),
+    request_link TEXT NOT NULL,
     request_status TEXT NOT NULL,
     number_of_stars INTEGER,
     review_text TEXT,
     user_id TEXT NOT NULL,
     client_id TEXT NOT NULL,
+    language TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id),
     FOREIGN KEY (client_id) REFERENCES clients (id)
 );

@@ -46,7 +46,6 @@
 
 <script>
   let clients = [];
-  let userId = '';
 
   async function fetchClients() {
     try {
@@ -79,24 +78,41 @@
     });
   }
 
-  document.getElementById('reviewRequestForm').addEventListener('submit', (e) => {
+  document.getElementById('reviewRequestForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
     const clientId = formData.get('clientId');
     const language = formData.get('language');
     const googleReviewLink = formData.get('googleReviewLink');
 
-    const selectedClient = clients.find(client => client.id === clientId);
-    const clientName = selectedClient ? `${selectedClient.name} ${selectedClient.last_name}` : '';
+    try {
+      const response = await fetch('/dashboard/review-requests/create', {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('authToken')}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          clientId,
+          language,
+          googleReviewLink
+        })
+      });
 
-    const encodedClientName = encodeURIComponent(clientName);
-    const encodedLanguage = encodeURIComponent(language);
-    const encodedGoogleReviewLink = encodeURIComponent(googleReviewLink);
+      if (!response.ok) {
+        throw new Error('Failed to create review request');
+      }
 
-    const generatedLink = `${window.location.origin}/review-requests/review/me/rn?userId=${userId}&client=${encodedClientName}&language=${encodedLanguage}&googleReviewLink=${encodedGoogleReviewLink}`;
+      const data = await response.json();
+      console.log(data);
+      const generatedLink = `${window.location.origin}/review-requests/review/me/rn/${data.reviewRequest.id}`;
 
-    document.getElementById('generatedLink').value = generatedLink;
-    document.getElementById('generatedLinkContainer').classList.remove('hidden');
+      document.getElementById('generatedLink').value = generatedLink;
+      document.getElementById('generatedLinkContainer').classList.remove('hidden');
+    } catch (error) {
+      console.error('Error creating review request:', error);
+      alert('Failed to create review request. Please try again.');
+    }
   });
 
   function copyToClipboard() {

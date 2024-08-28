@@ -1,3 +1,7 @@
+const ReviewRequest = require('../models/review-request');
+const User = require('../models/user');
+const Client = require('../models/client');
+
 exports.getLoginView = (req, res) => {
     res.render('login', { layout: 'layout' });
 };
@@ -6,11 +10,22 @@ exports.getLogoutView = (req, res) => {
     res.render('logout', { layout: 'layout' });
 };
 
-exports.getReviewRequestsView = (req, res) => {
-    // example of url http://localhost:3000/review-request?userId=&client=Makhlouf%20Hennine&language=english&googleReviewLink=https%3A%2F%2Fx.com%2Fhome
-    const userName = req.query.userName;
-    const clientName = req.query.client;
-    const language = req.query.language;
-    const googleReviewLink = req.query.googleReviewLink;
-    res.render('review-request-page', {userName: userName, clientName: clientName, language: language, googleReviewLink: googleReviewLink} );
+exports.getReviewRequestsView = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const reviewRequest = await ReviewRequest.findById(id);
+        console.log(reviewRequest);
+        const user = await User.findById(reviewRequest.userId);
+        const client = await Client.findById(reviewRequest.clientId);
+        console.log(client);
+        console.log(user);
+        const clientName = client.name;
+        const language = reviewRequest.language;
+        const googleReviewLink = reviewRequest.googleReviewLink;
+        res.render('review-request-page', { userName: user.name, clientName: clientName, language: language, googleReviewLink: googleReviewLink, reviewRequestId: id });
+    } catch (error) {
+        console.error('Error in getReviewRequestsView:', error);
+        console.log(error);
+        res.status(500).send('An error occurred while processing your request');
+    }
 };
