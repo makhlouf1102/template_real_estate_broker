@@ -1,5 +1,5 @@
 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-  <h1 class="text-3xl font-bold mb-6 text-center sm:text-left">Create Review Request</h1>
+  <h1 class="text-3xl font-bold mb-6 text-center sm:text-left">Generate Review Request Link</h1>
   
   <form id="reviewRequestForm" class="space-y-6">
     <div class="form-control">
@@ -31,13 +31,22 @@
     </div>
 
     <div class="form-control">
-      <button type="submit" class="btn btn-primary">Send Review Request</button>
+      <button type="submit" class="btn btn-primary">Generate Link</button>
     </div>
   </form>
+
+  <div id="generatedLinkContainer" class="mt-6 hidden">
+    <h2 class="text-xl font-semibold mb-2">Generated Link:</h2>
+    <div class="flex items-center">
+      <input type="text" id="generatedLink" class="input input-bordered flex-grow mr-2" readonly>
+      <button onclick="copyToClipboard()" class="btn btn-secondary">Copy</button>
+    </div>
+  </div>
 </div>
 
 <script>
   let clients = [];
+  let userId = '';
 
   async function fetchClients() {
     try {
@@ -51,7 +60,8 @@
       if (!response.ok) {
         throw new Error('Failed to fetch clients');
       }
-      clients = await response.json();
+      const data = await response.json();
+      clients = data;
       populateClientSelect();
     } catch (error) {
       console.error('Error fetching clients:', error);
@@ -69,32 +79,32 @@
     });
   }
 
-  document.getElementById('reviewRequestForm').addEventListener('submit', async (e) => {
+  document.getElementById('reviewRequestForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const reviewRequestData = Object.fromEntries(formData.entries());
+    const clientId = formData.get('clientId');
+    const language = formData.get('language');
+    const googleReviewLink = formData.get('googleReviewLink');
 
-    try {
-      const response = await fetch('/dashboard/review-requests/create', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('authToken')}`
-        },
-        body: JSON.stringify(reviewRequestData)
-      });
+    const selectedClient = clients.find(client => client.id === clientId);
+    const clientName = selectedClient ? `${selectedClient.name} ${selectedClient.last_name}` : '';
 
-      if (!response.ok) {
-        throw new Error('Failed to create review request');
-      }
+    const encodedClientName = encodeURIComponent(clientName);
+    const encodedLanguage = encodeURIComponent(language);
+    const encodedGoogleReviewLink = encodeURIComponent(googleReviewLink);
 
-      alert('Review request sent successfully!');
-      e.target.reset();
-    } catch (error) {
-      console.error('Error creating review request:', error);
-      alert('Failed to send review request. Please try again.');
-    }
+    const generatedLink = `${window.location.origin}/review-requests/review/me/rn?userId=${userId}&client=${encodedClientName}&language=${encodedLanguage}&googleReviewLink=${encodedGoogleReviewLink}`;
+
+    document.getElementById('generatedLink').value = generatedLink;
+    document.getElementById('generatedLinkContainer').classList.remove('hidden');
   });
+
+  function copyToClipboard() {
+    const generatedLink = document.getElementById('generatedLink');
+    generatedLink.select();
+    document.execCommand('copy');
+    alert('Link copied to clipboard!');
+  }
 
   document.addEventListener('DOMContentLoaded', fetchClients);
 </script>

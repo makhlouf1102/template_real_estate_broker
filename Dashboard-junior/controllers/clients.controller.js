@@ -3,7 +3,7 @@ const Client = require('../models/client');
 exports.findAll = async (req, res) => {
     try {
         const user_id = req.userId;
-        const clients = await Client.findAll(user_id);
+        const clients = await Client.findAllByUserId(user_id);
         res.status(200).json(clients);
     } catch (error) {
         res.status(500).json({ error: error.message });
@@ -17,6 +17,7 @@ exports.create = async (req, res) => {
         const client = await Client.create(name, last_name, phone, user_id);
         res.status(201).json(client);
     } catch (error) {
+        console.error("Error creating client:", error);
         res.status(500).json({ error: error.message });
     }
 }

@@ -1,11 +1,10 @@
 const db = require('../database/db');
 
 class User {
-  constructor(id, username, password, createdAt) {
+  constructor(id, username, password) {
     this.id = id;
     this.username = username;
     this.password = password;
-    this.createdAt = createdAt;
   }
 
   static create(username, password) {
@@ -15,7 +14,7 @@ class User {
         if (err) {
           reject(err);
         } else {
-          resolve(new User(this.lastID, username, password, new Date()));
+          resolve(new User(this.lastID, username, password));
         }
       });
     });
@@ -28,7 +27,7 @@ class User {
         if (err) {
           reject(err);
         } else if (row) {
-          resolve(new User(row.id, row.username, row.password, row.created_at));
+          resolve(new User(row.id, row.username, row.password));
         } else {
           resolve(null);
         }
@@ -43,7 +42,7 @@ class User {
         if (err) {
           reject(err);
         } else if (row) {
-          resolve(new User(row.id, row.username, row.password, row.created_at));
+          resolve(new User(row.id, row.username, row.password));
         } else {
           resolve(null);
         }

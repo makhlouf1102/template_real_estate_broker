@@ -1,14 +1,12 @@
 const db = require('../database/db');
 
 class Client {
-  constructor(id, name, last_name, phone, user_id, created_at, updated_at) {
+  constructor(id, name, last_name, phone, user_id) {
     this.id = id;
     this.name = name;
     this.last_name = last_name;
     this.phone = phone;
     this.user_id = user_id;
-    this.created_at = created_at;
-    this.updated_at = updated_at;
   }
 
   static create(name, last_name, phone, user_id) {
@@ -18,7 +16,7 @@ class Client {
         if (err) {
           reject(err);
         } else {
-          resolve(new Client(this.lastID, name, last_name, phone, user_id, new Date(), new Date()));
+          resolve(new Client(this.lastID, name, last_name, phone, user_id));
         }
       });
     });
@@ -31,7 +29,7 @@ class Client {
         if (err) {
           reject(err);
         } else if (row) {
-          resolve(new Client(row.id, row.name, row.last_name, row.phone, row.status, row.user_id, row.created_at, row.updated_at));
+          resolve(new Client(row.id, row.name, row.last_name, row.phone, row.user_id));
         } else {
           resolve(null);
         }
@@ -46,20 +44,21 @@ class Client {
         if (err) {
           reject(err);
         } else {
-          const clients = rows.map(row => new Client(row.id, row.name, row.last_name, row.phone, row.status, row.user_id, row.created_at, row.updated_at));
+          const clients = rows.map(row => new Client(row.id, row.name, row.last_name, row.phone, row.user_id));
           resolve(clients);
         }
       });
     });
   }
-  static findAll(user_id) {
+
+  static findAllByUserId(user_id) {
     return new Promise((resolve, reject) => {
       const sql = 'SELECT * FROM clients WHERE user_id = ?';
       db.all(sql, [user_id], (err, rows) => {
         if (err) {
           reject(err);
         } else {
-          const clients = rows.map(row => new Client(row.id, row.name, row.last_name, row.phone, row.status, row.user_id, row.created_at, row.updated_at));
+          const clients = rows.map(row => new Client(row.id, row.name, row.last_name, row.phone, row.user_id));
           resolve(clients);
         }
       });
@@ -68,14 +67,12 @@ class Client {
 
   static update(id, name, last_name, phone) {
     return new Promise((resolve, reject) => {
-      const sql = 'UPDATE clients SET name = ?, last_name = ?, phone = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?';
+      const sql = 'UPDATE clients SET name = ?, last_name = ?, phone = ? WHERE id = ?';
       db.run(sql, [name, last_name, phone, id], function(err) {
         if (err) {
           reject(err);
         } else {
-          // Create a new Client object with updated values
-          const updatedClient = new Client(id, name, last_name, phone, null, null, new Date());
-          resolve(updatedClient);
+          resolve(new Client(id, name, last_name, phone, null));
         }
       });
     });

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="<%= language %>">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="//cdn.muicss.com/mui-0.10.3/css/mui.min.css" rel="stylesheet" type="text/css" />
+  <script src="//cdn.muicss.com/mui-0.10.3/js/mui.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <title>Review <%= clientName %></title>
+  <style>
+    .star-rating {
+      font-size: 2em;
+      color: #ddd;
+      cursor: pointer;
+    }
+    .star-rating .fa-star.active {
+      color: #ffd700;
+    }
+    #additionalInfo {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="mui-container">
+    <div id="ratingSection">
+      <h1 class="mui--text-center">Hi <%= clientName %></h1>
+      <p class="mui--text-center">How many stars do you want to give us?</p>
+      <div class="mui-row">
+        <div class="mui-col-md-12">
+          <div class="mui-panel">
+            <div class="star-rating mui--text-center" id="starRating">
+              <i class="fas fa-star" data-rating="1"></i>
+              <i class="fas fa-star" data-rating="2"></i>
+              <i class="fas fa-star" data-rating="3"></i>
+              <i class="fas fa-star" data-rating="4"></i>
+              <i class="fas fa-star" data-rating="5"></i>
+            </div>
+            <input type="hidden" id="selectedRating" name="rating" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="additionalInfo" class="mui-panel">
+      <h2 class="mui--text-center">Additional Information</h2>
+      <form id="additionalInfoForm">
+        <div class="mui-textfield">
+          <input type="text" id="firstName" required>
+          <label for="firstName">First Name</label>
+        </div>
+        <div class="mui-textfield">
+          <input type="text" id="lastName" required>
+          <label for="lastName">Last Name</label>
+        </div>
+        <div class="mui-textfield">
+          <textarea id="comment" required></textarea>
+          <label for="comment">Comment</label>
+        </div>
+        <div class="mui--text-center">
+          <button type="submit" class="mui-btn mui-btn--raised mui-btn--primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const starRating = document.getElementById('starRating');
+      const stars = starRating.getElementsByClassName('fa-star');
+      const selectedRating = document.getElementById('selectedRating');
+      const ratingSection = document.getElementById('ratingSection');
+      const additionalInfo = document.getElementById('additionalInfo');
+      const additionalInfoForm = document.getElementById('additionalInfoForm');
+
+      starRating.addEventListener('click', function(e) {
+        if (e.target.classList.contains('fa-star')) {
+          const rating = parseInt(e.target.getAttribute('data-rating'));
+          selectedRating.value = rating;
+          updateStars(rating);
+          
+          if (rating >= 4) {
+            // Redirect to the Google Review Link
+            window.location.href = '<%= googleReviewLink %>';
+          } else {
+            // Show additional info form
+            ratingSection.style.display = 'none';
+            additionalInfo.style.display = 'block';
+          }
+        }
+      });
+
+      starRating.addEventListener('mouseover', function(e) {
+        if (e.target.classList.contains('fa-star')) {
+          const rating = e.target.getAttribute('data-rating');
+          updateStars(rating);
+        }
+      });
+
+      starRating.addEventListener('mouseout', function() {
+        updateStars(selectedRating.value);
+      });
+
+      function updateStars(rating) {
+        for (let i = 0; i < stars.length; i++) {
+          stars[i].classList.toggle('active', i < rating);
+        }
+      }
+
+      additionalInfoForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        // Here you can handle the form submission, e.g., send data to server
+        console.log('Form submitted');
+        console.log('First Name:', document.getElementById('firstName').value);
+        console.log('Last Name:', document.getElementById('lastName').value);
+        console.log('Comment:', document.getElementById('comment').value);
+        console.log('Rating:', selectedRating.value);
+      });
+    });
+  </script>
+</body>
+</html>
