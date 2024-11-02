@@ -1,6 +1,6 @@
 {
   "Error": {
-    "description": "<p>An error occurred.</p><p>You can try <retry>reloading the page</retry>.</p>",
+    "description": "<p>An error    occurred.</p><p>You can try <retry>reloading the page</retry>.</p>",
     "title": "An error occurred!"
   },
   "IndexPage": {
