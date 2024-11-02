@@ -1,6 +1,6 @@
 {
   "Error": {
-    "description": "<p>Une erreur est survenue.</p><p>Vous pouvez essayer de <retry>recharger la page</retry>.</p>",
+    "description": "<p>Une   erreur est survenue.</p><p>Vous pouvez essayer de <retry>recharger la page</retry>.</p>",
     "title": "Une erreur est survenue!"
   },
   "IndexPage": {
